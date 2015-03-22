@@ -16,3 +16,8 @@ meteoric:ionic
 app
 app-layout
 app-ui
+accounts-password
+accounts-ui-unstyled
+app-login
+accounts-facebook
+accounts-google

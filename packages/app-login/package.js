@@ -1,16 +1,13 @@
 Package.describe({
-    summary: "Layout"
+    summary: "package"
 });
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app'], both);
-    api.use(['iron:router', 'templating'], 'client');
+    api.use(['app', 'templating', 'iron:router'], both);
 
-    api.add_files('client/views/layout.html', 'client');
-    api.add_files('client/views/layout_login.html', 'client');
-
-    api.add_files('client/views/home.html', 'client');
+    api.add_files('client/views/login_page.html', 'client');
+    api.add_files('client/views/login_screen.html', 'client');
 
     api.add_files('common/model/model.js', both);
     api.add_files('client/routes/router.js', 'client');
@@ -23,7 +20,6 @@ Package.on_use(function (api) {
     api.add_files('server/publish/publish.js', 'server');
 
     api.add_files('client/subscriptions/subscriptions.js', 'client');
-    
 });
 
 Package.on_test(function (api) {

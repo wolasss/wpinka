@@ -6,7 +6,15 @@ Router.map(function(){
         layoutTemplate: 'layout',
         template: 'home',
         onBeforeAction: function() {
-            this.next();
+            if (Meteor.loggingIn()) {
+                this.render(this.loadingTemplate);
+            } else if(!Meteor.userId()) {
+                this.layout('layoutLogin');
+                this.render();
+                this.render('loginPage');
+            } else {
+                this.next();
+            }
         }
     });
 });
