@@ -7,3 +7,10 @@
 meteor-platform
 autopublish
 insecure
+iron:router
+fastclick
+fourseven:scss
+meteoric:ionic-sass
+meteoric:ionicons-sass
+meteoric:ionic
+app
