@@ -4,7 +4,7 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app', 'iron:router', 'templating', 'underscore'], both);
+    api.use(['app', 'iron:router', 'templating', 'underscore', 'app-validators'], both);
     api.use(['wolas:alerts', 'bootstrap-alerts'], 'client');
 
     api.export && api.export("APP");
