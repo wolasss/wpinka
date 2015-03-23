@@ -8,6 +8,7 @@ Package.on_use(function (api) {
 
     api.add_files('client/styles/main.scss', 'client');
     api.add_files('client/styles/login.scss', 'client');
+    api.add_files('client/styles/alerts.scss', 'client');
 });
 
 Package.on_test(function (api) {

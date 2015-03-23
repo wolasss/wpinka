@@ -58,7 +58,7 @@
         }
     }
 
-    .button-login {
+    .button-login, .button-register {
         background: #274175;
         width: 80%;
         margin: 15px auto;
@@ -91,4 +91,9 @@
     .login-with-google {
         background: #df4a32;
     }
+}
+
+.register-alerts {
+    width: 80%;
+    margin: 15px auto;
 }
