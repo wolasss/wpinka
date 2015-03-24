@@ -4,7 +4,7 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app', 'templating', 'iron:router', 'app-register'], both);
+    api.use(['app', 'templating', 'iron:router', 'app-register', 'underscore', 'app-validators', 'wolas:alerts'], both);
 
     api.add_files('client/views/login_page.html', 'client');
     api.add_files('client/views/login_screen.html', 'client');
@@ -20,6 +20,8 @@ Package.on_use(function (api) {
     api.add_files('server/publish/publish.js', 'server');
 
     api.add_files('client/subscriptions/subscriptions.js', 'client');
+    api.add_files('client/views/events/login_screen.js', 'client');
+
 });
 
 Package.on_test(function (api) {

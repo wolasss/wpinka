@@ -4,11 +4,11 @@
 			<section class="login-form">
 
 				<div class="username-input">
-					<input type="email" placeholder="E-mail">
+					<input type="email" class="login-email" placeholder="E-mail">
 				</div>
 
 				<div class="password-input">
-					<input type="password" placeholder="Password">
+					<input type="password" class="login-password" placeholder="Password">
 				</div>
 
 				<button class="button button-block button-login">
@@ -17,6 +17,10 @@
 
 				{{> loginServices}}
 				
+				<div class="register-alerts">
+					{{> alerts container="loginForm"}}
+				</div>
+
 			</section>
 		</div>
 	{{/ionContent}}
