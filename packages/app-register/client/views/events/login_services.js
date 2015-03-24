@@ -3,6 +3,6 @@ Template.loginServices.events({
 		APP.Register.loginWithFacebook.call(this);
 	},
 	'click .login-with-google': function(e, t) {
-		console.log("b");
+		APP.Register.loginWithGoogle.call(this);
 	}
 });

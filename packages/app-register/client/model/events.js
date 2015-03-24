@@ -38,9 +38,17 @@ _.extend(APP.Register, {
 	},
 	loginWithFacebook : function() {
 		Meteor.loginWithFacebook({}, function(err){
-			console.log(err)
             if (err) {
                 Alerts.error('Facebook login error: '+err.reason, 'registerForm');
+            } else {
+            	Router.go('/');
+            }
+        });
+	},
+	loginWithGoogle : function() {
+		Meteor.loginWithGoogle({}, function(err){
+            if (err) {
+                Alerts.error('Google login error: '+err.reason, 'registerForm');
             } else {
             	Router.go('/');
             }
