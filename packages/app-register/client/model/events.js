@@ -35,6 +35,16 @@ _.extend(APP.Register, {
 				Router.go('/');
 			}
 		});
+	},
+	loginWithFacebook : function() {
+		Meteor.loginWithFacebook({}, function(err){
+			console.log(err)
+            if (err) {
+                Alerts.error('Facebook login error: '+err.reason, 'registerForm');
+            } else {
+            	Router.go('/');
+            }
+        });
 	}
 
 });

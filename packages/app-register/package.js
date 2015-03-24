@@ -4,12 +4,13 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app', 'iron:router', 'templating', 'underscore', 'app-validators'], both);
+    api.use(['app', 'iron:router', 'templating', 'underscore', 'app-validators', 'accounts-facebook', 'accounts-password'], both);
     api.use(['wolas:alerts', 'bootstrap-alerts'], 'client');
 
     api.export && api.export("APP");
 
     api.add_files('client/views/register_screen.html', 'client');
+    api.add_files('client/views/login_services.html', 'client');
 
     api.add_files('common/model/model.js', both);
     api.add_files('client/routes/router.js', 'client');
@@ -23,7 +24,8 @@ Package.on_use(function (api) {
 
     api.add_files('client/subscriptions/subscriptions.js', 'client');
 
-    api.add_files('client/views/events/registerScreen.js', 'client');
+    api.add_files('client/views/events/register_screen.js', 'client');
+    api.add_files('client/views/events/login_services.js', 'client');
 });
 
 Package.on_test(function (api) {
