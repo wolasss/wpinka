@@ -1,4 +1,4 @@
-.login-screen {
+.unlogged-screen {
     width: 100%;
     height: 100%;
     background: url('/images/bg.jpg');
@@ -17,7 +17,7 @@
         display: block;
         float: left;
         width: 50%;
-        padding: 0 2%;
+        padding: 0 4%;
         margin-bottom: 5%;
     }
     
@@ -96,4 +96,17 @@
 .register-alerts {
     width: 80%;
     margin: 15px auto;
+}
+
+.login-nav {
+    
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 15px;
+    
+    a {
+        font-size: 36px;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+    }
 }
