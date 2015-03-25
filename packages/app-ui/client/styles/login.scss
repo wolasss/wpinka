@@ -1,3 +1,5 @@
+@import "variables";
+
 .unlogged-screen {
     width: 100%;
     height: 100%;
@@ -19,16 +21,11 @@
         width: 50%;
         padding: 0 4%;
         margin-bottom: 5%;
+        text-decoration: none;
     }
     
     .button {
         width: 100%;
-
-        &.login {
-            background: #274175;
-            color: #fff;
-            border: none;
-        }
     }
 }
 
@@ -57,13 +54,9 @@
            text-shadow: 1px 1px 1px #000;
         }
     }
-
     .button-login, .button-register {
-        background: #274175;
         width: 80%;
         margin: 15px auto;
-        color: #fff;
-        border: none;
     }
 }
 
@@ -109,4 +102,8 @@
         color: #fff;
         text-shadow: 1px 1px 1px #000;
     }
+
+
+    
+
 }

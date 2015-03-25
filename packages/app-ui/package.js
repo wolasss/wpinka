@@ -13,6 +13,8 @@ Package.on_use(function (api) {
     api.add_files('client/styles/bar.scss', 'client');
     api.add_files('client/styles/menu.scss', 'client');
     api.add_files('client/styles/list.scss', 'client');
+    api.add_files('client/styles/buttons.scss', 'client');
+
 });
 
 Package.on_test(function (api) {

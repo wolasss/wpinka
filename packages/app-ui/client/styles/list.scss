@@ -1,5 +1,33 @@
+@import "variables";
+
 .item {
 	color: #fff;
 	border: none;
 	background: none;
+	padding: 18px;
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+	
+	&.item-icon-left {
+		padding-left: 54px;
+	}
+
+	&.item-icon-right {
+		padding-right: 54px;
+	}
+
+	&:focus, &:active {
+		background: rgba(255,255,255,0.2);
+		font-weight: bold;
+	}
+}
+
+.counter {
+	background: $color-primary;
+	color: #fff;
+	height: 21px;
+	min-width: 30px;
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 10px;
+	text-align: center;
 }

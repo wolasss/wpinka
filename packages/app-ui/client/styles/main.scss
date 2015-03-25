@@ -1,3 +1,13 @@
 // Ionic
+$button-default-border: #fff;
+
 @import '../../../../.meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/ionic';
 @import '../../../../.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/ionicons';
+
+.pull-right {
+	float: right;
+}
+
+.pull-left {
+	float: left;
+}

@@ -23,7 +23,7 @@ Package.on_use(function (api) {
     api.add_files('server/publish/publish.js', 'server');
 
     api.add_files('client/subscriptions/subscriptions.js', 'client');
-    
+    api.add_files('client/views/events/layout.js', 'client');
 });
 
 Package.on_test(function (api) {

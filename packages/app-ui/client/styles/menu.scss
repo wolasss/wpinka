@@ -7,4 +7,20 @@
 .menu-left {
 	border-right: 6px solid $color-separator;
 	background: url('/images/menu_bg.png');
+
+	.content {
+		height: 100%;
+	}
+}
+
+.nav-footer {
+	position: absolute;
+	bottom: 50px;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+
+	.nav-copy {
+		margin-top: 10px;
+	}
 }

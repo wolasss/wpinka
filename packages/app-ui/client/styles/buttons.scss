@@ -1,0 +1,31 @@
+@import "variables";
+
+.button-outline {
+	background: none;
+	color: #fff;
+	border: 1px solid #fff;
+	border-radius: 10px;
+	width: 130px;
+	padding: 0 10px;
+	min-height: 0;
+	height: 36px;
+	line-height: 1;
+
+	&.active {
+		color: $color-primary;
+	}
+}
+
+.button-block {
+	background: #274175;
+    color: #fff;
+    border: none;
+    &:hover {
+    	color: #fff;
+    }
+    &.active, &.focus {
+        background: $color-primary;
+        text-decoration: none;
+        color: #fff;
+    }
+}
