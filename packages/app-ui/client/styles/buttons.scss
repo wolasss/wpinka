@@ -16,10 +16,12 @@
 	}
 }
 
-.button-block {
+.button.button-block {
 	background: #274175;
     color: #fff;
     border: none;
+    margin: 0;
+
     &:hover {
     	color: #fff;
     }

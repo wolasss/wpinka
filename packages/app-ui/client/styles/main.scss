@@ -11,3 +11,7 @@ $button-default-border: #fff;
 .pull-left {
 	float: left;
 }
+
+.keyboard-open .content {
+	bottom: 0 !important; /* IONIC keyboard fix, when keyboard is open the content is push upwards creating a blank gap */
+}
