@@ -4,44 +4,12 @@
 			{{#ionSideMenus}}
 
 				{{#ionSideMenu}}
-					<div class="content has-header">
-						<div class="list">
-							<div class="item item-icon-left">
-								Profile {{> ionIcon icon="ios-person-outline"}}
-							</div>
-							<div class="item item-icon-left">
-								Feed {{> ionIcon icon="ios-home-outline"}}
-								<div class="counter pull-right">
-								34
-								</div>
-							</div>
-							<div class="item item-icon-left">
-								Chat {{> ionIcon icon="chatbox-working"}}
-								<div class="counter pull-right">
-								1
-								</div>
-							</div>
-							<div class="item item-icon-left">
-								Friends {{> ionIcon icon="ios-people"}}
-								<div class="counter pull-right">
-								101
-								</div>
-							</div>
-							<div class="item item-icon-left">
-								Settings {{> ionIcon icon="gear-b"}}
-							</div>
-						</div>
-						<footer class="nav-footer">
-							<div class="nav-buttons">
-								<button class="button button-outline button-logout">Log out</button>
-							</div>
-
-							<div class="nav-copy">
-							Cragnet &copy; 2015
-							</div>
-						</footer>
-					</div>
+					{{> appSideMenuLeft}}
 				{{/ionSideMenu}}
+
+				{{#ionSideMenu side="right"}}
+					{{> appSideMenuRight}}
+		        {{/ionSideMenu}}
 
 			{{/ionSideMenus}}
 

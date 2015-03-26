@@ -23,3 +23,5 @@ check
 audit-argument-checks
 tinytest
 service-configuration
+app-menu-left
+app-menu-right

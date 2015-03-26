@@ -7,6 +7,8 @@ accounts-ui-unstyled@1.1.7
 app@0.0.0
 app-layout@0.0.0
 app-login@0.0.0
+app-menu-left@0.0.0
+app-menu-right@0.0.0
 app-register@0.0.0
 app-ui@0.0.0
 app-validators@0.0.0
@@ -24,9 +26,9 @@ ddp@1.1.0
 deps@1.0.7
 ejson@1.0.6
 email@1.0.6
-facebook@1.1.4
+facebook@1.2.0
 fastclick@1.0.3
-fourseven:scss@2.0.1_4
+fourseven:scss@2.0.1_5
 geojson-utils@1.0.3
 google@1.1.5
 html-tools@1.0.4
