@@ -4,7 +4,9 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app', 'templating', 'iron:router', 'app-register', 'underscore', 'app-validators', 'wolas:alerts'], both);
+    api.use(['app', 'templating', 'app-register', 'underscore', 'app-validators'], both);
+    api.use(['wolas:alerts', 'iron:router'], 'client');
+
 
     api.add_files('client/views/login_page.html', 'client');
     api.add_files('client/views/login_screen.html', 'client');

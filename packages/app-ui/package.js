@@ -4,7 +4,8 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app', 'fourseven:scss'], both);
+    api.use(['app'], both);
+    api.use(['fourseven:scss'], 'client');
 
     api.add_files('client/styles/_variables.scss', 'client');
     api.add_files('client/styles/main.scss', 'client');

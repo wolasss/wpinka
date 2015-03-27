@@ -3,8 +3,9 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
-	api.add_files(["app.js"], ['client','server']);
-	api.use(['meteoric:ionic', 'meteoric:ionicons-sass', 'meteoric:ionic-sass', 'iron:router'], ['client', 'server']);
+	var both = ['client', 'server'];
+	api.add_files(["app.js"], both);
+	api.use(['meteoric:ionic', 'meteoric:ionicons-sass', 'meteoric:ionic-sass', 'iron:router'], 'client');
 
 	api.export("APP");
 });

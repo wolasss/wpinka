@@ -4,8 +4,8 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app', 'iron:router', 'templating', 'underscore', 'app-validators', 'accounts-facebook', 'accounts-password'], both);
-    api.use(['wolas:alerts', 'bootstrap-alerts'], 'client');
+    api.use(['app', 'templating', 'underscore', 'app-validators', 'accounts-facebook', 'accounts-password'], both);
+    api.use(['wolas:alerts', 'bootstrap-alerts', 'iron:router'], 'client');
 
     api.export && api.export("APP");
 
