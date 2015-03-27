@@ -9,19 +9,19 @@
 
 			<section class="login-form">
 				<div class="name-input">
-					<input type="text" class="register-name" placeholder="Name">
+					<input type="text" class="register-name" placeholder={{_ "name"}}>
 				</div>
 
 				<div class="email-input">
-					<input type="email" class="register-email" placeholder="E-mail">
+					<input type="email" class="register-email" placeholder={{_ "email"}}>
 				</div>
 
 				<div class="password-input">
-					<input type="password" class="register-password" placeholder="Password">
+					<input type="password" class="register-password" placeholder={{_ "password"}}>
 				</div>
 
 				<button class="button button-block button-register">
-					Register
+					{{_ "register"}}
 				</button>
 
 				{{> loginServices}}
