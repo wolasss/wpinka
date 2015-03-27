@@ -20,7 +20,7 @@ _.extend(APP.Login, {
 			if(err) {
 				Alerts.error('Login error: '+err.reason, 'loginForm');
 			} else {
-				Router.go('/');
+				Router.go('/thewall');
 			}
 		});
 

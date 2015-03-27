@@ -1,3 +1,5 @@
+@import "variables";
+
 .posts {
 	background: #e3e8e9;
 }
@@ -48,14 +50,60 @@
 
 .post__content {
 	background: #dddddd;
-	height: 150px;
+	min-height: 100px;
+	padding: 15px;
+  	color: #444;
 }
 
 .post__footer {
 	height: 55px;
 	background: #eeeeee;
+	padding: 5px;
+	color: #797878;
 }
 
-.post__content {
-	padding: 5px;
+.post__footer__box {
+	display: inline-block;
+	float: left;
+	padding: 0 15px;
+	border-right: 1px solid #cdcdcd;
+	min-width: 30%;
+	
+	&.post__footer__comments {
+		width: 40%;
+	}
+
+	&.last {
+		border-right: none;
+	}
+}
+
+.post__footer__likes {
+	
+	&:hover {
+		.post__footer__icon i {
+			color: $color-primary;
+			&:before {
+				content: "\f388";
+			}
+		}
+	}
+}
+
+.post__footer__title {
+	font-size: 12px;
+	text-transform: uppercase;
+}
+
+.post__footer__counter {
+	font-size: 16px;
+ 	color: #444;
+}
+
+
+.post__footer__icon {
+	font-size: 28px;
+	display: inline-block;
+ 	float: left;
+ 	margin-right: 8px;
 }
