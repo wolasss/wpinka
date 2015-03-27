@@ -26,3 +26,4 @@ service-configuration
 app-menu-left
 app-menu-right
 wolas:alerts
+tap:i18n
