@@ -1,0 +1,28 @@
+<template name="appTheWallFeed">
+	{{#each posts}}
+		<article class="post">
+			<header class="post__header">
+				<div class="post__header__left">
+					<div class="post__header__avatar">
+
+					</div>
+					<div class="post__header__name">
+						Adam Wolski
+					</div>
+					<div class="post__header__location">
+						5km from you
+					</div>
+				</div>
+				<div class="post__header__right">
+					3 hours ago
+				</div>
+			</header>
+			<div class="post__content">
+				{{content}}
+			</div>
+			<footer class="post__footer">
+
+			</footer>
+		</article>
+	{{/each}}
+</template>
