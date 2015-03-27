@@ -15,6 +15,8 @@ Package.on_use(function (api) {
     api.add_files('client/styles/menu.scss', 'client');
     api.add_files('client/styles/list.scss', 'client');
     api.add_files('client/styles/buttons.scss', 'client');
+    api.add_files('client/styles/_ionic_overrides.scss', 'client');
+
 
 });
 
