@@ -4,7 +4,7 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app'], both);
+    api.use(['app', 'tap:i18n'], both);
 
     api.add_files('package-tap.i18n', both);
 
