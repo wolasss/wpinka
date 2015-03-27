@@ -4,8 +4,10 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app'], both);
+    api.use(['app', 'tap:i18n'], both);
     api.use(['iron:router', 'templating', 'app-menu-left', 'app-menu-right'], 'client');
+
+    api.add_files('package-tap.i18n', both);
 
     api.add_files('client/views/layout.html', 'client');
     api.add_files('client/views/layout_login.html', 'client');
@@ -24,6 +26,11 @@ Package.on_use(function (api) {
 
     api.add_files('client/subscriptions/subscriptions.js', 'client');
     api.add_files('client/views/events/layout.js', 'client');
+
+    api.add_files([
+        'locales/en.i18n.json',
+        'locales/pl.i18n.json'
+    ], both);
 });
 
 Package.on_test(function (api) {

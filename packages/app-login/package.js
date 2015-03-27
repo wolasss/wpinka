@@ -29,7 +29,6 @@ Package.on_use(function (api) {
         'locales/en.i18n.json',
         'locales/pl.i18n.json'
     ], both);
-
 });
 
 Package.on_test(function (api) {
