@@ -7,6 +7,8 @@ APP.Stream = function(config) {
 		collection: "posts", //can be an array?
 		radius: 5, // in km,
 		autoupdate: true,
+		limit: 10,
+		epsilon: 10, //percent of the radius
 		position: {
 			type: "point",
 			coordinates: [52.4005285,16.9016658]
@@ -15,6 +17,7 @@ APP.Stream = function(config) {
 
 	_.extend(this.config, this.config, config);
 
+	this.seenPosts = new ReactiveVar(0);
 	this.radius = new ReactiveVar(self.config.radius);
 	this.position = new ReactiveVar(self.config.position);
 
@@ -22,14 +25,18 @@ APP.Stream = function(config) {
 
 	if(Meteor.isServer) {
 		try {
-			self.collection._ensureIndex({ location: "2dsphere" });
+			self.collection._ensureIndex({ location: "2dsphere", createdAt: -1 });
 		} catch(e) {
 			console.log(e);
 		}
 	}
 
+	this.seenAck = function() {
+		this.seenPosts.set(this.seenPosts.get()+1);
+	}
+
 	this.getPosts = function() {
-		return self.collection.find();
+		return self.collection.find({}, {limit: self.config.limit, sort: {createdAt: -1}});
 	};
 
 	this.changeRadius = function(radius) {
@@ -47,7 +54,7 @@ APP.Stream = function(config) {
 	this.subscribe = function() {
 		if(Meteor.isClient) {
 			Tracker.autorun(function(){
-				Meteor.subscribe("stream_"+self.config.name, self.position.get(), self.radius.get());
+				var sub = Meteor.subscribe("stream_"+self.config.name, self.position.get(), self.radius.get());
 			});
 		}
 	};
@@ -71,7 +78,10 @@ APP.Stream = function(config) {
 				check(radius, Number);
 
 				return self.collection.find({
-					location: { $geoWithin: { $center: [ [ position.coordinates[0], position.coordinates[1] ] , radius ] }}
+					location: { $geoWithin: { $centerSphere: [ [ position.coordinates[0], position.coordinates[1] ] , radius / 111.2 ] }}, // 1 degree ~ 69 miles ~ 111.2 km
+				},{
+					limit: self.config.limit,
+					sort: {createdAt: -1}
 				});
 			});
 		}

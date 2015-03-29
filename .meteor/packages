@@ -29,8 +29,7 @@ wolas:alerts
 app-stream
 geojson-utils
 reactive-var
-velocity:core
-sanjo:jasmine
-velocity:console-reporter
 app-thewall
 tap:i18n
+meteorhacks:kadira
+momentjs:moment

@@ -5,7 +5,8 @@ Package.describe({
 Package.on_use(function (api) {
     var both = ['client', 'server'];
     api.use(['app', 'reactive-var', 'geojson-utils', 'mongo', 'underscore', 'tracker', 'app-position'], both);
-
+    api.use(['templating'], 'client');
+    
     api.export("APP");
 
     api.add_files('common/model/model.js', both);

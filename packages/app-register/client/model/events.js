@@ -32,7 +32,7 @@ _.extend(APP.Register, {
 			if(err) {
 				Alerts.error('Registration error: '+err.reason, 'registerForm');
 			} else {
-				Router.go('/');
+				Router.go('/thewall');
 			}
 		});
 	},
@@ -41,7 +41,7 @@ _.extend(APP.Register, {
             if (err) {
                 Alerts.error('Facebook login error: '+err.reason, 'registerForm');
             } else {
-            	Router.go('/');
+            	Router.go('/thewall');
             }
         });
 	},
@@ -50,7 +50,7 @@ _.extend(APP.Register, {
             if (err) {
                 Alerts.error('Google login error: '+err.reason, 'registerForm');
             } else {
-            	Router.go('/');
+            	Router.go('/thewall');
             }
         });
 	}

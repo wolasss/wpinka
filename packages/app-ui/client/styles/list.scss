@@ -1,12 +1,17 @@
 @import "variables";
 
+.list a {
+	color: #fff;
+	text-decoration: none;
+}
+
 .item {
 	color: #fff;
 	border: none;
 	background: none;
 	padding: 18px;
 	border-bottom: 1px solid rgba(255,255,255,0.1);
-	
+
 	&.item-icon-left {
 		padding-left: 54px;
 	}
@@ -15,7 +20,7 @@
 		padding-right: 54px;
 	}
 
-	&:focus, &:active {
+	&:focus, &:active, &.active {
 		background: rgba(255,255,255,0.2);
 		font-weight: bold;
 	}
@@ -30,4 +35,8 @@
 	font-weight: bold;
 	border-radius: 10px;
 	text-align: center;
+
+	&.counter-0 {
+		display: none;
+	}
 }

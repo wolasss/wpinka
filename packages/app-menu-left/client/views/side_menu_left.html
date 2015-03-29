@@ -4,12 +4,14 @@
 			<div class="item item-icon-left">
 				{{_ "profile"}} {{> ionIcon icon="ios-person-outline"}}
 			</div>
-			<div class="item item-icon-left">
-				{{_ "feed"}} {{> ionIcon icon="ios-home-outline"}}
-				<div class="counter pull-right">
-				34
+			<a href="{{pathFor 'appTheWall'}}">
+				<div class="item item-icon-left {{isActiveRoute '/thewall'}}">	
+						{{_ "feed"}} {{> ionIcon icon="ios-home-outline"}}
+						<div class="counter pull-right counter-{{streamUnreadPosts 'TheWall'}}">
+							{{streamUnreadPosts "TheWall"}}
+						</div>
 				</div>
-			</div>
+			</a>
 			<div class="item item-icon-left">
 				{{_ "chat"}} {{> ionIcon icon="chatbox-working"}}
 				<div class="counter pull-right">

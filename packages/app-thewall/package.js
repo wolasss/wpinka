@@ -5,7 +5,7 @@ Package.describe({
 Package.on_use(function (api) {
     var both = ['client', 'server'];
     api.use(['iron:router', 'templating'], 'client');
-    api.use(['app', 'app-stream'], both);
+    api.use(['app', 'app-stream', 'underscore'], both);
 
     api.add_files('common/model/model.js', both);
     api.add_files('client/routes/router.js', 'client');
@@ -18,10 +18,15 @@ Package.on_use(function (api) {
     api.add_files('client/model/events.js', 'client');
 
     api.add_files('client/subscriptions/subscriptions.js', 'client');
+    
+    api.add_files('client/views/post.html', 'client');
+    api.add_files('client/views/post.js', 'client');
+
     api.add_files('client/views/wall_feed.html', 'client');
     api.add_files('client/views/wall_feed.js', 'client');
     
     api.add_files('client/views/the_wall.html', 'client');
+
 
 });
 

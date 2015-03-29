@@ -4,7 +4,7 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app', 'underscore', 'reactive-var', 'tracker'], both);
+    api.use(['app', 'underscore', 'reactive-var', 'tracker', 'geojson-utils'], both);
 
     api.add_files('common/model/model.js', both);
     api.add_files('client/routes/router.js', 'client');
