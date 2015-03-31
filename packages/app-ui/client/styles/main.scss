@@ -18,3 +18,31 @@ $button-default-border: #fff;
 .keyboard-open .content {
 	bottom: 0 !important; /* IONIC keyboard fix, when keyboard is open the content is push upwards creating a blank gap */
 }
+
+.text-centered {
+	text-align: center;
+}
+
+.position-content {
+	font-weight: 300;
+	color: #555;
+	h3 {
+		font-weight: 300;
+	}
+}
+
+.position-icon i {
+	font-size: 150px;
+	color: #fa5871;
+}
+
+.position-request {
+	margin-top: 15px;
+	display: inline-block;
+}
+
+.modal-noclose {
+	.bar .button {
+		display: none;
+	}
+}
