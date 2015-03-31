@@ -5,7 +5,10 @@ APP.Stream = function(config) {
 	this.config = {
 		name: "posts",
 		collection: "posts", //can be an array?
-		radius: 5, // in km,
+		radius: 10, // in km,
+		minRadius: 1,
+		maxRadius: 50,
+		stepRadius: 1,
 		autoupdate: true,
 		limit: 10,
 		epsilon: 10, //percent of the radius
@@ -76,9 +79,11 @@ APP.Stream = function(config) {
 			Meteor.publish("stream_"+self.config.name, function(position, radius){
 				check(position, Object);
 				check(radius, Number);
+				
+				console.log("Changed radius: ", radius, "km, degrees: ", radius / 6371);
 
 				return self.collection.find({
-					location: { $geoWithin: { $centerSphere: [ [ position.coordinates[0], position.coordinates[1] ] , radius / 111.2 ] }}, // 1 degree ~ 69 miles ~ 111.2 km
+					location: { $geoWithin: { $centerSphere: [ [ position.coordinates[0], position.coordinates[1] ] , radius / 6371 ] }}, // 1 degree ~ 69 miles ~ 111.2 km
 				},{
 					limit: self.config.limit,
 					sort: {createdAt: -1}

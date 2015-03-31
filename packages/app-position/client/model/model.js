@@ -6,6 +6,8 @@ APP.Position.noPositionTpl = "noposition";
 
 _.extend(APP.Position, {
 	error: function(err) {
+		console.log(err);
+
 		if(!APP.Position.current.get()) {
 			//there's no user position yet
 
@@ -59,6 +61,12 @@ _.extend(APP.Position, {
 });
 
 APP.Position.fetchCurrent();
+
+Diagnostic.isLocationEnabled(function(suc){
+	console.log("location enabled", suc);
+}, function(err){
+	console.log("location denied", err);
+});
 
 Tracker.autorun(function(){
 	console.log("Position changed: ", APP.Position.current.get());

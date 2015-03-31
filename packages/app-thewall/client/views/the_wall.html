@@ -9,6 +9,16 @@
 	    </button>
 	{{/contentFor}}
 
+	{{#contentFor "headerButtonRight"}}
+	    <button class="button button-clear pull-right" data-ion-menu-toggle="right">
+			{{#if isAndroid}}
+				{{> ionIcon icon='ios-settings-strong'}}
+			{{else}}
+				{{> ionIcon icon='android-options'}}
+			{{/if}}
+	    </button>
+	{{/contentFor}}
+
   	{{#contentFor "headerTitle"}}
 		<h1 class="title">The Wall</h1>
   	{{/contentFor}}

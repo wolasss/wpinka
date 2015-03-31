@@ -18,11 +18,9 @@ Template.appTheWallPost.helpers({
 			
 			return ret;
 		}
-
-
 	}
 });
 
 Template.appTheWallPost.rendered = function() {
 	APP.TheWall.seenAck();
-}
+};

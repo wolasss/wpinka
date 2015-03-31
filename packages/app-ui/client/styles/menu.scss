@@ -13,6 +13,16 @@
 	}
 }
 
+.menu-right {
+	background: #e3e8e9;
+	color: $color-text;
+
+	.content {
+		height: 100%;
+		padding: 15px;
+	}
+}
+
 .nav-footer {
 	position: absolute;
 	bottom: 50px;
@@ -23,4 +33,20 @@
 	.nav-copy {
 		margin-top: 10px;
 	}
+}
+
+.menu-right-settings-title {
+	display: inline-block;
+	float: left;
+}
+
+.menu-right-settings-value {
+	float: right;
+	font-weight: 600;
+}
+
+.menu-right-settings-setter {
+	float: left;
+	width: 100%;
+	padding: 15px 20px;
 }

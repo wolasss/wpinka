@@ -29,7 +29,8 @@ Package.on_use(function (api) {
 });
 
 Cordova.depends({
-  "org.apache.cordova.geolocation": "0.3.10"
+  "org.apache.cordova.geolocation": "0.3.10",
+  "cordova.plugins.diagnostic": "https://github.com/mablack/cordova-diagnostic-plugin/tarball/5a54be1213644289af19fb9e227b7f225cb15a47"
 });
 
 Package.on_test(function (api) {

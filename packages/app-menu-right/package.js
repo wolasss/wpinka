@@ -19,7 +19,11 @@ Package.on_use(function (api) {
     api.add_files('server/publish/publish.js', 'server');
 
     api.add_files('client/subscriptions/subscriptions.js', 'client');
+    
+    api.add_files('client/views/default.html', 'client');
     api.add_files('client/views/side_menu_right.html', 'client');
+    api.add_files('client/views/side_menu_right.js', 'client');
+
 
     api.add_files([
         'locales/en.i18n.json',

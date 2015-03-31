@@ -1,0 +1,34 @@
+.slider-ui {
+	.noUi-handle {
+		background-color: #fff;
+		border-radius: 100%;
+		cursor: move;
+		height: 30px !important;
+		left: 0;
+		top: -12px !important;
+		position: absolute;
+		width: 30px !important;
+		-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+		border: none;
+
+		&:before, &:after {
+			display: none !important;
+		}
+	}
+
+	.noUi-origin {
+		background: #a9acb1;
+	}
+
+	.noUi-base {
+		background-color: #006ffd;
+		border-radius: 15px;
+		display: block;
+		height: 4px;
+	}
+
+	&.noUi-horizontal {
+		height: 4px;
+	}
+}

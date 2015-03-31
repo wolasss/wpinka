@@ -5,6 +5,7 @@ Router.map(function(){
         path: '/thewall',
         layoutTemplate: 'layout',
         template: 'appTheWall',
+        rightMenu: 'appTheWallRightMenu',
         onBeforeAction: function() {
             if(!Meteor.user() && !Meteor.loggingIn()) {
                 Router.go('/');
