@@ -1,29 +1,34 @@
 <template name="appTheWall">
 	{{#contentFor "headerButtonLeft"}}
-	    <button class="button button-clear pull-left" data-ion-menu-toggle="left">
-			{{#if isAndroid}}
-				{{> ionIcon icon='android-more-vertical'}}
-			{{else}}
-				{{> ionIcon icon='navicon'}}
-			{{/if}}
-	    </button>
+    <button class="button button-clear pull-left" data-ion-menu-toggle="left">
+		{{#if isAndroid}}
+			{{> ionIcon icon='android-more-vertical'}}
+		{{else}}
+			{{> ionIcon icon='navicon'}}
+		{{/if}}
+    </button>
 	{{/contentFor}}
 
 	{{#contentFor "headerButtonRight"}}
-	    <button class="button button-clear pull-right" data-ion-menu-toggle="right">
-			{{#if isAndroid}}
-				{{> ionIcon icon='ios-settings-strong'}}
-			{{else}}
-				{{> ionIcon icon='android-options'}}
-			{{/if}}
-	    </button>
+    <button class="button button-clear pull-right" data-ion-menu-toggle="right">
+		{{#if isAndroid}}
+			{{> ionIcon icon='ios-settings-strong'}}
+		{{else}}
+			{{> ionIcon icon='android-options'}}
+		{{/if}}
+    </button>
 	{{/contentFor}}
 
-  	{{#contentFor "headerTitle"}}
+	{{#contentFor "headerTitle"}}
 		<h1 class="title">{{_ "theWallTitle"}}</h1>
-  	{{/contentFor}}
+	{{/contentFor}}
 
 	{{#ionContent class="posts" }}
 		{{> appTheWallFeed }}
 	{{/ionContent}}
+	<div class="bar bar-footer bar-dark">
+		<a href="{{pathFor 'appTheWallAdd'}}">
+		  <button class="button button-icon icon ion-plus-round"></button>
+	  </a>
+	</div>
 </template>
