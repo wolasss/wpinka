@@ -4,7 +4,7 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['iron:router', 'templating'], 'client');
+    api.use(['iron:router', 'templating', 'tap:i18n'], 'client');
     api.use(['app', 'app-stream', 'underscore', 'reactive-var'], both);
 
     api.add_files('common/model/model.js', both);
@@ -28,6 +28,11 @@ Package.on_use(function (api) {
     api.add_files('client/views/the_wall.html', 'client');
     api.add_files('client/views/right_menu.html', 'client');
     api.add_files('client/views/right_menu.js', 'client');
+
+    api.add_files([
+        'locales/en.i18n.json',
+        'locales/pl.i18n.json'
+    ], both);
 });
 
 Package.on_test(function (api) {

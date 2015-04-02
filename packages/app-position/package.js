@@ -23,7 +23,7 @@ Package.on_use(function (api) {
     api.add_files('client/subscriptions/subscriptions.js', 'client');
     api.add_files('client/model/startup.js', 'client');
 
-     api.add_files([
+    api.add_files([
         'locales/en.i18n.json',
         'locales/pl.i18n.json'
     ], both);
