@@ -7,8 +7,6 @@ Package.on_use(function (api) {
     api.use(['app', 'tap:i18n'], both);
     api.use(['templating', 'iron:router'], 'client');
     
-    api.add_files('package-tap.i18n', both);
-
     api.add_files('client/views/add.html', 'client');
     api.add_files('client/views/events/add.js', 'client');
 

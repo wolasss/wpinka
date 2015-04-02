@@ -7,8 +7,6 @@ Package.on_use(function (api) {
     api.use(['app', 'underscore', 'reactive-var', 'tracker', 'geojson-utils', 'tap:i18n'], both);
     api.use(['iron:router', 'templating', 'meteoric:ionic', 'jquery', 'skinnygeek1010:cordova-status', 'session'], 'client');
 
-    api.add_files('package-tap.i18n', both);
-    
     api.add_files('client/views/position_alert.html', 'client');
     api.add_files('client/views/events/position_alert.js', 'client');
 

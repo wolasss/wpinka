@@ -3,7 +3,7 @@
     {{>ionNavBackButton class=""}}
   {{/contentFor}}
   {{#contentFor "headerTitle"}}
-    <h1 class="title">Add Post</h1>
+    <h1 class="title">{{_ "theWallAddPost"}}</h1>
   {{/contentFor}}
 
   {{#ionView}}
@@ -11,9 +11,9 @@
     	<div class="alert-narrow">
 		  	{{> alerts container="appthewalladd" }}
 	  	</div>
-      <textarea class="post__content post__form" placeholder="What is on your mind?"></textarea>
+      <textarea class="post__content post__form" placeholder={{_ "whatIsOnYourMind"}}></textarea>
       <button class="button button-block button-balanced button-save">
-      	Post!
+      	{{_ "theWallSavePost"}}
     	</button>
     {{/ionContent}}
   {{/ionView}}

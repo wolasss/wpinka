@@ -1,3 +1,10 @@
 {
-	
+	"theWallAddPost": "Dodaj post",
+	"whatIsOnYourMind": "O czym myślisz?",
+	"theWallSavePost": "Post!",
+	"theWallPostErrors": {
+		"mustHaveContentError": "Post musi mieć zawartość",
+		"minimumLengthError": "Minimalna długość tekstu to 10 znaków",
+		"maximumLengthError": "Przekroczono limit znaków"
+	}
 }

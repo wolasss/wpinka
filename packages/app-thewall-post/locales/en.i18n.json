@@ -1,3 +1,10 @@
 {
-	"elo": "DUPA"	
+	"theWallAddPost": "Add Post",
+	"whatIsOnYourMind": "What is on your mind?",
+	"theWallSavePost": "Post!",
+	"theWallPostErrors": {
+		"mustHaveContentError": "Your post must have content",
+		"minimumLengthError": "Your post must have at least 10 characters",
+		"maximumLengthError": "You have exceeded the maximum character limit"
+	}
 }
