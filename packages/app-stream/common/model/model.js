@@ -91,4 +91,19 @@ APP.Stream = function(config) {
 			});
 		}
 	};
+
+	if(Meteor.isClient){
+		this.insert = function(content) {
+			var position = APP.Position.getCurrent();
+			if(position)
+				Meteor.call('/thewall/add', position, content, 'TheWall', function(error){
+					if(error)
+						Alerts.error('Try again later', 'appthewalladd');
+					else
+						Router.go('/thewall');
+				});
+			// else
+			// 	APP.Position.
+		};
+	};
 };
