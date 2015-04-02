@@ -29,7 +29,7 @@ _.extend(APP.Position, {
 			}
 		}
 	},
-	fetchCurrent : function(acc, timeout) {
+	fetchCurrent : function(acc) {
 		var pos = navigator.geolocation.getCurrentPosition(function(pos){
 			if($('body').hasClass('modal-open')) {
 				IonModal.close();

@@ -36,7 +36,7 @@ APP.Stream = function(config) {
 
 	this.seenAck = function() {
 		this.seenPosts.set(this.seenPosts.get()+1);
-	}
+	};
 
 	this.getPosts = function() {
 		return self.collection.find({}, {limit: self.config.limit, sort: {createdAt: -1}});
@@ -80,7 +80,7 @@ APP.Stream = function(config) {
 				check(position, Object);
 				check(radius, Number);
 				
-				console.log("Changed radius: ", radius, "km, degrees: ", radius / 6371);
+				console.log("New publish: radius: ", radius/6371, "position: ", position.coordinates);
 
 				return self.collection.find({
 					location: { $geoWithin: { $centerSphere: [ [ position.coordinates[0], position.coordinates[1] ] , radius / 6371 ] }}, // 1 degree ~ 69 miles ~ 111.2 km

@@ -37,5 +37,7 @@ Cordova.depends({
 });
 
 Package.on_test(function (api) {
-    api.use(['tinytest', 'test-helpers'], ['client']);
+    api.use(['app', 'app-position', 'tinytest', 'test-helpers'], ['client']);
+
+    api.add_files('client/tests/position.js', ['client']);
 });
