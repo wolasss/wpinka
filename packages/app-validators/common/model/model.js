@@ -15,13 +15,16 @@ _.extend(APP.Validators, {
 	isEmptyString: function(content){
 		if(content.length == 0)
 			return true;
+		return false;
 	},
 	isContentTooShort: function(content){
 		if(content.length < 10)
 			return true;
+		return false;
 	},
 	isContentTooLong: function(content){
 		if(content.length > 512)
 			return true;
+		return false;
 	}
 });

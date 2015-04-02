@@ -17,4 +17,6 @@ Package.on_test(function (api) {
     api.use(['tinytest', 'test-helpers', 'app-validators'], ['client', 'server']);
 
     api.add_files('common/tests/email_validation.js', ['client', 'server']);
+    api.add_files('common/tests/empty_string_validation.js', ['client', 'server']);
+    api.add_files('common/tests/content_length_validation.js', ['client', 'server']);
 });
