@@ -5,10 +5,10 @@ Package.describe({
 Package.on_use(function (api) {
     var both = ['client', 'server'];
     api.use(['app', 'underscore', 'reactive-var', 'tracker', 'geojson-utils', 'tap:i18n'], both);
-    api.use(['iron:router', 'templating', 'meteoric:ionic', 'jquery'], 'client');
+    api.use(['iron:router', 'templating', 'meteoric:ionic', 'jquery', 'skinnygeek1010:cordova-status', 'session'], 'client');
     
-    api.add_files('client/views/noposition.html', 'client');
-    api.add_files('client/views/events/noposition.js', 'client');
+    api.add_files('client/views/position_alert.html', 'client');
+    api.add_files('client/views/events/position_alert.js', 'client');
 
     api.add_files('common/model/model.js', both);
     api.add_files('client/routes/router.js', 'client');
@@ -21,6 +21,7 @@ Package.on_use(function (api) {
     api.add_files('server/publish/publish.js', 'server');
 
     api.add_files('client/subscriptions/subscriptions.js', 'client');
+    api.add_files('client/model/startup.js', 'client');
 
      api.add_files([
         'locales/en.i18n.json',

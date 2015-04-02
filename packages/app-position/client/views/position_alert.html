@@ -1,0 +1,44 @@
+<template name="positionAlert">
+	{{#ionModal title="No position" class="modal-noclose padding" }}
+		<section class="position-content text-centered">
+			<div class="position-icon">
+				<i class="ion-compass"></i>
+			</div>
+			<h3>{{_ "positionAlert_title"}}</h3>
+			<span>
+				<p>{{_ "positionAlert_pre"}}</p>
+
+				{{#unless locationEnabled}}
+					<p>
+						<strong>
+							{{_ "positionAlert_noLocationEnabled"}}
+						</strong>
+					</p>
+				{{/unless}}
+
+				{{#unless locationAuthorized}}
+					<p>
+						<strong>
+							{{_ "positionAlert_noLocationAuthorized"}}
+						</strong>
+					</p>
+				{{/unless}}
+
+				{{#if isAndroid}}
+					{{_ "positionAlert_android_content"}}
+				{{else}}
+					{{_ "positionAlert_ios_content"}}
+				{{/if}}
+				<p>
+					<button class="button button-primary button-balanced position-request">
+						{{#if isAndroid}}
+							{{_ "positionAlert_button_android"}}
+						{{else}}
+							{{_ "positionAlert_button_ios"}}
+						{{/if}}
+					</button>
+				</p>
+			</span>
+		</section>	
+	{{/ionModal}}
+</template>

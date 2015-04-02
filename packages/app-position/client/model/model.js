@@ -7,25 +7,29 @@ APP.Position.noPositionTpl = "noposition";
 _.extend(APP.Position, {
 	error: function(err) {
 		console.log(err);
-
 		if(!APP.Position.current.get()) {
 			//there's no user position yet
 
 			if(err.code === err.TIMEOUT) {
-				setTimeout(this.fetchCurrent, 1000); //try again after 1s
+				setTimeout(function(){
+					APP.Position.fetchCurrent(true);
+				}, 1000); //try again after 1s
 			} else {
 				//show user info about position problem
 
 				if(!$('body').hasClass('modal-open') && ( Meteor.user() || Meteor.loggingIn())) {
 					setTimeout(function(){
 						//no DOM ready workoround as a first time
-						IonModal.open("noposition");
+						IonModal.open("positionAlert", {
+							locationEnabled: 1,
+							locationAuthorized: (err.code !== err.PERMISSION_DENIED)
+						});
 					}, 500);
 				}
 			}
 		}
 	},
-	fetchCurrent : function() {
+	fetchCurrent : function(acc, timeout) {
 		var pos = navigator.geolocation.getCurrentPosition(function(pos){
 			if($('body').hasClass('modal-open')) {
 				IonModal.close();
@@ -49,24 +53,68 @@ _.extend(APP.Position, {
 
 			}
 		}, this.error, {
-			enableHighAccuracy: true,
-			timeout: 5000,
+			enableHighAccuracy: !!!acc,
+			timeout: 20000,
 			maximumAge: 0
 		});
 		return true;
 	},
 	getCurrent : function() {
 		return this.current.get();
+	},
+	checkEnabledLocation: function(cb) {
+		if(!cb) cb = function(){};
+		if(!Meteor.isCordova) return;
+
+		//first callback is success, and second is error, but in this plugin somehow you pass (return) param to succes callback only
+		if(cordova.plugins.diagnostic) {
+			cordova.plugins.diagnostic.isLocationEnabled(function(enabled){
+				cb.call(this, enabled);
+			}, function(){});
+		}
+		
+	},
+	checkLocationAuthorization: function(cb) {
+		if(!cb) cb = function(){};
+		if(!Meteor.isCordova) return;
+
+		//first callback is success, and second is error, but in this plugin somehow you pass (return) param to succes callback only
+		if(cordova.plugins.diagnostic) {
+			cordova.plugins.diagnostic.isLocationAuthorized(function(enabled){
+				cb.call(this, enabled);
+			}, function(){});
+		}
+		
+	},
+	openPositionModalAlert: function(config) {
+		if(!$('body').hasClass('modal-open') && ( Meteor.user() || Meteor.loggingIn())) {
+			IonModal.open("positionAlert", config);
+		}
+	},
+	checkPositionSettings: function(cb) {
+		if(!cb) cb = function(){};
+		if(!Meteor.isCordova) return;
+
+		APP.Position.checkEnabledLocation(function(enabledLocation){
+			APP.Position.checkLocationAuthorization(function(locationAuthorized){
+				if(!(enabledLocation && enabledLocation)) {
+					//one of them is off
+					APP.Position.openPositionModalAlert({
+						enabledLocation: enabledLocation,
+						locationAuthorized: locationAuthorized
+					});
+				} else {
+					if($('body').hasClass('modal-open')) {
+						IonModal.close();
+					}
+					APP.Position.fetchCurrent();
+				}
+			});
+		});
 	}
 });
 
 APP.Position.fetchCurrent();
-
-Diagnostic.isLocationEnabled(function(suc){
-	console.log("location enabled", suc);
-}, function(err){
-	console.log("location denied", err);
-});
 
 Tracker.autorun(function(){
 	console.log("Position changed: ", APP.Position.current.get());

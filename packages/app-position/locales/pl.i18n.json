@@ -1,0 +1,10 @@
+{
+	"positionAlert_title": "Lokalizacja niedostępna",
+	"positionAlert_pre": "Nie mogliśmy otrzymać Twojej likalizacji.",
+	"positionAlert_noLocationEnabled": "Wygląda na to, że GPS jest wyłączony w Twoim telefonie.",
+	"positionAlert_noLocationAuthorized": "Wyglada na to, że nasza aplikacja nie ma uprawnień do usług lokalizacji.",
+	"positionAlert_android_content": "Udostępnianie lokalizacji jest kluczowe do poprawnego działania naszej aplikacji. Prosimy o sprawdzenie ustawień klikając w poniższy button",
+	"positionAlert_ios_content": "Udostępnianie lokalizacji jest kluczowe do poprawnego działania naszej aplikacji. Prosimy o sprawdzenie ustawień udając się do Ustawienia -> Prywatność -> Lokalizacja",
+	"positionAlert_button_android": "Idź do ustawień lokalizacji",
+	"positionAlert_button_ios": "Pobierz moją lokalizację teraz"
+}
