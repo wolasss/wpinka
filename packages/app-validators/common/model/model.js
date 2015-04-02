@@ -11,5 +11,17 @@ _.extend(APP.Validators, {
 		}
 
 		return ret;
+	},
+	isEmptyString: function(content){
+		if(content.length == 0)
+			return true;
+	},
+	isContentTooShort: function(content){
+		if(content.length < 10)
+			return true;
+	},
+	isContentTooLong: function(content){
+		if(content.length > 512)
+			return true;
 	}
 });

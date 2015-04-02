@@ -1,0 +1,20 @@
+<template name="appTheWallAdd">
+	{{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton class=""}}
+  {{/contentFor}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Add Post</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+    	<div class="alert-narrow">
+		  	{{> alerts container="appthewalladd" }}
+	  	</div>
+      <textarea class="post__content post__form" placeholder="What is on your mind?"></textarea>
+      <button class="button button-block button-balanced button-save">
+      	Post!
+    	</button>
+    {{/ionContent}}
+  {{/ionView}}
+</template>

@@ -14,6 +14,7 @@ app-position@0.0.0
 app-register@0.0.0
 app-stream@0.0.0
 app-thewall@0.0.0
+app-thewall-post@0.0.0
 app-ui@0.0.0
 app-validators@0.0.0
 audit-argument-checks@1.0.3
