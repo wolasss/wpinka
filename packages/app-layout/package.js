@@ -11,6 +11,7 @@ Package.on_use(function (api) {
 
     api.add_files('client/views/layout.html', 'client');
     api.add_files('client/views/layout_login.html', 'client');
+    api.add_files('client/views/layout_login.js', 'client');
 
     api.add_files('client/views/home.html', 'client');
 

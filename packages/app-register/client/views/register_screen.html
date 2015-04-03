@@ -1,12 +1,16 @@
 <template name="registerScreen">
+	{{#contentFor "headerButtonLeft"}}
+	    <a href="/" class="button button-clear pull-left">
+			{{> ionIcon icon='chevron-left'}}
+	    </a>
+	{{/contentFor}}
+
+  	{{#contentFor "headerTitle"}}
+		<h1 class="title">{{_ "register"}}</h1>
+  	{{/contentFor}}
+
 	{{#ionContent}}
 		<div class="login-screen unlogged-screen">
-			<div class="login-nav">
-				<a href="/">
-					<i class="ion-chevron-left"></i>
-				</a>
-			</div>
-
 			<section class="login-form">
 				<div class="name-input">
 					<input type="text" class="register-name" placeholder={{_ "name"}}>

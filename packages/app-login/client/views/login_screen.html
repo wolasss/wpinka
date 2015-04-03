@@ -1,12 +1,17 @@
 <template name="loginScreen">
+
+	{{#contentFor "headerButtonLeft"}}
+	    <a href="/" class="button button-clear pull-left">
+			{{> ionIcon icon='chevron-left'}}
+	    </a>
+	{{/contentFor}}
+
+  	{{#contentFor "headerTitle"}}
+		<h1 class="title">{{_ "login"}}</h1>
+  	{{/contentFor}}
+
 	{{#ionContent}}
 		<div class="login-screen unlogged-screen">
-			<div class="login-nav">
-				<a href="/">
-					<i class="ion-chevron-left"></i>
-				</a>
-			</div>
-
 			<section class="login-form">
 				<div class="username-input">
 					<input type="email" class="login-email" placeholder={{_ "email"}}>
