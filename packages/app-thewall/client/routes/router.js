@@ -6,13 +6,8 @@ Router.map(function(){
         layoutTemplate: 'layout',
         template: 'appTheWall',
         rightMenu: 'appTheWallRightMenu',
-        onBeforeAction: function() {
-            if(!Meteor.user() && !Meteor.loggingIn()) {
-                Router.go('/');
-            }
-
-        	APP.TheWall.seenPosts && APP.TheWall.seenPosts.set(0);
-        	this.next();
-        }
+        onBeforeAction: APP.RouterHelpers.loginCheck(function(){return this.next}, function(){
+            APP.TheWall.seenPosts && APP.TheWall.seenPosts.set(0);
+        })
     });
 });

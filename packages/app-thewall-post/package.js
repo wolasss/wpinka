@@ -5,7 +5,7 @@ Package.describe({
 Package.on_use(function (api) {
     var both = ['client', 'server'];
     api.use(['app', 'tap:i18n'], both);
-    api.use(['templating', 'iron:router'], 'client');
+    api.use(['templating', 'iron:router', 'router-helpers'], 'client');
     
     api.add_files('client/views/add.html', 'client');
     api.add_files('client/views/events/add.js', 'client');
