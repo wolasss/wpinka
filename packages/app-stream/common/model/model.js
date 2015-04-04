@@ -94,7 +94,7 @@ APP.Stream = function(config) {
 
 	if(Meteor.isClient){
 		this.insert = function(content) {
-			var position = APP.Position.getCurrent();
+			var position = APP.Position.getCurrent() || APP.Position.fetchCurrent();
 			console.log("insertuje", position);
 			if(position){
 				Meteor.call('/thewall/add', position, content, 'TheWall', function(error){
