@@ -13,17 +13,17 @@ _.extend(APP.Validators, {
 		return ret;
 	},
 	isEmptyString: function(content){
-		if(content.length == 0)
+		if(typeof content == "string" && content.length == 0)
 			return true;
 		return false;
 	},
 	isContentTooShort: function(content){
-		if(content.length < 10)
+		if(typeof content == "string" && content.length < 10)
 			return true;
 		return false;
 	},
 	isContentTooLong: function(content){
-		if(content.length > 512)
+		if(typeof content == "string" && content.length > 512)
 			return true;
 		return false;
 	}

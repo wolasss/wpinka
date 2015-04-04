@@ -21,3 +21,11 @@ Tinytest.add(
     test.equal(APP.Validators.isContentTooLong(content), false);
   }
 );
+
+Tinytest.add(
+  'validators - content not a string',
+  function (test) {        
+    test.equal(APP.Validators.isContentTooShort(5), false);
+    test.equal(APP.Validators.isContentTooLong(5), false);
+  }
+);
