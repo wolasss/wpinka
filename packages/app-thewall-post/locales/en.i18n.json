@@ -5,6 +5,7 @@
 	"theWallPostErrors": {
 		"mustHaveContentError": "Your post must have content",
 		"minimumLengthError": "Your post must have at least 10 characters",
-		"maximumLengthError": "You have exceeded the maximum character limit"
+		"maximumLengthError": "You have exceeded the maximum character limit",
+		"internalError": "Try again later"
 	}
 }

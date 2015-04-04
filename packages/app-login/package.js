@@ -7,8 +7,6 @@ Package.on_use(function (api) {
     api.use(['app', 'templating', 'app-register', 'underscore', 'app-validators', 'tap:i18n'], both);
     api.use(['wolas:alerts', 'iron:router'], 'client');
 
-    api.add_files('package-tap.i18n', both);
-
     api.add_files('client/views/login_page.html', 'client');
     api.add_files('client/views/login_screen.html', 'client');
 

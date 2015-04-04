@@ -11,22 +11,22 @@ _.extend(APP.Validators, {
 
 		return ret;
 	},
-	isEmptyString: function(content){
+	isNotEmptyString: function(content){
 		if(typeof content == "string" && content.length == 0){
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	},
-	isContentTooShort: function(content){
+	isContentNotTooShort: function(content){
 		if(typeof content == "string" && content.length < 10){
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	},
-	isContentTooLong: function(content){
+	isContentNotTooLong: function(content){
 		if(typeof content == "string" && content.length > 512){
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 });

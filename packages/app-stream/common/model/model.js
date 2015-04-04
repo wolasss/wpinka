@@ -93,18 +93,24 @@ APP.Stream = function(config) {
 	};
 
 	if(Meteor.isClient){
-		this.insert = function(content, callback) {
+		this.insert = function(post, cb) {
+			if(!cb) cb = function(){};
+
 			var position = APP.Position.getCurrent() || APP.Position.fetchCurrent();
-			console.log("insertuje", position);
 			if(position){
-				Meteor.call('/thewall/add', position, content, 'TheWall', function(error){
-					callback(error);
-				});
+				if(self.config.name) {
+					Meteor.call('/'+self.config.name+'/add', post, position, function(err, data){
+						cb.call(null, err, data);
+					});
+				} else {
+					return cb.call(null, new Meteor.Error("StreamError", "Cannot add to specified stream"));
+				}
 			} else {
 				APP.Position.openPositionModalAlert({
 					locationEnabled: 1,
 					locationAuthorized: 1
 				});
+				return cb.call(null, new Meteor.Error("PositionError", "Cannot get user position"));
 			}
 		};
 	};

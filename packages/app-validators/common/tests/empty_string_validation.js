@@ -1,20 +1,20 @@
 Tinytest.add(
     'validators - empty string',
     function (test) {        
-        test.equal(APP.Validators.isEmptyString(""), true);
+        test.equal(APP.Validators.isNotEmptyString(""), false);
     }
 );
 
 Tinytest.add(
     'validators - not empty string',
     function (test) {        
-        test.equal(APP.Validators.isEmptyString("notempty"), false);
+        test.equal(APP.Validators.isNotEmptyString("notempty"), true);
     }
 );
 
 Tinytest.add(
     'validators - not a string',
     function (test) {        
-        test.equal(APP.Validators.isEmptyString(5), false);
+        test.equal(APP.Validators.isNotEmptyString(5), false);
     }
 );

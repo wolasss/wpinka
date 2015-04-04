@@ -7,6 +7,7 @@ Router.map(function(){
     template: 'appTheWallAdd',
     rightMenu: 'appTheWallRightMenu',
     onBeforeAction: APP.RouterHelpers.loginCheck(function(){return this.next}, function(){
+      Alerts.clear("appthewalladd");
       APP.Position.fetchCurrent();
     })
   });
