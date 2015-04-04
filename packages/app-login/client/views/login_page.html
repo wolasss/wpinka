@@ -1,5 +1,52 @@
 <template name="loginPage">
 	{{#ionContent}}
+		{{#ionSlideBox}}
+			{{#ionSlide class="slide-bg-1"}}
+				<div class="slide-overlay">
+					<div class="feature">
+						<i class="ion-location"></i>
+						<h2>Join the local community!</h2>
+						<p>
+						Be in touch will your nearby buddies
+						</p>
+					</div>
+				</div>
+			{{/ionSlide}}
+			{{#ionSlide class="slide-bg-2"}}
+				<div class="slide-overlay">
+					<div class="feature">
+						<i class="ion-person"></i>
+						<h2>Find a partner</h2>
+						<p>
+						Find partners to your next adventure
+						</p>
+					</div>
+				</div>
+			{{/ionSlide}}
+			{{#ionSlide class="slide-bg-3"}}
+				<div class="slide-overlay">
+					<div class="feature">
+						<i class="ion-beer"></i>
+						<h2>Explore!</h2>
+						<p>
+						Connect with people from different communities
+						</p>
+					</div>
+				</div>
+			{{/ionSlide}}
+			{{#ionSlide class="slide-bg-4"}}
+				<div class="slide-overlay">
+					<div class="feature">
+						<i class="ion-android-share-alt"></i>
+						<h2>Share</h2>
+						<p>
+						Be an active member of your climbing community
+						</p>
+					</div>
+				</div>
+			{{/ionSlide}}
+		{{/ionSlideBox}}
+
 		<div class="login-screen unlogged-screen">
 			<footer class="login-screen__footer login-buttons">
 				<a href="{{pathFor 'registerScreen'}}">
