@@ -7,6 +7,10 @@ Meteor.methods({
 			coordinates: Array
 		});
 		var date = new Date();
-		APP[stream].collection.insert({ createdAt: date, modifiedAt: date, content: content, author: this.userId, location: position });
+		if(APP[stream]){
+			APP[stream].collection.insert({ createdAt: date, modifiedAt: date, content: content, author: this.userId, location: position });
+		} else {
+			throw new Meteor.Error('streamUndefined');
+		}
 	}
 })
