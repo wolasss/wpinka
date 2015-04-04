@@ -1,6 +1,6 @@
 _.extend(APP.Login, {
 	displayName : function (u) {
-		this.formatName(Meteor.user());
+		return APP.Login.formatName(Meteor.user());
 	},
 	formatName: function(user) {
 		if (!user)
