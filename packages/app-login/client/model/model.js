@@ -1,6 +1,8 @@
 _.extend(APP.Login, {
-	displayName : function () {
-		var user = Meteor.user();
+	displayName : function (u) {
+		this.formatName(Meteor.user());
+	},
+	formatName: function(user) {
 		if (!user)
 			return '';
 

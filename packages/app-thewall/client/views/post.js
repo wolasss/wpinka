@@ -1,6 +1,8 @@
 Template.appTheWallPost.helpers({
 	name: function() {
-		return APP.Login.displayName();
+		var author = Meteor.users.findOne({_id: this.author});
+
+		return APP.Login.formatName(author);
 	},
 	fromNow: function() {
 		return moment(this.createdAt).fromNow();
