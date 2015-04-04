@@ -15,6 +15,6 @@ Meteor.methods({
 			content: post.content
 		};
 
-		return APP.Stream.addPost(APP.TheWall.collection, retPost, position);
+		return APP.Stream.addPost.call(this, APP.TheWall.collection, retPost, position);
 	}
 })
