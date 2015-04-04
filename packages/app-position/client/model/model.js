@@ -4,19 +4,20 @@ APP.Position.current = new ReactiveVar(null);
 APP.Position.epsilon = 100; // initially it is 100m
 APP.Position.noPositionTpl = "noposition";
 
+var defaultTimeout = 20000;
+
 _.extend(APP.Position, {
 	error: function(err) {
-		console.log(err);
+		console.log(err.code, err.message);
 		if(!APP.Position.current.get()) {
 			//there's no user position yet
 
 			if(err.code === err.TIMEOUT) {
 				setTimeout(function(){
-					APP.Position.fetchCurrent(true);
+					APP.Position.fetchCurrent(true, defaultTimeout+10000);
 				}, 1000); //try again after 1s
 			} else {
 				//show user info about position problem
-
 				if(!$('body').hasClass('modal-open') && ( Meteor.user() || Meteor.loggingIn())) {
 					setTimeout(function(){
 						//no DOM ready workoround as a first time
@@ -29,7 +30,7 @@ _.extend(APP.Position, {
 			}
 		}
 	},
-	fetchCurrent : function(acc) {
+	fetchCurrent : function(acc, timeout) {
 		var pos = navigator.geolocation.getCurrentPosition(function(pos){
 			if($('body').hasClass('modal-open')) {
 				IonModal.close();
@@ -54,7 +55,7 @@ _.extend(APP.Position, {
 			}
 		}, this.error, {
 			enableHighAccuracy: !!!acc,
-			timeout: 20000,
+			timeout: (timeout ? timeout : defaultTimeout),
 			maximumAge: 0
 		});
 		return true;
@@ -88,6 +89,11 @@ _.extend(APP.Position, {
 	},
 	openPositionModalAlert: function(config) {
 		if(!$('body').hasClass('modal-open') && ( Meteor.user() || Meteor.loggingIn())) {
+			if(config.enabledLocation == 0) {
+				//then no point in showing message about no permissions.
+				config.locationAuthorized = 1;
+			}
+
 			IonModal.open("positionAlert", config);
 		}
 	},
