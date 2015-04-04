@@ -5,9 +5,9 @@
 				<div class="slide-overlay">
 					<div class="feature">
 						<i class="ion-location"></i>
-						<h2>Join the local community!</h2>
+						<h2>{{_ "slide_1_title"}}</h2>
 						<p>
-						Be in touch will your nearby buddies
+							{{_ "slide_1_desc"}}
 						</p>
 					</div>
 				</div>
@@ -16,9 +16,9 @@
 				<div class="slide-overlay">
 					<div class="feature">
 						<i class="ion-person"></i>
-						<h2>Find a partner</h2>
+						<h2>{{_ "slide_2_title"}}</h2>
 						<p>
-						Find partners to your next adventure
+							{{_ "slide_2_desc"}}
 						</p>
 					</div>
 				</div>
@@ -27,9 +27,9 @@
 				<div class="slide-overlay">
 					<div class="feature">
 						<i class="ion-beer"></i>
-						<h2>Explore!</h2>
+						<h2>{{_ "slide_3_title"}}</h2>
 						<p>
-						Connect with people from different communities
+							{{_ "slide_3_desc"}}
 						</p>
 					</div>
 				</div>
@@ -37,26 +37,24 @@
 			{{#ionSlide class="slide-bg-4"}}
 				<div class="slide-overlay">
 					<div class="feature">
-						<i class="ion-android-share-alt"></i>
-						<h2>Share</h2>
+						<i class="ion-thumbsup"></i>
+						<h2>{{_ "slide_4_title"}}</h2>
 						<p>
-						Be an active member of your climbing community
+							{{_ "slide_4_desc"}}
 						</p>
 					</div>
 				</div>
 			{{/ionSlide}}
 		{{/ionSlideBox}}
 
-		<div class="login-screen unlogged-screen">
-			<footer class="login-screen__footer login-buttons">
-				<a href="{{pathFor 'registerScreen'}}">
-					<button class="button register">{{_ "register"}}</button>
-				</a>
+		<footer class="login-screen__footer login-buttons">
+			<a href="{{pathFor 'registerScreen'}}">
+				<button class="button register">{{_ "register"}}</button>
+			</a>
 
-				<a href="{{pathFor 'loginScreen'}}">
-					<button class="button button-block login">{{_ "login"}}</button>
-				</a>
-			</footer>
-		</div>
+			<a href="{{pathFor 'loginScreen'}}">
+				<button class="button button-block login">{{_ "login"}}</button>
+			</a>
+		</footer>
 	{{/ionContent}}
 </template>

@@ -1,5 +1,22 @@
 @import "variables";
 
+@-webkit-keyframes loader {
+    0% { 
+        background-position: -50px 0;
+    }
+    25% { 
+        background-position: -100px 0;
+    }
+    75% {
+        background-position: 0 0;}
+    100% {
+        background-position: -50px 0}
+}
+
+@mixin feature-animation {
+    -webkit-animation: loader 8s ease-in-out infinite;
+}
+
 .feature {
     width: 100%;
     color: #fff;
@@ -7,7 +24,7 @@
     text-align: center;
     padding-top: 480px;
     position: absolute;
-    bottom: 260px;
+    bottom: 35%;
     left: 0;
     text-shadow: 1px 1px 1px #000;
 
@@ -19,56 +36,53 @@
     }
 
     i {
-    font-size: 28px;
-    background: rgba(255,255,255,.4);
-    border-radius: 50%;
-    text-shadow: none;
-    width: 36px;
-    height: 36px;
-    padding: 4px;
-    display: inline-block;
+        font-size: 28px;
+        background: rgba(255,255,255,.4);
+        border-radius: 50%;
+        text-shadow: none;
+        width: 36px;
+        height: 36px;
+        padding: 4px;
+        display: inline-block;
     }
 }
 
 .slide-bg-1 {
     background: url('/images/bg_1_anim.jpg');
-    -webkit-animation: loader 12s ease-in-out infinite;
-}
-
-@-webkit-keyframes loader {
-    0% { background-position: -50px 0;
-    }
-    25% { background-position: -100px 0;
-    }
-    75% {background-position: 0 0;}
-    100% {background-position: -50px 0}
+    background-size: cover;
+    @extend .accelerate;
 }
 
 .slide-overlay {
     width: 100%;
     height: 100%;
+    @extend .accelerate;
     position: relative;
     background: rgba(0,0,0,.6);
 }
 
 .slide-bg-2 {
+    @extend .accelerate;
     background: url('/images/bg_4_anim.jpg');
-    -webkit-animation: loader 12s ease-in-out infinite;
+    background-size: cover;
 }
 
 .slide-bg-3 {
+    @extend .accelerate;
     background: url('/images/bg_3_anim.jpg');
-    -webkit-animation: loader 12s ease-in-out infinite;
+    background-size: cover;
 }
 
 .slide-bg-4 {
+    @extend .accelerate;
     background: url('/images/bg_2_anim.jpg');
-    -webkit-animation: loader 12s ease-in-out infinite;
+    background-size: cover;
 }
 
 .slide-bg-5 {
+    @extend .accelerate;
     background: url('/images/bg_1.jpg');
-    -webkit-animation: loader 12s ease-in-out infinite;
+    background-size: cover;
 }
 
 .slider-pager {
@@ -82,7 +96,7 @@
 .unlogged-screen {
     width: 100%;
     height: 100%;
-    background: url('/images/bg_1.jpg');
+    background: url('/images/bg_blur.jpg');
     background-size: cover;
     @extend .padding;
 }

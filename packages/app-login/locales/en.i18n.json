@@ -2,5 +2,13 @@
 	"register": "Register",
 	"login": "Log in",
 	"email": "E-mail",
-	"password": "Password"
+	"password": "Password",
+	"slide_1_title": "Join the local community!",
+	"slide_1_desc": "Be in touch with your buddies",
+	"slide_2_title": "Find a partner!",
+	"slide_2_desc": "Find partners for your next adventure",
+	"slide_3_title": "Explore!",
+	"slide_3_desc": "Get in touch with other communities",
+	"slide_4_title": "Share!",
+	"slide_4_desc": "Be an active member of climbing community"
 }
