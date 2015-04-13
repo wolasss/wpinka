@@ -1,4 +1,4 @@
-APP.TheWall = new APP.Stream({
+APP.TheWall = new APP.PositionStream({
 	name: "thewall",
 	collection: "thewall"
 });

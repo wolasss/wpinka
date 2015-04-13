@@ -36,3 +36,5 @@ momentjs:moment
 rcy:nouislider
 skinnygeek1010:cordova-status
 app-thewall-post
+app-position-stream
+app-fixed-stream

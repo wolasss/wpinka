@@ -5,7 +5,7 @@ Package.describe({
 Package.on_use(function (api) {
     var both = ['client', 'server'];
     api.use(['iron:router', 'templating', 'tap:i18n', 'router-helpers'], 'client');
-    api.use(['app', 'app-stream', 'underscore', 'reactive-var'], both);
+    api.use(['app', 'app-position-stream', 'underscore', 'reactive-var'], both);
 
     api.add_files('common/model/model.js', both);
     api.add_files('client/routes/router.js', 'client');

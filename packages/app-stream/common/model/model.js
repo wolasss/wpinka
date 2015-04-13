@@ -54,17 +54,7 @@ APP.Stream = function(config) {
 		self.position.set(position);
 	};
 
-	this.subscribe = function() {
-		if(Meteor.isClient) {
-			Tracker.autorun(function(){
-				var sub = Meteor.subscribe("stream_"+self.config.name, self.position.get(), self.radius.get());
-			});
-		}
-	};
-
 	if(Meteor.isClient && self.config.autoupdate) {
-		this.subscribe();
-
 		Tracker.autorun(function(){
 			var current = APP.Position.current;
 			var position = current.get();
