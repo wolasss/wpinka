@@ -39,4 +39,5 @@ app-thewall-post
 app-position-stream
 app-fixed-stream
 app-crags
-meteorhacks:search-source
+ejson
+search-source

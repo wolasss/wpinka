@@ -29,5 +29,5 @@ SearchSource.defineSource('crags', function(searchText, options) {
 function buildRegExp(searchText) {
   // this is a dumb implementation
   var parts = searchText.trim().split(/[ \-\:]+/);
-  return new RegExp("(" + parts.join('|') + ")", "ig");
+  return new RegExp("(" + parts.join('|') + ")", "img");
 }

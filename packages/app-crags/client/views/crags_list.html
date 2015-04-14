@@ -1,22 +1,22 @@
 <template name="appCragsList">
 	{{#contentFor "headerButtonLeft"}}
-    <button class="button button-clear pull-left" data-ion-menu-toggle="left">
-		{{#if isAndroid}}
-			{{> ionIcon icon='android-more-vertical'}}
-		{{else}}
-			{{> ionIcon icon='navicon'}}
-		{{/if}}
-    </button>
+		<button class="button button-clear pull-left" data-ion-menu-toggle="left">
+			{{#if isAndroid}}
+				{{> ionIcon icon='android-more-vertical'}}
+			{{else}}
+				{{> ionIcon icon='navicon'}}
+			{{/if}}
+		</button>
 	{{/contentFor}}
 
 	{{#contentFor "headerButtonRight"}}
-    <button class="button button-clear pull-right" data-ion-menu-toggle="right">
-		{{#if isAndroid}}
-			{{> ionIcon icon='ios-settings-strong'}}
-		{{else}}
-			{{> ionIcon icon='android-options'}}
-		{{/if}}
-    </button>
+		<button class="button button-clear pull-right" data-ion-menu-toggle="right">
+			{{#if isAndroid}}
+				{{> ionIcon icon='ios-settings-strong'}}
+			{{else}}
+				{{> ionIcon icon='android-options'}}
+			{{/if}}
+		</button>
 	{{/contentFor}}
 
 	{{#contentFor "headerTitle"}}
@@ -28,28 +28,31 @@
 
 		<h5>Nearest crags: </h5>
 		{{#ionList}}
-			{{#each foundCrags}}
-				{{#ionItem buttonRight=false avatar=false}}
-				
-					<h2 class="cragTitle">
-						{{asciiName}}
+			{{#if isLoading}}
+				Loading...
+			{{/if}}
+			<div class="cragList">
+				{{#each foundCrags}}
+					{{#ionItem buttonRight=false avatar=false}}
+					
+						<h2 class="cragTitle">
+							{{{asciiName}}}
+							
+							<span class="url">
+								{{#if urlStub}}
+									{{{urlStub}}}
+								{{else}}
+									{{{urlAncestorStub}}}/{{{nameSlug}}}
+								{{/if}}
+							</span>
+						</h2> 
 						
-						<span>
-							{{#if urlStub}}
-								{{urlStub}}
-							{{else}}
-								{{urlAncestorStub}} / {{nameSlug}}
-							{{/if}}
-						</span>
-					</h2> 
-					
-					<p>
-					 	{{distance}}
-					</p>
-					
-				
-				{{/ionItem}}
-			{{/each}}
+						<p>
+						 	{{distance}}
+						</p>
+					{{/ionItem}}
+				{{/each}}
+			</div>
 		{{/ionList}}
 	{{/ionContent}}
 </template>

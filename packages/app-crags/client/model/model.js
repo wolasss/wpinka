@@ -3,12 +3,6 @@ var options = {
 	localSearch: true
 };
 
-var fields = ['asciiName', 'geometry'];
+var fields = ['asciiName', 'urlStub', 'urlAncestorStub'];
 
 APP.CragsList = new SearchSource('crags', fields, options);
-
-Tracker.autorun(function(){
-	if(APP.Position.current.get()) {
-		APP.CragsList.search("", {currentPosition: APP.Position.current.get()});
-	}
-});

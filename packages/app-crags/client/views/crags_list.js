@@ -2,13 +2,32 @@ function convertToSlug(Text)
 {
     return Text
         .toLowerCase()
-        .replace(/ /g,'-')
-        .replace(/[^\w-]+/g,'');
+        .replace(/[^\w ]+/g,'')
+        .replace(/ +/g,'-');
 }
+
+Template.appCragsList.rendered = function() {
+	Tracker.autorun(function(){
+		if(APP.Position.current.get()) {
+			APP.CragsList.search("", {currentPosition: APP.Position.current.get()});
+		}
+	});
+};
 
 Template.appCragsList.helpers({
 	foundCrags: function() {
-		return APP.CragsList.getData();
+		return APP.CragsList.getData({
+			transform: function(matchText, regExp) {
+
+				if(typeof matchText === "string") {
+					return matchText.replace(regExp, "<span class=\"highlight\">$&</span>");
+				} else {
+					return matchText;
+				}
+				
+			},
+			sort: {isoScore: -1}
+		});
 	},
 	distance: function() {
 		if(APP.Position.getCurrent() && this.geometry && this.geometry.geoJSONPoint) {
@@ -26,5 +45,8 @@ Template.appCragsList.helpers({
 	},
 	nameSlug: function() {
 		return convertToSlug(this.asciiName);
+	},
+	isLoading: function() {
+    	return PackageSearch.getStatus().loading;
 	}
 });
