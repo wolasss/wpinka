@@ -1,0 +1,26 @@
+<template name="appCragsPicker">
+	{{#ionList}}
+
+		<a href="{{pathFor 'appCragsMap'}}">
+			{{#ionItem buttonRight=true avatar=false}}
+				
+					<h2>Open a map</h2>
+					<p>
+					  Open a map and see available locations
+					</p>
+					<button class="button button-positive">{{> ionIcon icon="map"}}</button>
+				
+			{{/ionItem}}
+		</a>
+
+		<a href="{{pathFor 'appCragsList'}}">
+			{{#ionItem buttonRight=true avatar=false}}
+					<h2>Open a list</h2>
+					<p>
+					  Open a list and search 
+					</p>
+					<button class="button button-positive">{{> ionIcon icon="search"}}</button>
+			{{/ionItem}}
+		</a>
+	{{/ionList}}
+</template>

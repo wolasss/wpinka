@@ -1,0 +1,1 @@
+APP.CragsCollection = new Mongo.Collection("nodes");
