@@ -41,3 +41,5 @@ app-fixed-stream
 app-crags
 ejson
 search-source
+app-crag-page
+dburles:mongo-collection-instances

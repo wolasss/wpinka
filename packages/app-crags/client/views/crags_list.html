@@ -33,24 +33,26 @@
 			{{/if}}
 			<div class="cragList">
 				{{#each foundCrags}}
-					{{#ionItem buttonRight=false avatar=false}}
-					
-						<h2 class="cragTitle">
-							{{{asciiName}}}
-							
-							<span class="url">
-								{{#if urlStub}}
-									{{{urlStub}}}
-								{{else}}
-									{{{urlAncestorStub}}}/{{{nameSlug}}}
-								{{/if}}
-							</span>
-						</h2> 
+					<a href="{{pathFor 'appCragPage'}}">
+						{{#ionItem buttonRight=false avatar=false}}
 						
-						<p>
-						 	{{distance}}
-						</p>
-					{{/ionItem}}
+							<h2 class="cragTitle">
+								{{{asciiName}}}
+								
+								<span class="url">
+									{{#if urlStub}}
+										{{{urlStub}}}
+									{{else}}
+										{{{urlAncestorStub}}}/{{{nameSlug}}}
+									{{/if}}
+								</span>
+							</h2> 
+							
+							<p>
+							 	{{distance}}
+							</p>
+						{{/ionItem}}
+					</a>
 				{{/each}}
 			</div>
 		{{/ionList}}

@@ -2,16 +2,26 @@ APP.PositionStream = function(config) {
 	APP.Stream.call(this, config);
 	var self = this;
 
-	this.subscribe = function() {
+	this.subscribe = function(auto) {
+		var sub;
 		if(Meteor.isClient) {
-			Tracker.autorun(function(){
-				var sub = Meteor.subscribe("stream_"+self.config.name, self.position.get(), self.radius.get());
-			});
+			if(auto) {
+				Tracker.autorun(function(){
+					sub = Meteor.subscribe("stream_"+self.config.name, self.position.get(), self.radius.get());
+				});
+			} else {
+				sub = Meteor.subscribe("stream_"+self.config.name, self.position.get(), self.radius.get());
+			}
 		}
+		return sub;
 	};
 
-	this.subscribe();
-}
+	this.publish();
+
+	if(config.autosub) {
+		this.subscribe();
+	}
+};
 
 APP.PositionStream.prototype = Object.create( APP.Stream.prototype );
 APP.PositionStream.prototype.constructor = APP.PositionStream;

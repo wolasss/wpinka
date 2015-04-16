@@ -1,14 +1,14 @@
 APP.RouterHelpers = {
 
-	loginCheck: function(next, success, error) {		
+	loginCheck: function(next, success, error) {
 		if(!success) success = function(){};
 		if(!error) error = function(){};
 
 		if(!Meteor.user() && !Meteor.loggingIn()) {
 			Router.go('/');
-			success.call(null);
+			error.call(this);
 		} else {
-			error.call(null);
+			success.call(this);
 		}
 		next();
 	}

@@ -10,10 +10,11 @@ APP.Stream = function(config) {
 		maxRadius: 50,
 		stepRadius: 1,
 		autoupdate: true,
+		type: null,
 		limit: 10,
 		epsilon: 10, //percent of the radius
 		position: {
-			type: "point",
+			type: "Point",
 			coordinates: [52.4005285,16.9016658]
 		}
 	};
@@ -22,13 +23,18 @@ APP.Stream = function(config) {
 
 	this.seenPosts = new ReactiveVar(0);
 	this.radius = new ReactiveVar(self.config.radius);
-	this.position = new ReactiveVar(self.config.position);
 
-	this.collection = new Mongo.Collection(self.config.collection);
+	this.position = new ReactiveVar(self.config.position);
+	
+	this.collection = Mongo.Collection.get(self.config.collection);
+
+	if(!this.collection) {
+		this.collection = new Mongo.Collection(self.config.collection); 
+	}
 
 	if(Meteor.isServer) {
 		try {
-			self.collection._ensureIndex({ location: "2dsphere", createdAt: -1 });
+			self.collection._ensureIndex({ location: "2dsphere", type: 1, createdAt: -1 });
 		} catch(e) {
 			console.log(e);
 		}
@@ -70,10 +76,10 @@ APP.Stream = function(config) {
 				check(position, Object);
 				check(radius, Number);
 				
-				console.log("New publish: radius: ", radius/6371, "position: ", position.coordinates);
-
+				console.log("Publish: ", "stream_"+self.config.name, "radius (km): ", radius, "position: ", position.coordinates);
+				//TODO: add type prop
 				return self.collection.find({
-					location: { $geoWithin: { $centerSphere: [ [ position.coordinates[0], position.coordinates[1] ] , radius / 6371 ] }}, // 1 degree ~ 69 miles ~ 111.2 km
+					location: { $geoWithin: { $centerSphere: [ [ position.coordinates[0], position.coordinates[1] ], radius / 6371 ] }}, // 1 degree ~ 69 miles ~ 111.2 km
 				},{
 					limit: self.config.limit,
 					sort: {createdAt: -1}

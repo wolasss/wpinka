@@ -47,6 +47,6 @@ Template.appCragsList.helpers({
 		return convertToSlug(this.asciiName);
 	},
 	isLoading: function() {
-    	return PackageSearch.getStatus().loading;
+    	return APP.CragsList.getStatus().loading;
 	}
 });

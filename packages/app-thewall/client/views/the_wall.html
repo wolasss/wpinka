@@ -24,8 +24,9 @@
 	{{/contentFor}}
 
 	{{#ionContent class="posts" }}
-		{{> appTheWallFeed }}
+		{{> stream feed="TheWall" }}
 	{{/ionContent}}
+	
 	<div class="bar bar-footer bar-dark">
 		<a href="{{pathFor 'appTheWallAdd'}}">
 		  <button class="button button-icon icon ion-plus-round"></button>

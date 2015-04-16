@@ -1,0 +1,37 @@
+<template name="appCragPage">
+	{{#contentFor "headerButtonLeft"}}
+		<button class="button button-clear pull-left" data-ion-menu-toggle="left">
+			{{#if isAndroid}}
+				{{> ionIcon icon='android-more-vertical'}}
+			{{else}}
+				{{> ionIcon icon='navicon'}}
+			{{/if}}
+		</button>
+	{{/contentFor}}
+
+	{{#contentFor "headerButtonRight"}}
+		<button class="button button-clear pull-right" data-ion-menu-toggle="right">
+			{{#if isAndroid}}
+				{{> ionIcon icon='ios-settings-strong'}}
+			{{else}}
+				{{> ionIcon icon='android-options'}}
+			{{/if}}
+		</button>
+	{{/contentFor}}
+
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">{{asciiName}}</h1>
+	{{/contentFor}}
+
+	{{#ionContent}}
+		<div class="padding">
+
+			<h5>{{asciiName}}</h5>
+
+			<h5>Location stream: </h5>
+		</div>
+		<div class="posts">
+			{{>stream feed="CragStream"}}
+		</div>
+	{{/ionContent}}
+</template>

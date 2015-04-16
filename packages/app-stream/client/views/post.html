@@ -1,0 +1,22 @@
+<template name="post">
+	<article class="post post--{{type}}">
+		<header class="post__header">
+			<div class="post__header__left">
+				<div class="post__header__avatar">
+
+				</div>
+				<div class="post__header__name">
+					{{name}}
+				</div>
+				<div class="post__header__location">
+					{{distance}}
+				</div>
+			</div>
+			<div class="post__header__right">
+				{{fromNow}}
+			</div>
+		</header>
+
+		{{> Template.dynamic template=postTemplateName }}
+	</article>
+</template>

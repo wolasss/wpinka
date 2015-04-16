@@ -12,7 +12,8 @@ Meteor.methods({
 		check(post.content, Match.Where(APP.Validators.isContentNotTooLong));
 
 		var retPost = {
-			content: post.content
+			content: post.content,
+			type: "status"
 		};
 
 		return APP.Stream.addPost.call(this, APP.TheWall.collection, retPost, position);

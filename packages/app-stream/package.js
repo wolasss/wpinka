@@ -4,7 +4,7 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app', 'reactive-var', 'geojson-utils', 'mongo', 'underscore', 'tracker', 'app-position'], both);
+    api.use(['app', 'reactive-var', 'geojson-utils', 'mongo', 'underscore', 'tracker', 'app-position', 'dburles:mongo-collection-instances'], both);
     api.use(['templating'], 'client');
     
     api.export("APP");
@@ -18,6 +18,12 @@ Package.on_use(function (api) {
     api.add_files('server/model/model.js', 'server');
     api.add_files('server/methods/methods.js', 'server');
     api.add_files('server/publish/publish.js', 'server');
+
+    api.add_files('client/views/post.html', 'client');
+    api.add_files('client/views/post.js', 'client');
+
+    api.add_files('client/views/stream.html', 'client');
+    api.add_files('client/views/stream.js', 'client');
 
     api.add_files('client/subscriptions/subscriptions.js', 'client');
 });

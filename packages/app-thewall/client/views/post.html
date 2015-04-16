@@ -1,66 +1,50 @@
-<template name="appTheWallPost">
-	<article class="post">
-		<header class="post__header">
-			<div class="post__header__left">
-				<div class="post__header__avatar">
+<template name="post_status">
 
-				</div>
-				<div class="post__header__name">
-					{{name}}
-				</div>
-				<div class="post__header__location">
-					{{distance}}
-				</div>
-			</div>
-			<div class="post__header__right">
-				{{fromNow}}
-			</div>
-		</header>
 		<div class="post__content">
 			{{content}}
 		</div>
+
 		<footer class="post__footer">
-		<div class="post__footer__box post__footer__likes">
-			<div class="post__footer__icon">
-				<i class="ion-android-favorite-outline"></i>
-			</div>
-			<div class="post_footer_extension">
-				<div class="post__footer__title">
-					{{_ "postLikes"}}
+			<div class="post__footer__box post__footer__likes">
+				<div class="post__footer__icon">
+					<i class="ion-android-favorite-outline"></i>
 				</div>
-				<div class="post__footer__counter">
-					223
+				<div class="post_footer_extension">
+					<div class="post__footer__title">
+						{{_ "postLikes"}}
+					</div>
+					<div class="post__footer__counter">
+						223
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="post__footer__box post__footer__comments">
-			<div class="post__footer__icon">
-				<i class="ion-ios-chatboxes-outline"></i>
-			</div>
-			<div class="post_footer_extension">
-				<div class="post__footer__title">
-					{{_ "postComments"}}
+			<div class="post__footer__box post__footer__comments">
+				<div class="post__footer__icon">
+					<i class="ion-ios-chatboxes-outline"></i>
 				</div>
-				<div class="post__footer__counter">
-					223
+				<div class="post_footer_extension">
+					<div class="post__footer__title">
+						{{_ "postComments"}}
+					</div>
+					<div class="post__footer__counter">
+						223
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="post__footer__box post__footer__shares last">
-			<div class="post__footer__icon">
-				<i class="ion-ios-upload-outline"></i>
-			</div>
-			<div class="post_footer_extension">
-				<div class="post__footer__title">
-					{{_ "postShares"}}
+			<div class="post__footer__box post__footer__shares last">
+				<div class="post__footer__icon">
+					<i class="ion-ios-upload-outline"></i>
 				</div>
-				<div class="post__footer__counter">
-					223
+				<div class="post_footer_extension">
+					<div class="post__footer__title">
+						{{_ "postShares"}}
+					</div>
+					<div class="post__footer__counter">
+						223
+					</div>
 				</div>
 			</div>
-		</div>
 		</footer>
-	</article>
 </template>
