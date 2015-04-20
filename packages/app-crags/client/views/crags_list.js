@@ -1,6 +1,6 @@
 function convertToSlug(Text)
 {
-    return Text
+    return Text && Text
         .toLowerCase()
         .replace(/[^\w ]+/g,'')
         .replace(/ +/g,'-');

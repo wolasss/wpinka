@@ -8,7 +8,7 @@ SearchSource.defineSource('crags', function(searchText, options) {
     var regExp = buildRegExp(searchText);
     var selector = {};
 
-    if(options.filters && options.filters.country) {
+    if(options && options.filters && options.filters.country) {
 
       var countryNode = APP.CragsCollection.findOne({countryID: searchText});
       if(countryNode) {
@@ -18,6 +18,17 @@ SearchSource.defineSource('crags', function(searchText, options) {
         ]};
       
       }
+    } else if(options && options.filters && options.filters.distance && options.currentPosition) {
+
+      selector = {
+        "geometry.geoJSONPoint": { $near: {
+          $geometry: options.currentPosition,
+          $maxDistance: 900000
+        }}
+      };
+
+      if(options.filters.distance.minDistance) selector["geometry.geoJSONPoint"].$near.$minDistance = options.filters.distance.minDistance*1000;
+      if(options.filters.distance.maxDistance) selector["geometry.geoJSONPoint"].$near.$maxDistance = options.filters.distance.maxDistance*1000;
     } else {
       selector = {$or: [
         {asciName: regExp},

@@ -122,7 +122,6 @@ SearchSource.prototype.getData = function(options, getCursor) {
     if(options.transform) {
       self.searchFields.forEach(function(field) {
         if(self.currentQuery && doc[field]) {
-          console.log(options.transform);
           doc[field] = options.transform(doc[field], regExp, field, self.currentQuery);
         }
       });

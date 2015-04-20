@@ -58,6 +58,10 @@
 }
 
 .distance-picker {
+	.distance-label {
+		width: 100%;
+		display: block;
+	}
 	.distance-from, .distance-to {
 		width: 85%;
 		display: inline-block;
