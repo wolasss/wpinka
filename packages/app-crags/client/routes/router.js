@@ -19,7 +19,10 @@ Router.map(function(){
         path: '/cragsList',
         layoutTemplate: 'layout',
         template: 'appCragsList',
-        rightMenu: 'appTheWallRightMenu',
+        rightMenu: 'appCragListRightMenu',
+        waitOn: function() {
+            return Meteor.subscribe("countryList");
+        },
         onBeforeAction: APP.RouterHelpers.loginCheck(function(){return this.next}, function(){
             APP.TheWall.seenPosts && APP.TheWall.seenPosts.set(0);
         })

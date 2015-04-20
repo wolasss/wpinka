@@ -1,0 +1,46 @@
+<template name="appCragListRightMenu">
+		<div class="bar bar-header bar-positive">
+			<h1 class="title">{{_ "rightMenuTitle"}}</h1>
+		</div>
+         <div class="content has-header">
+			<ul>
+				<li>
+					<div class="menu-right-setting">
+						<div class="menu-right-settings-title">
+							{{_ "country"}}
+						</div>
+						<div class="menu-right-settings-value">
+							
+						</div>
+						<div class="menu-right-settings-setter">
+							<div class="country-picker">
+								<select>
+									<option name="" selected> </option>
+									{{#each country}}
+										<option name="{{id}}">{{name}}</option>
+									{{/each}}
+								</select>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="menu-right-setting">
+						<div class="menu-right-settings-title">
+							{{_ "distance"}}
+						</div>
+						<div class="menu-right-settings-value">
+							
+						</div>
+						<div class="menu-right-settings-setter">
+							<div class="distance-picker">
+								{{_ "from"}}: <input type="number" name="distance-from"> km
+								{{_"to"}}: <input type="number" name="distance-to"> km
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+</template>

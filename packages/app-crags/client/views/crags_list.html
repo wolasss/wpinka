@@ -29,7 +29,7 @@
 		<h5>Nearest crags: </h5>
 		{{#ionList}}
 			{{#if isLoading}}
-				Loading...
+				{{> ionLoading}}
 			{{/if}}
 			<div class="cragList">
 				{{#each foundCrags}}

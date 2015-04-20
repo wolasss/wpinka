@@ -50,3 +50,16 @@
 	width: 100%;
 	padding: 15px 20px;
 }
+
+.country-picker {
+	select {
+		width: 100%;
+	}
+}
+
+.distance-picker {
+	.distance-from, .distance-to {
+		width: 85%;
+		display: inline-block;
+	}
+}

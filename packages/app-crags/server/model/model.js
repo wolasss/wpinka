@@ -6,13 +6,26 @@ SearchSource.defineSource('crags', function(searchText, options) {
   console.log("search text: [",searchText,"]", options);
   if(searchText) {
     var regExp = buildRegExp(searchText);
-    
-    var selector = {$or: [
-      {asciName: regExp},
-      {urlStub: regExp},
-      {urlAncestorStub: regExp}
-    ]};
-    console.log(selector)
+    var selector = {};
+
+    if(options.filters && options.filters.country) {
+
+      var countryNode = APP.CragsCollection.findOne({countryID: searchText});
+      if(countryNode) {
+
+        selector = {$or: [
+          {parentID: countryNode.id}
+        ]};
+      
+      }
+    } else {
+      selector = {$or: [
+        {asciName: regExp},
+        {urlStub: regExp},
+        {urlAncestorStub: regExp}
+      ]};
+    }
+
     return APP.CragsCollection.find(selector, {limit: 25}).fetch();
   } else {
     if(!options.currentPosition) return [];

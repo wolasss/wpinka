@@ -171,7 +171,6 @@ SearchSource.prototype._fetchHttp = function(source, query, options, callback) {
   var headers = {
     "Content-Type": "text/ejson"
   };
-  console.log(EJSON, EJSON.stringify);
 
   HTTP.post('/_search-source', {
     content: EJSON.stringify(payload),

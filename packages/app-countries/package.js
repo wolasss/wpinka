@@ -4,9 +4,7 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app', 'tap:i18n', 'ejson', 'search-source', 'app-position', 'tracker', 'mongo', 'underscore', 'app-countries'], both);
-
-    api.use(['templating', 'iron:router'], ['client']);
+    api.use(['app', 'tap:i18n', 'mongo', 'underscore', 'templating'], both);
 
     api.add_files('package-tap.i18n', both);
 
@@ -20,17 +18,6 @@ Package.on_use(function (api) {
     api.add_files('server/methods/methods.js', 'server');
     api.add_files('server/publish/publish.js', 'server');
 
-    api.add_files('client/views/list_menu.html', 'client');
-    api.add_files('client/views/list_menu.js', 'client');
-    api.add_files('client/views/events/list_menu.js', 'client');
-
-    api.add_files('client/views/crags_list.html', 'client');
-    api.add_files('client/views/crags_list.js', 'client');
-    api.add_files('client/views/events/crags_list.js', 'client');
-
-    api.add_files('client/views/crags_picker.html', 'client');
-    api.add_files('client/views/crags_screen.html', 'client');
-
     api.add_files('client/subscriptions/subscriptions.js', 'client');
 
     api.add_files([
@@ -41,4 +28,8 @@ Package.on_use(function (api) {
 
 Package.on_test(function (api) {
     api.use(['tinytest', 'test-helpers'], ['client']);
+});
+
+Cordova.depends({
+    "org.apache.cordova.globalization": "0.3.4"
 });
