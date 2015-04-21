@@ -26,6 +26,10 @@ Package.on_use(function (api) {
 
     api.add_files('client/views/crags_list.html', 'client');
     api.add_files('client/views/crags_list.js', 'client');
+
+    api.add_files('client/views/crags_map.html', 'client');
+    api.add_files('client/views/crags_map.js', 'client');
+    
     api.add_files('client/views/events/crags_list.js', 'client');
 
     api.add_files('client/views/crags_picker.html', 'client');

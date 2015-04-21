@@ -7,7 +7,7 @@ Router.map(function(){
         template: 'appCragsScreen',
         rightMenu: 'appTheWallRightMenu',
         onBeforeAction: APP.RouterHelpers.loginCheck(function(){return this.next}, function(){
-            APP.TheWall.seenPosts && APP.TheWall.seenPosts.set(0);
+        
         })
     });
 });
@@ -24,7 +24,22 @@ Router.map(function(){
             return Meteor.subscribe("countryList");
         },
         onBeforeAction: APP.RouterHelpers.loginCheck(function(){return this.next}, function(){
-            APP.TheWall.seenPosts && APP.TheWall.seenPosts.set(0);
+        
+        })
+    });
+});
+
+
+Router.map(function(){
+    this.route('appCragsMap', function(){
+        this.render();
+    }, {
+        path: '/cragsMap',
+        layoutTemplate: 'layout',
+        template: 'appCragsMap',
+        rightMenu: 'appCragListRightMenu',
+        onBeforeAction: APP.RouterHelpers.loginCheck(function(){return this.next}, function(){
+        
         })
     });
 });

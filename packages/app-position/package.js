@@ -9,6 +9,7 @@ Package.on_use(function (api) {
 
     api.add_files('client/views/position_alert.html', 'client');
     api.add_files('client/views/events/position_alert.js', 'client');
+    api.add_files('client/views/global.js', 'client');
 
     api.add_files('common/model/model.js', both);
     api.add_files('client/routes/router.js', 'client');
