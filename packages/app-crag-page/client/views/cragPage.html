@@ -28,7 +28,16 @@
 
 			<h5>{{asciiName}}</h5>
 
+			<h5>{{_ "seasonality"}}</h5>
+				
+			{{> appSeasonalityChart}}
+
+			<h5>{{_ "gallery"}} {{#if numberPhotos}} ({{numberPhotos}}) {{/if}}</h5>
+			
+	
 			<h5>Location stream: </h5>
+
+
 		</div>
 		<div class="posts">
 			{{>stream feed="CragStream"}}

@@ -4,6 +4,9 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
+    
+    api.use('chart:chart', 'client');
+
     api.use(['app', 'tap:i18n', 'templating', 'app-crags', 'iron:router', 'app-stream'], both);
 
     api.add_files('package-tap.i18n', both);
@@ -22,6 +25,9 @@ Package.on_use(function (api) {
 
     api.add_files('client/views/cragPage.html', 'client');
     api.add_files('client/views/cragPage.js', 'client');
+
+    api.add_files('client/views/seasonality_chart.html', 'client');
+    api.add_files('client/views/seasonality_chart.js', 'client');
 
     api.add_files([
         'locales/en.i18n.json',
