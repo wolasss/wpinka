@@ -35,3 +35,16 @@
 .button.button-save {
 	margin: 0;
 }
+
+.button.button-half {
+	width: 49%;
+	margin: 0 0.4%; //hack TODO: fix
+}
+
+.button.button-half-left {
+	margin-left: 0;
+}
+
+.button.button-half-right {
+	margin-right: 0;
+}

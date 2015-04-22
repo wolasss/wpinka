@@ -6,6 +6,15 @@ Router.map(function(){
         this.render();
     }, {
         data: function() {
+            var data = APP.CragsCollection.findOne({id: this.params.id});
+            
+            if(data && data.childIDs) {
+                var list = data.childIDs;
+                list.push(data.id);
+
+                Meteor.subscribe("crag", list);
+            }
+
             return APP.CragsCollection.findOne({id: this.params.id});
         },
         path: '/crag/:id',
@@ -15,7 +24,7 @@ Router.map(function(){
         waitOn: function() {
             var data = this.data();
 
-            if(data) {
+            if(data && data.geometry && data.geometry.geoJSONPoint) {
                 APP.CragStream = new APP.FixedStream({
                     name: "crag",
                     collection: "posts",

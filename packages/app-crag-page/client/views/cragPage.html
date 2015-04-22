@@ -25,8 +25,59 @@
 
 	{{#ionContent}}
 		<div class="padding">
+			<div class="stats">
 
-			<h5>{{asciiName}}</h5>
+				{{#if averageHeight}}
+					<p>
+						<strong>{{_ "height"}}</strong>: {{height}}
+					</p>
+				{{/if}}
+
+				<p>
+					<strong>{{_ "ascents"}}</strong>: 72
+				</p>
+				
+				<p>
+					<strong>{{_ "style"}}</strong>: <span class="tag tag-sport"></span> 67% Sport  <span class="tag tag-trad"></span> 27% Trad  <span class="tag tag-unknown"></span> 5% Unknown
+				</p>
+
+				
+			</div>
+
+			<div class="desc">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et mi condimentum tellus accumsan sollicitudin. Etiam cursus nisl et tincidunt vulputate. Nullam mauris nulla, sollicitudin at efficitur quis, tempus tempus lacus.
+			</div>
+
+			<button class="button button-block button-balanced icon-left ion-map">{{_ "openMap"}}</button>
+			<button class="button button-royal button-half button-half-left icon-left ion-help-buoy">{{_ "hints"}}</button>
+			<button class="button button-calm button-half button-half-right icon-left ion-podium">{{_ "ambassadors"}}</button>
+
+			<h5>{{_ "subAreas"}}</h5>
+
+			<ul class="cragList list list-inset">
+				{{#each subcrags}}
+					<a href="{{pathFor 'appCragPage'}}">
+						{{#ionItem buttonRight=false avatar=false}}
+							<h2 class="cragTitle">
+								{{{asciiName}}}
+								
+								<span class="url">
+									{{#if urlStub}}
+										{{{urlStub}}}
+									{{else}}
+										{{{urlAncestorStub}}}/{{{nameSlug}}}
+									{{/if}}
+								</span>
+							</h2> 
+							
+							<p>
+							 	{{distance}}
+							</p>
+						{{/ionItem}}
+					</a>
+				{{/each}}
+			</ul>
+			
 
 			<h5>{{_ "seasonality"}}</h5>
 				

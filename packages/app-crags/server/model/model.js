@@ -34,7 +34,10 @@ SearchSource.defineSource('crags', function(searchText, options) {
         {asciName: regExp},
         {urlStub: regExp},
         {urlAncestorStub: regExp}
-      ]};
+      ], "depth": {
+        $gt: "2"
+      }};
+
     }
 
     return APP.CragsCollection.find(selector, {limit: 25}).fetch();

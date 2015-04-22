@@ -1,4 +1,11 @@
 {
 	"gallery": "Gallery",
-	"seasonality": "Seasonality"
+	"seasonality": "Seasonality",
+	"subAreas": "Subareas",
+	"openMap": "Check it out on the map",
+	"ambassadors": "Ambassadors",
+	"hints": "Practical info",
+	"height": "Average height",
+	"ascents": "Ascents",
+	"style": "Style"
 }

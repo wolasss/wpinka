@@ -48,3 +48,21 @@ $button-default-border: #fff;
 		display: none;
 	}
 }
+
+.tag {
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+}
+
+.tag-sport {
+	background: $positive;
+}
+
+.tag-trad {
+	background: $assertive;
+}
+
+.tag-unknown {
+	background: $royal;
+}
