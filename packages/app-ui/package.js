@@ -19,6 +19,7 @@ Package.on_use(function (api) {
     api.add_files('client/styles/posts.scss', 'client');
     api.add_files('client/styles/slider.scss', 'client');
     api.add_files('client/styles/textarea.scss', 'client');
+    api.add_files('client/styles/map.scss', 'client');
 
 
 });

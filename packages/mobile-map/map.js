@@ -2,6 +2,9 @@ Template.nativeMap.created = function(){
     if(Meteor.isCordova) {
         this.autorun(function(){
             var data = Template.currentData();
+            
+            console.log(data);
+
 
             if(!data.currentLocation) {
                 console.log("Map has no current location");

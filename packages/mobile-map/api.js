@@ -1,18 +1,22 @@
 MapControl = {
     setup : function(mapContainer){
         if(!plugin) return;
+        var self = this;
 
-        var control = this;
-        var map = plugin.google.maps.Map.getMap(mapContainer);
-        this.__map = map;
+        document.addEventListener("deviceready", function() {
+            var control = self;
+            var map = plugin.google.maps.Map.getMap(mapContainer);
+            self.__map = map;
 
-        map.on(plugin.google.maps.event.MAP_READY, function(){
-            control.__isReady.set(true);
+            map.on(plugin.google.maps.event.MAP_READY, function(){
+                console.log("MAP READY");
+                control.__isReady.set(true);
+            });
+
+            map.on(plugin.google.maps.event.CAMERA_CHANGE, _.throttle(function() {
+                
+            }, 1000));
         });
-
-        map.on(plugin.google.maps.event.CAMERA_CHANGE, _.throttle(function() {
-            
-        }, 1000));
     },
 
     destroy : function(){
@@ -24,6 +28,7 @@ MapControl = {
     },
 
     centerMap : function(latitude,longitude){
+        console.log("centering map", latitude, longitude)
         if(!plugin) return;
 
         if(this.__center){
@@ -33,16 +38,7 @@ MapControl = {
         }
 
         this.__center = new plugin.google.maps.LatLng(latitude, longitude);
-
-        var that = this;
-
-        that.__map.animateCamera({
-            'target': that.__center
-        }, function() {
-            that.__map.animateCamera({
-                'zoom': 16
-            });
-        });
+        this.__map.setCenter(this.__center);
     },
 
     setOnMarkerClick : function(handler){

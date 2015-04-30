@@ -23,10 +23,12 @@
 		<h1 class="title">{{_ "cragsTitle"}}</h1>
 	{{/contentFor}}
 
-	{{#ionContent class="padding"}}
-		{{#nativeMap currentLocation=currentLocation}}
-			<!-- you can put any additional HTML overlay here -->
-		{{/nativeMap}}
+	{{#ionContent}}
+		<div style="width: 100%; height: 100%">
+			{{#nativeMap currentLocation=currentLocation}}
+				<!-- you can put any additional HTML overlay here -->
+			{{/nativeMap}}
+		</div>
 	{{/ionContent}}
 	
 </template>
