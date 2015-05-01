@@ -9,23 +9,13 @@
 		</button>
 	{{/contentFor}}
 
-	{{#contentFor "headerButtonRight"}}
-		<button class="button button-clear pull-right" data-ion-menu-toggle="right">
-			{{#if isAndroid}}
-				{{> ionIcon icon='ios-settings-strong'}}
-			{{else}}
-				{{> ionIcon icon='android-options'}}
-			{{/if}}
-		</button>
-	{{/contentFor}}
-
 	{{#contentFor "headerTitle"}}
 		<h1 class="title">{{_ "cragsTitle"}}</h1>
 	{{/contentFor}}
 
 	{{#ionContent}}
 		<div style="width: 100%; height: 100%">
-			{{#nativeMap currentLocation=currentLocation}}
+			{{#nativeMap center=currentLocation zoom="7"}}
 				<!-- you can put any additional HTML overlay here -->
 			{{/nativeMap}}
 		</div>

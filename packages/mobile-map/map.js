@@ -1,40 +1,14 @@
-Template.nativeMap.created = function(){
-    if(Meteor.isCordova) {
-        this.autorun(function(){
-            var data = Template.currentData();
-            
-            console.log(data);
+Template.nativeMap.onRendered(function(){
+    var self = this;
 
-
-            if(!data.currentLocation) {
-                console.log("Map has no current location");
-                return;
-            } else if(!data.currentLocation.type || !data.currentLocation.coordinates) {
-                console.log("current position is not a geoJSON");
-            }
-
-            console.log('@@@ updates to map data');
-            console.log('@@@ current location is', data.currentLocation);
-            console.log('@@@ markers are', data.markers);
-            
-            if(data.currentLocation && MapControl.isReady()) {
-                MapControl.centerMap(data.currentLocation.coordinates[0], data.currentLocation.coordinates[1]);
-            }
-
-            if(data.markers && data.markers.length > 0 && MapControl.isReady()){
-                MapControl.setMarkers(data.markers);
-            }
-        })
-    }
-};
-
-Template.nativeMap.rendered = function(){
     document.addEventListener("deviceready", function() {
+        var data = self.data;
+
         if(Meteor.isCordova){
-            MapControl.setup($(".map_canvas")[0]);
+            MapControl.setup($(".map_canvas")[0], data.center, parseInt(data.zoom,10));
         }
     });
-};
+});
 
 Template.nativeMap.destroyed = function(){
     MapControl.destroy();
