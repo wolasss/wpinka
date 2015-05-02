@@ -7,5 +7,13 @@ Meteor.publish("mapCrags", function(box){
 
 	return APP.CragsCollection.find({depth: "3", "geometry.geoJSONPoint": {$geoWithin: {
         $box: box
-    }}});
+    }}}, {
+		fields: {
+			"geometry.lat": 1,
+			"geometry.long": 1,
+			"geometry.geoJSONPoint": 1,
+			"id": 1,
+			"name": 1
+		}
+    });
 });

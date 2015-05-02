@@ -15,7 +15,7 @@ Router.map(function(){
                 Meteor.subscribe("crag", list);
             }
 
-            return APP.CragsCollection.findOne({id: this.params.id});
+            return data;
         },
         path: '/crag/:id',
         layoutTemplate: 'layout',
@@ -33,6 +33,28 @@ Router.map(function(){
                 APP.CragStream.subscribe()
             } 
             
+            return Meteor.subscribe("crag", this.params.id);
+        },
+        onBeforeAction: APP.RouterHelpers.loginCheck(function(){return this.next}, function(){
+        })
+    });
+});
+
+Router.map(function(){
+    var self = this;
+
+    this.route('appCragPageMap', function(){
+
+        this.render();
+    }, {
+        data: function() {
+            return APP.CragsCollection.findOne({id: this.params.id});
+        },
+        path: '/crag/:id/map',
+        layoutTemplate: 'layout',
+        template: 'appCragPageMap',
+        rightMenu: 'appTheWallRightMenu',
+        waitOn: function() {
             return Meteor.subscribe("crag", this.params.id);
         },
         onBeforeAction: APP.RouterHelpers.loginCheck(function(){return this.next}, function(){

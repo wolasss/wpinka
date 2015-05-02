@@ -1,4 +1,5 @@
-<template name="appCragsMap">
+<template name="appCragPageMap">
+		
 	{{#contentFor "headerButtonLeft"}}
 		<button class="button button-clear pull-left" data-ion-menu-toggle="left">
 			{{#if isAndroid}}
@@ -7,18 +8,17 @@
 				{{> ionIcon icon='navicon'}}
 			{{/if}}
 		</button>
-	{{/contentFor}}
+	{{/contentFor}}	
 
 	{{#contentFor "headerTitle"}}
-		<h1 class="title">{{_ "cragsTitle"}}</h1>
+		<h1 class="title">{{asciiName}}</h1>
 	{{/contentFor}}
 
 	{{#ionContent}}
 		<div style="width: 100%; height: 100%">
-			{{#nativeMap center=currentLocation zoom="7" onCameraChange=onCameraChange }}
-
+			{{#nativeMap center=cragLocation zoom="13" markers=cragMarkers }}
+				<!-- you can put any additional HTML overlay here -->
 			{{/nativeMap}}
 		</div>
 	{{/ionContent}}
-	
 </template>

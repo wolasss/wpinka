@@ -1,7 +1,8 @@
 MapControl = {
-    setup : function(mapContainer, center, zoom){
+    setup : function(mapContainer, center, zoom, markers){
         if(!plugin) return;
         var self = this;
+        this.__markers = [];
 
         document.addEventListener("deviceready", function() {
             var control = self;
@@ -21,41 +22,18 @@ MapControl = {
                 if(zoom) {
                     self.__map.setZoom(zoom);
                 }
+
+                if(markers) {
+                    console.log("mamy markery", markers);
+
+                    self.setMarkers(markers);
+                }
             });
 
-            var sub;
             map.on(plugin.google.maps.event.CAMERA_CHANGE, _.debounce(function() {
-                self.__map.getVisibleRegion(function(latLngBounds) {
-                    if(self.__center) {
-                        var box = [[latLngBounds.southwest.lat, latLngBounds.southwest.lng],[latLngBounds.northeast.lat, latLngBounds.northeast.lng]];
-                        if(sub) sub.stop();
-
-                        sub = Meteor.subscribe("mapCrags", box);
-
-                        Tracker.autorun(function(){
-                            if(sub.ready()) {
-                                var crags = APP.CragsCollection.find().fetch();
-                                var markers = [];
-
-                                _.each(crags, function(crag){
-                                    if(crag.id && crag.name && crag.geometry && crag.geometry.lat && crag.geometry.long && !crag.isCountry) {
-                                        markers.push({
-                                            _id: crag.id,
-                                            latitude: crag.geometry.lat,
-                                            longitude: crag.geometry.long,
-                                            title: crag.name,
-                                            snippet: "Click to open crag page"
-                                        });
-                                    }
-                                });
-
-                                MapControl.addMarkers(markers);
-                            }
-                        });
-                    } else {
-                        self.centerMap(center.coordinates[0], center.coordinates[1]);
-                    }
-                });
+                if(self.__onCameraChange) {
+                    self.__onCameraChange.call(self, null);
+                }
             }, 1000));
         });
     },
@@ -79,10 +57,14 @@ MapControl = {
         this.__onMarkerClick = handler;
     },
 
+    setOnCameraChange : function(handler){
+        this.__onCameraChange = handler;
+    },
+
     setMarkers : function(markers){
         var newMarkersIds = _.map(markers, this.getMarkerId);
         var currentMarkerIds = _.map(this.__markers, this.getMarkerId);
-        var removedMarkersIds = _.difference(currentMarkerIds, newMarkersIds); 
+        var removedMarkersIds = _.difference(currentMarkerIds, newMarkersIds);
 
 
         console.log('@@@ new markers', newMarkersIds);
@@ -95,6 +77,8 @@ MapControl = {
 
         // add new ones (addMarkers auto checks for dupes)
         this.addMarkers(markers);
+
+        console.log("after setting: ", this.__markers);
     },
 
     addMarkers : function(markers){
@@ -106,9 +90,11 @@ MapControl = {
 
         _.each(markers, function(m){
 
-            var existingMarker = _.find(that.__markers, function(m){
-                return m._id === that.getMarkerId(m);
+            var existingMarker = _.find(that.__markers, function(ma){
+                return ma._id === that.getMarkerId(m);
             });
+            
+            console.log(existingMarker);
 
             if(!existingMarker){
                 that.__map.addMarker({
@@ -117,15 +103,13 @@ MapControl = {
                     snippet: m.snippet,
                     _id: m._id
                 },function(marker) {
-                    
                     var m = marker;
-
-                    console.log("marker rendered", marker);
-
                     that.__markers.push({
                         _id : marker.get('_id'),
                         marker : marker
                     });
+
+                    console.log("marker rendered", marker);
                     
                     marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(marker) {
                         if(that.__onMarkerClick){
@@ -141,21 +125,24 @@ MapControl = {
                 console.log('@@@ marker already on the map, skipping');
             }
         });
+
+        console.log("after adding: ", this.__markers);
     },
 
     removeMarkers : function(markers){
-        var ids = _.map(markers, this.getMarkerId);
         var markersToRemove = _.filter(this.__markers, function(m){
-            return ids.indexOf(m._id) !== -1;
+            return markers.indexOf(m._id) !== -1;
         });
 
         _.each(markersToRemove, function(m){ m.marker.remove(); });
 
-        console.log('removing', ids);
+        console.log('removing', markers);
 
         this.__markers = _.filter(this.__markers, function(m){
-            return ids.indexOf(m._id) === -1;
+            return markers.indexOf(m._id) === -1;
         });
+
+        console.log("after removal: ", this.__markers);
     },
 
     getMarkers : function(){
@@ -172,5 +159,6 @@ MapControl = {
     __onMarkerClick : function(marker){
         marker.showInfoWindow();
     },
+    __onCameraChange : null,
     __center : null
 };

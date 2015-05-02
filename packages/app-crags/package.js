@@ -4,7 +4,7 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app', 'tap:i18n', 'ejson', 'search-source', 'app-position', 'tracker', 'mongo', 'underscore', 'app-countries'], both);
+    api.use(['app', 'tap:i18n', 'ejson', 'search-source', 'app-position', 'tracker', 'mongo', 'underscore', 'app-countries', 'mobile-map'], both);
 
     api.use(['templating', 'iron:router'], ['client']);
 
