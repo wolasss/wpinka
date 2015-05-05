@@ -15,10 +15,12 @@
 	{{/contentFor}}
 
 	{{#ionContent}}
-		<div style="width: 100%; height: 100%">
-			{{#nativeMap center=cragLocation zoom="13" markers=cragMarkers }}
-				<!-- you can put any additional HTML overlay here -->
-			{{/nativeMap}}
-		</div>
+		{{#if this}}
+			<div style="width: 100%; height: 100%">
+				{{#nativeMap center=cragLocation zoom="13" markers=cragMarkers }}
+					<!-- you can put any additional HTML overlay here -->
+				{{/nativeMap}}
+			</div>
+		{{/if}}
 	{{/ionContent}}
 </template>

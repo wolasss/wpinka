@@ -10,10 +10,14 @@ var _onCameraChange = function() {
             if(comp && comp.stop) comp.stop();
 
             sub = Meteor.subscribe("mapCrags", box);
+            
+            IonLoading.show();
 
             comp = Tracker.autorun(function(c){
             	console.log("autorun: ", sub.ready(), c._id);
                 if(sub.ready()) {
+                    
+                    IonLoading.hide();
 
                     var crags = APP.CragsCollection.find({}, {reactive: false}).fetch();
                     var markers = [];

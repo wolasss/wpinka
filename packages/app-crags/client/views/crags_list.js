@@ -6,12 +6,24 @@ function convertToSlug(Text)
         .replace(/ +/g,'-');
 }
 
+
+
+Template.appCragsList.created = function () {
+	this.subscribe("countryList");
+};
+
 Template.appCragsList.rendered = function() {
-	Tracker.autorun(function(){
-		if(APP.Position.current.get()) {
-			APP.CragsList.search("", {currentPosition: APP.Position.current.get()});
+	this.autorun(function () {
+		if (!this.subscriptionsReady()) {
+			IonLoading.show();
+		} else {
+			if(APP.Position.current.get()) {
+				//this is causing exception when hiding loading, but it hides properly - to further investigation
+				APP.CragsList.search("", {currentPosition: APP.Position.current.get()});
+			}
+			IonLoading.hide();
 		}
-	});
+	}.bind(this));
 };
 
 Template.appCragsList.helpers({

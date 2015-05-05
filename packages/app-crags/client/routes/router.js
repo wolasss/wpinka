@@ -20,9 +20,6 @@ Router.map(function(){
         layoutTemplate: 'layout',
         template: 'appCragsList',
         rightMenu: 'appCragListRightMenu',
-        waitOn: function() {
-            return Meteor.subscribe("countryList");
-        },
         onBeforeAction: APP.RouterHelpers.loginCheck(function(){return this.next}, function(){
         
         })

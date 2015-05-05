@@ -1,3 +1,18 @@
+Template.appCragPageMap.created = function() {
+	var route = Router.current();
+	this.subscribe("crag", route.params.id);
+};
+
+Template.appCragPageMap.rendered = function() {
+	this.autorun(function () {
+		if (!this.subscriptionsReady()) {
+			if(!IonLoading.view) IonLoading.show();
+		} else {
+			IonLoading.hide();
+		}
+	}.bind(this));
+};
+
 Template.appCragPageMap.helpers({
 	cragLocation: function(){
 		return this.geometry && this.geometry.geoJSONPoint;

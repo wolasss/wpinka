@@ -14,7 +14,3 @@ APP.RouterHelpers = {
 	}
 
 };
-
-Router.configure({
-	loadingTemplate: 'ionLoading'
-});
