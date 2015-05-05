@@ -4,5 +4,6 @@
 	"country": "Country",
 	"distance": "Distance",
 	"from": "From",
-	"to": "To"
+	"to": "To",
+	"openCrag": "Click to open crag page"
 }

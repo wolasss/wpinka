@@ -24,8 +24,6 @@ MapControl = {
                 }
 
                 if(markers) {
-                    console.log("mamy markery", markers);
-
                     self.setMarkers(markers);
                 }
             });
@@ -77,8 +75,6 @@ MapControl = {
 
         // add new ones (addMarkers auto checks for dupes)
         this.addMarkers(markers);
-
-        console.log("after setting: ", this.__markers);
     },
 
     addMarkers : function(markers){
@@ -94,8 +90,6 @@ MapControl = {
                 return ma._id === that.getMarkerId(m);
             });
             
-            console.log(existingMarker);
-
             if(!existingMarker){
                 that.__map.addMarker({
                     position: new plugin.google.maps.LatLng(m.latitude, m.longitude),
@@ -108,8 +102,6 @@ MapControl = {
                         _id : marker.get('_id'),
                         marker : marker
                     });
-
-                    console.log("marker rendered", marker);
                     
                     marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(marker) {
                         if(that.__onMarkerClick){
@@ -125,8 +117,6 @@ MapControl = {
                 console.log('@@@ marker already on the map, skipping');
             }
         });
-
-        console.log("after adding: ", this.__markers);
     },
 
     removeMarkers : function(markers){
@@ -136,13 +126,9 @@ MapControl = {
 
         _.each(markersToRemove, function(m){ m.marker.remove(); });
 
-        console.log('removing', markers);
-
         this.__markers = _.filter(this.__markers, function(m){
             return markers.indexOf(m._id) === -1;
         });
-
-        console.log("after removal: ", this.__markers);
     },
 
     getMarkers : function(){
@@ -150,7 +136,7 @@ MapControl = {
     },
 
     getMarkerId : function(marker){
-        return marker._id || (marker.get && marker.get('_id')); 
+        return marker._id || (marker.get && marker.get('_id'));
     },
 
     __map : null,

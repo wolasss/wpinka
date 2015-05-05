@@ -1,7 +1,6 @@
 var sub, comp;
 
 var _onCameraChange = function() {
-	console.log("called with this", this);
 	var self = this;
 
 	this.__map.getVisibleRegion(function(latLngBounds) {
@@ -19,7 +18,6 @@ var _onCameraChange = function() {
                     var crags = APP.CragsCollection.find({}, {reactive: false}).fetch();
                     var markers = [];
                     
-                    console.log("crags length:", crags.length);
 
                     _.each(crags, function(crag){
                         if(crag.id && crag.name && crag.geometry && crag.geometry.lat && crag.geometry.long && !crag.isCountry) {
@@ -28,20 +26,14 @@ var _onCameraChange = function() {
                                 latitude: crag.geometry.lat,
                                 longitude: crag.geometry.long,
                                 title: crag.name,
-                                snippet: "Click to open crag page"
+                                snippet: TAPi18n.__("openCrag")
                             });
                         }
                     });
                     
-                    console.log("sub is ready setting markers: ", markers);
-                    console.log("markers length: ", markers.length);
-
                     MapControl.setMarkers(markers);
                 }
             });
-
-		console.log("comp: ", comp);
-
         } else {
             self.centerMap(center.coordinates[0], center.coordinates[1]);
         }

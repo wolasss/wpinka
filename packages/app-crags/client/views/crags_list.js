@@ -45,8 +45,16 @@ Template.appCragsList.helpers({
 	},
 	nameSlug: function() {
 		return convertToSlug(this.asciiName);
-	},
-	isLoading: function() {
-    	return APP.CragsList.getStatus().loading;
+	}
+});
+
+Tracker.autorun(function(){
+	var status = APP.CragsList.status.get();
+	if(this.IonLoading) {
+		if(status.loading) {
+			IonLoading.show();
+		} else {
+			IonLoading.hide();
+		}
 	}
 });

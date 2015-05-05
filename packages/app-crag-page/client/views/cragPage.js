@@ -1,6 +1,10 @@
 Template.appCragPage.helpers({
 	height: function(){
-		return this.averageHeight.join(" ");
+		if(this.averageHeight) {
+			return this.averageHeight.join(" ");
+		} else if(this.displayAverageHeight) {
+			return this.displayAverageHeight.join(" ");
+		}
 	},
 	subcrags: function() {
 		var childs = this.childIDs;
