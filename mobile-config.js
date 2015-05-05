@@ -10,5 +10,5 @@ App.accessRule("*.kadira.io", {launchExternal: true});
 
 App.configurePlugin('plugin.google.maps', {
 	'API_KEY_FOR_IOS': 'AIzaSyBtQLoIBiHZDKPfLg5GtKRH4laCIcpnZiQ',
-	'API_KEY_FOR_ANDROID': 'AIzaSyBkA8RX2Q5WCoVMEzwasz1boTV9dxJLPSo'
+	'API_KEY_FOR_ANDROID': 'AIzaSyDbe4IXuNRICOIUeQ98dDObXWvlwS7bR68'
 });
