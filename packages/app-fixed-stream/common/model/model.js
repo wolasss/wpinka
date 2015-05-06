@@ -4,16 +4,18 @@ APP.FixedStream = function(config) {
 
 	var self = this;
 
-	this.subscribe = function(auto) {
+	this.subscribe = function(auto, _this) {
+		if(!_this) _this = Meteor;
+
 		var sub;
 		if(Meteor.isClient) {
 			console.log("subscribing to: ", config.position.coordinates);
 			if(auto) {
 				Tracker.autorun(function(){
-					sub = Meteor.subscribe("stream_"+self.config.name, config.position, self.radius.get());
+					sub = _this.subscribe("stream_"+self.config.name, config.position, self.radius.get());
 				});
 			} else {
-				sub = Meteor.subscribe("stream_"+self.config.name, config.position, self.radius.get());
+				sub = _this.subscribe("stream_"+self.config.name, config.position, self.radius.get());
 			}
 		}
 		return sub;

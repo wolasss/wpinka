@@ -13,6 +13,7 @@ APP.Stream = function(config) {
 		type: null,
 		limit: 10,
 		epsilon: 10, //percent of the radius
+		types: ['status'],
 		position: {
 			type: "Point",
 			coordinates: [52.4005285,16.9016658]
@@ -77,8 +78,8 @@ APP.Stream = function(config) {
 				check(radius, Number);
 				
 				console.log("Publish: ", "stream_"+self.config.name, "radius (km): ", radius, "position: ", position.coordinates);
-				//TODO: add type prop
 				return self.collection.find({
+					type: { $in: self.config.types },
 					location: { $geoWithin: { $centerSphere: [ [ position.coordinates[0], position.coordinates[1] ], radius / 6371 ] }}, // 1 degree ~ 69 miles ~ 111.2 km
 				},{
 					limit: self.config.limit,
@@ -95,6 +96,8 @@ APP.Stream = function(config) {
 			var position = APP.Position.getCurrent() || APP.Position.fetchCurrent();
 			if(position){
 				if(self.config.name) {
+					console.log("calling: ", self.config.name);
+					
 					Meteor.call('/'+self.config.name+'/add', post, position, function(err, data){
 						cb.call(null, err, data);
 					});

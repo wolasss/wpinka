@@ -1,0 +1,18 @@
+<template name="appClimbpoolingAdd">
+	{{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton class=""}}
+  {{/contentFor}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">{{_ "title"}}</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+    	<div class="alert-narrow">
+		  	{{> alerts container="appclimpoolingadd" }}
+	  	</div>
+      
+      {{> quickForm schema=climbPoolingFormSchema id="climbpoolingAddForm" template="ionic" buttonClasses="button button-block button-balanced button-save"}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>

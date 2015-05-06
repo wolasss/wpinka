@@ -46,3 +46,8 @@ dburles:mongo-collection-instances
 app-countries
 chart:chart
 mobile-map
+app-climbpooling
+app-climbpooling-post
+meteoric:autoform-ionic
+aldeed:simple-schema
+aldeed:autoform

@@ -1,4 +1,4 @@
-<template name="appTheWall">
+<template name="appClimbpooling">
 	{{#contentFor "headerButtonLeft"}}
     <button class="button button-clear pull-left" data-ion-menu-toggle="left">
 		{{#if isAndroid}}
@@ -20,15 +20,15 @@
 	{{/contentFor}}
 
 	{{#contentFor "headerTitle"}}
-		<h1 class="title">{{_ "theWallTitle"}}</h1>
+		<h1 class="title">{{_ "climbpoolingTitle"}}</h1>
 	{{/contentFor}}
 
 	{{#ionContent class="posts" }}
-		{{> stream feed="TheWall" }}		
+		{{> stream feed="Climbpooling" }}
 	{{/ionContent}}
 	
 	<div class="bar bar-footer bar-dark">
-		<a href="{{pathFor 'appTheWallAdd'}}">
+		<a href="{{pathFor 'appClimbpoolingAdd'}}">
 		  <button class="button button-icon icon ion-plus-round"></button>
 	  </a>
 	</div>

@@ -2,15 +2,17 @@ APP.PositionStream = function(config) {
 	APP.Stream.call(this, config);
 	var self = this;
 
-	this.subscribe = function(auto) {
-		var sub;
+	this.subscribe = function(auto, _this) {
+		//this is supposed to be template or Meteor
+		if(!_this) _this = Meteor;
+
 		if(Meteor.isClient) {
 			if(auto) {
 				Tracker.autorun(function(){
-					sub = Meteor.subscribe("stream_"+self.config.name, self.position.get(), self.radius.get());
+					sub = _this.subscribe("stream_"+self.config.name, self.position.get(), self.radius.get());
 				});
 			} else {
-				sub = Meteor.subscribe("stream_"+self.config.name, self.position.get(), self.radius.get());
+				sub = _this.subscribe("stream_"+self.config.name, self.position.get(), self.radius.get());
 			}
 		}
 		return sub;

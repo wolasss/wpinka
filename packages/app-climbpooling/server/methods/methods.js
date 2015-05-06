@@ -1,9 +1,13 @@
 Meteor.methods({
-	"/thewall/add": function(post, position) {
-		console.log("the wall: ", post, position);
+	"/climbpooling/add": function(post, position) {
+		console.log(post, position);
 		
 		check(post, Object);
 		check(post.content, String);
+		check(post.partner, Boolean);
+		check(post.gear, Boolean);
+		check(post.when, Date);
+
 		check(position, {
 			type: String,
 			coordinates: Array
@@ -15,9 +19,13 @@ Meteor.methods({
 
 		var retPost = {
 			content: post.content,
-			type: "status"
+			when: post.when,
+			ride: post.ride,
+			gear: post.gear,
+			partner: post.partner,
+			type: "climbpooling"
 		};
 
-		return APP.Stream.addPost.call(this, APP.TheWall.collection, retPost, position);
+		return APP.Stream.addPost.call(this, APP.Climbpooling.collection, retPost, position);
 	}
-})
+});

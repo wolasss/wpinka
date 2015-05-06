@@ -4,27 +4,29 @@
 	color: #fff;
 	text-decoration: none;
 }
+.list {
+	.item {
+		color: #fff;
+		border: none;
+		background: none;
+		padding: 18px;
+		border-bottom: 1px solid rgba(255,255,255,0.1);
 
-.item {
-	color: #fff;
-	border: none;
-	background: none;
-	padding: 18px;
-	border-bottom: 1px solid rgba(255,255,255,0.1);
+		&.item-icon-left {
+			padding-left: 54px;
+		}
 
-	&.item-icon-left {
-		padding-left: 54px;
-	}
+		&.item-icon-right {
+			padding-right: 54px;
+		}
 
-	&.item-icon-right {
-		padding-right: 54px;
-	}
-
-	&:focus, &:active, &.active {
-		background: rgba(255,255,255,0.2);
-		font-weight: bold;
+		&:focus, &:active, &.active {
+			background: rgba(255,255,255,0.2);
+			font-weight: bold;
+		}
 	}
 }
+
 
 .counter {
 	background: $color-primary;

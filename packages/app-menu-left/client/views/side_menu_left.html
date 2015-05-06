@@ -17,11 +17,11 @@
 					{{_ "crags"}} {{> ionIcon icon="map"}}
 				</div>
 			</a>
-			<a href="{{pathFor ''}}" data-ion-menu-close>
+			<a href="{{pathFor 'appClimbpooling'}}" data-ion-menu-close>
 				<div class="item item-icon-left">
 					{{_ "climbpooling"}} {{> ionIcon icon="android-car"}}
-					<div class="counter pull-right">
-					101
+					<div class="counter pull-right counter-{{streamUnreadPosts 'Climbpooling'}}">
+						{{streamUnreadPosts "Climbpooling"}}
 					</div>
 				</div>
 			</a>
