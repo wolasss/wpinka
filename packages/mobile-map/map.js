@@ -14,8 +14,26 @@ Template.nativeMap.onRendered(function(){
             MapControl.setup($(".map_canvas")[0], data.center, parseInt(data.zoom,10), data.markers);
         }
     });
+
+    if(IonSideMenu.snapper) {
+        IonSideMenu.snapper.on("open", function(){
+            //menu was opened, hide te map
+            if(MapControl.__map) {
+                MapControl.__map.setVisible(false)
+            }
+        });
+
+        IonSideMenu.snapper.on("close", function(){
+            //menu was opened, hide te map
+            if(MapControl.__map) {
+                MapControl.__map.setVisible(true)
+            }
+        });
+    }
 });
 
 Template.nativeMap.destroyed = function(){
     MapControl.destroy();
+    IonSideMenu.snapper.off("open");
+    IonSideMenu.snapper.off("close");
 };
