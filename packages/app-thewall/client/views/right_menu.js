@@ -21,14 +21,14 @@ Template.appTheWallRightMenu.rendered = function() {
 		radius.set(val);
 	});
 
-	$slider.on('change', function(r){
+	$slider.on('change', _.debounce(function(r){
 		var val = parseInt($slider.val(),10);
 
 		if(parseInt(APP.TheWall.radius.get(),10) != val,10) {
 			APP.TheWall.radius.set(val);
 			radius.set(val);
 		}
-	});
+	}, 500));
 	
 };
 

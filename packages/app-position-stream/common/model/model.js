@@ -9,6 +9,7 @@ APP.PositionStream = function(config) {
 		if(Meteor.isClient) {
 			if(auto) {
 				Tracker.autorun(function(){
+					console.log("new subscribe", "stream_"+self.config.name, self.position.get(), self.radius.get())
 					sub = _this.subscribe("stream_"+self.config.name, self.position.get(), self.radius.get());
 				});
 			} else {
