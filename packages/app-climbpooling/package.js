@@ -18,6 +18,7 @@ Package.on_use(function (api) {
     api.add_files('server/publish/publish.js', 'server');
 
     api.add_files('client/views/post.html', 'client');
+    api.add_files('client/views/post.js', 'client');
 
     api.add_files('client/views/climbpooling.html', 'client');
     api.add_files('client/views/climbpooling.js', 'client');

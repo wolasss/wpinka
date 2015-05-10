@@ -112,3 +112,29 @@
  	float: left;
  	margin-right: 8px;
 }
+
+.post__extension {
+	background: #fff;
+	padding: 15px;
+	font-size: 16px;
+	color: #363636;
+}
+
+.post__detail__name {
+	width: 40%;
+	float: left;
+	font-weight: 300;
+}
+
+.post__detail__value {
+	width: 60%;
+	float: left;
+}
+
+.detail-checked {
+	color: #27ae60;
+}
+
+.detail-unchecked {
+	color: #c0392b;
+}

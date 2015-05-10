@@ -1,3 +1,10 @@
 {
-	"climbpoolingTitle": "Climbpooling"
+	"climbpoolingTitle": "Climbpooling",
+	"when": "When",
+	"gearShort": "Gear",
+	"needPartner": "Need partner",
+	"rideOffer": "Ride",
+	"from": "From",
+	"to": "To",
+	"via": "Via"
 }

@@ -4,7 +4,7 @@ Template.appTheWall.created = function () {
 
 Template.appTheWall.rendered = function() {
 	this.autorun(function () {
-		if (!this.subscription.ready()) {
+		if (!this.subscriptionsReady()) {
 			if(!IonLoading.view) IonLoading.show();
 		} else {
 			IonLoading.hide();

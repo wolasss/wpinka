@@ -4,7 +4,7 @@ Template.appClimbpooling.created = function () {
 
 Template.appClimbpooling.rendered = function() {
 	this.autorun(function () {
-		if (!this.subscription.ready()) {
+		if (!this.subscriptionsReady()) {
 			if(!IonLoading.view) IonLoading.show();
 		} else {
 			IonLoading.hide();

@@ -4,7 +4,7 @@ Router.map(function(){
     }, {
         path: '/',
         layoutTemplate: 'layout',
-        template: 'home',
+        template: 'appTheWall',
         onBeforeAction: function() {
             if (Meteor.loggingIn()) {
                 this.render(this.loadingTemplate);
