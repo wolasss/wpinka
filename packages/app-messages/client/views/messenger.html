@@ -1,4 +1,4 @@
-<template name="appMessages">
+<template name="appMessenger">
 	{{#contentFor "headerButtonLeft"}}
     <button class="button button-clear pull-left" data-ion-menu-toggle="left">
 		{{#if isAndroid}}
@@ -8,7 +8,9 @@
 		{{/if}}
     </button>
 	{{/contentFor}}
-	{{#ionContent class="posts" }}
-		messages here
+	{{#ionContent class="messenger" }}
+		{{#each threads}}
+			{{> threadPreview }}
+		{{/each}}
 	{{/ionContent}}
 </template>

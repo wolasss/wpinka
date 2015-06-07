@@ -19,7 +19,11 @@ Package.on_use(function (api) {
 
     api.add_files('client/subscriptions/subscriptions.js', 'client');
     
-    api.add_files('client/views/messages.html', 'client');
+    api.add_files('client/views/messenger.html', 'client');
+    api.add_files('client/views/messenger.js', 'client');
+    api.add_files('client/views/thread_preview.html', 'client');
+    api.add_files('client/views/thread_preview.js', 'client');
+    api.add_files('client/views/thread.html', 'client');
 
     api.add_files([
         'locales/en.i18n.json',

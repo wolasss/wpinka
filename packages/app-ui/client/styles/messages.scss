@@ -1,0 +1,27 @@
+@import "variables";
+
+.messenger {
+	background: #e3e8e9;
+}
+
+.thread-preview {
+	margin-bottom: 3px;
+	padding: 8px;
+	height: 60px;
+	background: #fff;
+}
+
+.thread-preview__avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 8px;
+	background: #b8cad3;
+	float: left;
+	margin-right: 10px;
+}
+
+.thread-preview__author {
+}
+
+.thread-preview__content {
+}

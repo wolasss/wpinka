@@ -1,0 +1,15 @@
+<template name="threadPreview">
+	<article class="thread-preview">
+		<div class="thread-preview__avatar"></div>
+		<div class="thread-preview__author">
+			{{#if authorIsMe}}
+				You
+			{{ else }}
+				{{ authorName }}
+			{{/if}}
+		</div>
+		<div class="thread-preview__content">
+			{{ content }}
+		</div>
+	</article>
+</template>
