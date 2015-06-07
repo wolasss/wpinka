@@ -24,6 +24,8 @@ Package.on_use(function (api) {
     api.add_files('client/views/thread_preview.html', 'client');
     api.add_files('client/views/thread_preview.js', 'client');
     api.add_files('client/views/thread.html', 'client');
+    api.add_files('client/views/thread.js', 'client');
+    api.add_files('client/views/message.html', 'client');
 
     api.add_files([
         'locales/en.i18n.json',

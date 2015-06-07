@@ -1,2 +1,9 @@
 <template name="thread">
+	{{#ionContent class="thread" }}
+		{{#ionList}}
+			{{#each messages}}
+				{{> message}}
+			{{/each}}
+		{{/ionList}}
+	{{/ionContent}}
 </template>
