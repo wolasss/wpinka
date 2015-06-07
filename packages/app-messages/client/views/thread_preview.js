@@ -4,5 +4,8 @@ Template.threadPreview.helpers({
 	},
 	authorName: function(){
 		return Meteor.users.findOne(this.from).profile.name;
+	},
+	threadPreviewData: function(){
+		return this.lastMessage;
 	}
 });
