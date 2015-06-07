@@ -25,12 +25,14 @@
 					</div>
 				</div>
 			</a>
-			<div class="item item-icon-left">
-					{{_ "friends"}} {{> ionIcon icon="ios-people"}}
+			<a href="{{pathFor 'appMessages'}}" data-ion-menu-close>
+				<div class="item item-icon-left">
+					{{_ "messages"}} {{> ionIcon icon="ios-email"}}
 					<div class="counter pull-right">
-					101
+						101
 					</div>
 				</div>
+			</a>
 			<a href="">
 				<div class="item item-icon-left">
 					{{_ "settings"}} {{> ionIcon icon="gear-b"}}

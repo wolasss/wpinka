@@ -1,0 +1,14 @@
+<template name="appMessages">
+	{{#contentFor "headerButtonLeft"}}
+    <button class="button button-clear pull-left" data-ion-menu-toggle="left">
+		{{#if isAndroid}}
+			{{> ionIcon icon='android-more-vertical'}}
+		{{else}}
+			{{> ionIcon icon='navicon'}}
+		{{/if}}
+    </button>
+	{{/contentFor}}
+	{{#ionContent class="posts" }}
+		messages here
+	{{/ionContent}}
+</template>
