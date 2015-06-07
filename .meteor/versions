@@ -17,6 +17,7 @@ app-layout@0.0.0
 app-login@0.0.0
 app-menu-left@0.0.0
 app-menu-right@0.0.0
+app-messages@0.0.0
 app-position@0.0.0
 app-position-stream@0.0.0
 app-register@0.0.0
