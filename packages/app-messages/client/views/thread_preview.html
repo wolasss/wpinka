@@ -1,21 +1,16 @@
 <template name="threadPreview">
 	<a href="{{pathFor 'appMessengerThread' id=this._id}}">
 		{{#ionItem}}
-			{{#with threadPreviewData}}
-				<article class="thread-preview">
-					<div class="thread-preview__avatar"></div>
-					<h2 class="thread-preview__author">
-						{{#if authorIsMe}}
-							You
-						{{ else }}
-							{{ authorName }}
-						{{/if}}
-					</h2>
-					<p class="thread-preview__content">
-						{{ content }}
-					</p>
-				</article>
-			{{/with}}
+			<article class="thread-preview">
+				<div class="thread-preview__avatar"></div>
+				<h2 class="thread-preview__participants">
+					{{ participants }}
+				</h2>
+				<p class="thread-preview__content">
+					{{ author }}
+					{{ lastMessage.content }}
+				</p>
+			</article>
 		{{/ionItem}}
 	</a>
 </template>
