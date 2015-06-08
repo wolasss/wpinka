@@ -4,8 +4,29 @@
 	background: #e3e8e9;
 }
 
-.messenger .item {
-	padding: 0;
+.messenger .list a {
+	color: #fff;
+	text-decoration: none;
+}
+.messenger .list .item {
+	color: #fff;
+	border: none;
+	background: none;
+	padding: 0px;
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+
+	&.item-icon-left {
+		padding-left: 54px;
+	}
+
+	&.item-icon-right {
+		padding-right: 54px;
+	}
+
+	&:focus, &:active, &.active {
+		background: rgba(255,255,255,0.2);
+		font-weight: bold;
+	}
 }
 
 .thread-preview {
