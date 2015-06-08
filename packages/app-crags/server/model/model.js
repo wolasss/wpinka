@@ -4,9 +4,15 @@ SearchSource.defineSource('crags', function(searchText, options) {
   //TODO filter published fields
 
   console.log("search text: [",searchText,"]", options);
+
   if(searchText) {
     var regExp = buildRegExp(searchText);
     var selector = {};
+    var depthSearch = "3";
+
+    if(options && options.depthModificator) {
+      depthSearch = ""+options.depthModificator;
+    }
 
     if(options && options.filters && options.filters.country) {
 
@@ -30,16 +36,18 @@ SearchSource.defineSource('crags', function(searchText, options) {
       if(options.filters.distance.minDistance) selector["geometry.geoJSONPoint"].$near.$minDistance = options.filters.distance.minDistance*1000;
       if(options.filters.distance.maxDistance) selector["geometry.geoJSONPoint"].$near.$maxDistance = options.filters.distance.maxDistance*1000;
     } else {
+
       selector = {$or: [
-        {asciName: regExp},
+        {asciiName: regExp},
+        {name: regExp},
         {urlStub: regExp},
         {urlAncestorStub: regExp}
       ], "depth": {
-        $gt: "2"
+        $gte: depthSearch
       }};
 
     }
-
+    
     return APP.CragsCollection.find(selector, {limit: 25}).fetch();
   } else {
     if(!options.currentPosition) return [];

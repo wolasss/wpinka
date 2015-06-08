@@ -11,6 +11,22 @@ Template.appClimbpoolingAdd.helpers({
 					placeholder: TAPi18n.__("lookingFor")
 				}
 			},
+			from: {
+				type: String,
+				label: TAPi18n.__("from"),
+				autoform: {
+					type: "nodeSearch",
+					label: false
+				}
+			},
+			to: {
+				type: String,
+				label: TAPi18n.__("to"),
+				autoform: {
+					type: "nodeSearch",
+					label: false
+				}
+			},
 			when: {
 				type: Date,
 				label: TAPi18n.__("date")

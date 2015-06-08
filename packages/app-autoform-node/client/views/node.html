@@ -1,0 +1,20 @@
+<template name="afNodeSearch">
+  <label class="item item-input input-nodesearch item-select item-text-wrap">
+        <div class="input-label">
+        {{afFieldLabelText name=this.name}}
+        </div>
+        <div class="">
+          <input type="text" data-type="nodeCragInput" {{atts}} />
+
+          <div class="results">
+            {{#each foundCrags}}
+        			{{#ionItem buttonRight=false avatar=false crag=this }}
+        				<h2 class="cragTitle">
+        					{{{asciiName}}}
+        				</h2>
+        			{{/ionItem}}
+      		{{/each}}
+          </div>
+        </div>
+    </label>
+</template>

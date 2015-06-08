@@ -1,0 +1,11 @@
+#climbpoolingAddForm .input-nodesearch.focused {
+	z-index: 11;
+}
+
+.input-nodesearch .results {
+	display: none;
+}
+
+.input-nodesearch.focused [data-type="nodeCragInput"] + .results {
+	display: block;
+}
