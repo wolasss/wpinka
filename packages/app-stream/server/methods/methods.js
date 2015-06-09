@@ -18,4 +18,4 @@ APP.Stream.addPost = function(collection, extendedPost, position) {
 	_.extend(post, post, extendedPost); //extending of stream specific fields
 
 	return collection.insert(post);		
-}
+};

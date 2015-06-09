@@ -65,7 +65,6 @@ Template.appClimbpoolingAdd.helpers({
 AutoForm.hooks({
   'climbpoolingAddForm': {
     onSubmit: function (operation, result, template) {
-    	console.log("submit", operation, result, template);
 
 		APP.Climbpooling.insert(operation, function(error){
 			if(error) {
@@ -75,13 +74,14 @@ AutoForm.hooks({
 			}
 		});
 
-      this.done();
+		this.done();
 
-      return false;
+		return false;
     },
 
     onError: function(operation, error, template) {
-
+		Alerts.error(error, 'appclimpoolingadd'); //TODO translation of the errors
+		return false;
     }
   }
 });

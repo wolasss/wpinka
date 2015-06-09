@@ -4,12 +4,16 @@ AutoForm.addInputType("nodeSearch", {
     var val = {};
 
     val.name = this.val();
-    val.geoJSONPoint = {
-      type: "Point",
-      coordinates: this.attr("coords").split(",")
-    };
+    if(this.attr("coords")) {
+      val.geoJSONPoint = {
+        type: "Point",
+        coordinates: this.attr("coords").split(",")
+      };
+    }
+    console.log("returned val: ", val);
 
-    return val;
+    //for now return string instead of object since there is a bug in the autoform lib - posted on github
+    return ""+val.name+";"+(this.attr("coords") ? this.attr("coords") : "" );
   },
   valueConverters: {
     "boolean": function (val) {
@@ -26,6 +30,9 @@ AutoForm.addInputType("nodeSearch", {
       } else if (val === false) {
         return "FALSE";
       }
+      return val;
+    },
+    "object": function(val) {
       return val;
     },
     "stringArray": function (val) {
@@ -54,9 +61,6 @@ AutoForm.addInputType("nodeSearch", {
     }
   },
   contextAdjust: function (context) {
-    if (context.value === true) {
-      context.atts.checked = "";
-    }
     return context;
   }
 });
