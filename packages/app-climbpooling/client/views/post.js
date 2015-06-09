@@ -1,5 +1,5 @@
 Template.post_climbpooling.rendered = function() {
-	APP.Climbpooling.seenAck();
+	APP[APP.Climbpooling.getCurrentFeedName()].seenAck();
 };
 
 Template.post_climbpooling.helpers({

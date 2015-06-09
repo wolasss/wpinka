@@ -20,8 +20,8 @@
 			<a href="{{pathFor 'appClimbpooling'}}" data-ion-menu-close>
 				<div class="item item-icon-left">
 					{{_ "climbpooling"}} {{> ionIcon icon="android-car"}}
-					<div class="counter pull-right counter-{{streamUnreadPosts 'Climbpooling'}}">
-						{{streamUnreadPosts "Climbpooling"}}
+					<div class="counter pull-right counter-{{streamUnreadPosts ClimbpoolingGetCurrentFeedName}}">
+						{{streamUnreadPosts ClimbpoolingGetCurrentFeedName}}
 					</div>
 				</div>
 			</a>

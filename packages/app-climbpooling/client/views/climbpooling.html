@@ -24,7 +24,17 @@
 	{{/contentFor}}
 
 	{{#ionContent class="posts" }}
-		{{> stream feed="Climbpooling" }}
+		
+		<header> 
+			<nav class="header-nav">
+				<ul class="header-nav--half">
+					<li class="feed-picker {{isActiveFeed 'local'}}" data-feed="local">Local</li>
+					<li class="feed-picker {{isActiveFeed 'global'}}" data-feed="global">Global</li>
+				</ul>
+			</nav>
+		</header>
+
+		{{> stream feed=ClimbpoolingGetCurrentFeedName }}
 	{{/ionContent}}
 	
 	<div class="bar bar-footer bar-dark">

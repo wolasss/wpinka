@@ -22,6 +22,8 @@ Package.on_use(function (api) {
 
     api.add_files('client/views/climbpooling.html', 'client');
     api.add_files('client/views/climbpooling.js', 'client');
+    api.add_files('client/views/events/climbpooling.js', 'client');
+
     api.add_files('client/views/subscriptions/climbpooling.js', 'client');
 
     api.add_files('client/subscriptions/subscriptions.js', 'client');

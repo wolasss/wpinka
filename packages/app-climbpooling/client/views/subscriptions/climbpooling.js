@@ -1,5 +1,7 @@
 Template.appClimbpooling.created = function () {
-	APP.Climbpooling.subscribe(true, this);
+	if(APP.Climbpooling.currentSub) APP.Climbpooling.currentSub.stop();
+
+	APP.Climbpooling.currentSub = APP[APP.Climbpooling.getCurrentFeedName()].subscribe(true, this);
 };
 
 Template.appClimbpooling.rendered = function() {
