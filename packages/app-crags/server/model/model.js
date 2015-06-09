@@ -42,9 +42,17 @@ SearchSource.defineSource('crags', function(searchText, options) {
         {name: regExp},
         {urlStub: regExp},
         {urlAncestorStub: regExp}
-      ], "depth": {
-        $gte: depthSearch
-      }};
+      ]};
+
+      if(options && options.depthModificator) {
+        selector.depth = {
+          $in : ["2.5", "3"]
+        };
+      } else {
+        selector.depth = {
+          $gte: depthSearch
+        };
+      }
 
     }
     

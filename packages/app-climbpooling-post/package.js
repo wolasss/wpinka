@@ -5,7 +5,7 @@ Package.describe({
 Package.on_use(function (api) {
     var both = ['client', 'server'];
     api.use(['app', 'tap:i18n'], both);
-    api.use(['templating', 'iron:router', 'router-helpers', 'wolas:alerts', 'aldeed:simple-schema', 'meteoric:autoform-ionic', 'aldeed:autoform@4.2.0'], 'client');
+    api.use(['templating', 'iron:router', 'router-helpers', 'wolas:alerts', 'aldeed:simple-schema', 'meteoric:autoform-ionic', 'aldeed:autoform@4.2.0', 'geojson-utils'], 'client');
     
     api.add_files([
         'locales/en.i18n.json',
