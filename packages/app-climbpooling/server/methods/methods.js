@@ -28,7 +28,7 @@ var getLocationObjectFromString = function(str) {
 };
 
 Meteor.methods({
-	"/climbpooling/add": function(post, position) {
+	"/climbpooling_local/add": function(post, position) {
 		console.log(post, position);
 
 		var postEpsilon = 10000; // epsilon distance in meters
@@ -67,7 +67,7 @@ Meteor.methods({
 		if(!post.from.geoJSONPoint && !post.to.geoJSONPoint) {
 			//if there is no coordinates for from and to locations we position the post with current user position
 			console.log("no positions provided, creating with fallback");
-			return APP.Stream.addPost.call(this, APP.Climbpooling.collection, retPost, position);
+			return APP.Stream.addPost.call(this, APP.Climbpooling_local.collection, retPost, position);
 		} else {
 			//if not we are creating multiple posts for each location
 
@@ -78,23 +78,23 @@ Meteor.methods({
 				if(GeoJSON.pointDistance(post.from.geoJSONPoint, post.to.geoJSONPoint) > postEpsilon ) {
 					console.log("more than epsilon creating both");
 
-					APP.Stream.addPost.call(this, APP.Climbpooling.collection, retPost, post.to.geoJSONPoint);
-					return APP.Stream.addPost.call(this, APP.Climbpooling.collection, retPost, post.from.geoJSONPoint);
+					APP.Stream.addPost.call(this, APP.Climbpooling_local.collection, retPost, post.to.geoJSONPoint);
+					return APP.Stream.addPost.call(this, APP.Climbpooling_local.collection, retPost, post.from.geoJSONPoint);
 				} else {
 					console.log("less than epsilon only one");
 
-					return APP.Stream.addPost.call(this, APP.Climbpooling.collection, retPost, post.from.geoJSONPoint);
+					return APP.Stream.addPost.call(this, APP.Climbpooling_local.collection, retPost, post.from.geoJSONPoint);
 				}
 
 			} else {
 				console.log("only one point has a geojson");
 
 				if(post.from.geoJSONPoint) {
-					APP.Stream.addPost.call(this, APP.Climbpooling.collection, retPost, post.from.geoJSONPoint);
+					APP.Stream.addPost.call(this, APP.Climbpooling_local.collection, retPost, post.from.geoJSONPoint);
 				}
 
 				if(post.to.geoJSONPoint) {
-					APP.Stream.addPost.call(this, APP.Climbpooling.collection, retPost, post.to.geoJSONPoint);
+					APP.Stream.addPost.call(this, APP.Climbpooling_local.collection, retPost, post.to.geoJSONPoint);
 				}
 
 				return true;

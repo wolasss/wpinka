@@ -66,8 +66,9 @@ AutoForm.hooks({
   'climbpoolingAddForm': {
     onSubmit: function (operation, result, template) {
 
-		APP.Climbpooling.insert(operation, function(error){
+		APP.Climbpooling_local.insert(operation, function(error){
 			if(error) {
+				console.log(error);
 				Alerts.error(TAPi18n.__("theWallPostErrors.internalError"), 'appclimpoolingadd');
 			} else {
 				Router.go('/climbpooling');
