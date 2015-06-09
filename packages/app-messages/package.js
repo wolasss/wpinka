@@ -5,7 +5,7 @@ Package.describe({
 Package.on_use(function (api) {
     var both = ['client', 'server'];
     api.use(['iron:router', 'templating', 'router-helpers'], 'client');
-    api.use(['app', 'tap:i18n'], both);
+    api.use(['app', 'tap:i18n', 'underscore', 'mongo'], both);
 
     api.add_files('common/model/model.js', both);
     api.add_files('client/routes/router.js', 'client');
