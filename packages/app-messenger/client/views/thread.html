@@ -1,9 +1,7 @@
 <template name="thread">
 	{{#ionContent class="thread" }}
 		{{#ionList}}
-			{{#each messages}}
-				{{> message}}
-			{{/each}}
+			{{> appMessages threadId=threadId }}
 		{{/ionList}}
 	{{/ionContent}}
 </template>

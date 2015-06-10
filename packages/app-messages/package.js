@@ -4,9 +4,8 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['app', 'tap:i18n'], both);
-
-    api.add_files('package-tap.i18n', both);
+    api.use(['templating'], 'client');
+    api.use(['app', 'tap:i18n', 'mongo'], both);
 
     api.add_files('common/model/model.js', both);
     api.add_files('client/routes/router.js', 'client');
@@ -19,6 +18,10 @@ Package.on_use(function (api) {
     api.add_files('server/publish/publish.js', 'server');
 
     api.add_files('client/subscriptions/subscriptions.js', 'client');
+
+    api.add_files('client/views/messages.html', 'client');
+    api.add_files('client/views/messages.js', 'client');
+    api.add_files('client/views/message.html', 'client');
 
     api.add_files([
         'locales/en.i18n.json',
