@@ -52,5 +52,5 @@ meteoric:autoform-ionic
 aldeed:simple-schema
 aldeed:autoform
 app-autoform-node
-app-messages
 app-messenger
+app-messages
