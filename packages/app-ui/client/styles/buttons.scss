@@ -52,3 +52,26 @@
 .button.button-interested {
 	margin-top: 0;
 }
+
+.button-footer {
+	bottom: 15px;
+	right: 15px;
+	z-index: 11;
+	width: 45px;
+	background-color: #ed3d54;
+	border-radius: 50em;
+	height: 45px;
+	min-height: 0;
+	opacity: 1;
+	color: #fff;
+	box-shadow: 1px 1px 6px #888;
+	
+	&:before {
+		font-size: 18px !important;
+	}
+
+}
+
+.button-fixed {
+	position: fixed;
+}
