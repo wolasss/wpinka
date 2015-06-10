@@ -15,11 +15,11 @@
   	getThreads: function(){
   		return this.collection.find();
   	},
-  	insert: function(collection, document, callback){
+  	insert: function(document, callback){
   		if(!callback){
   			callback = function(){};
   		}
-			Meteor.call("/messenger/add", document, function(err){
+			Meteor.call("/messenger/add", document, function(err, data){
 				callback.call(null, err, data);
 			});
   	}

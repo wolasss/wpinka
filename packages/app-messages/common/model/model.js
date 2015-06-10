@@ -13,7 +13,7 @@
     		if(!callback){
 	  			callback = function(){};
 	  		}
-				Meteor.call("/messages/add", document, threadId, function(err){
+				Meteor.call("/messages/add", document, threadId, function(err, data){
 					callback.call(null, err, data);
 				});
     	}
