@@ -14,9 +14,11 @@ Template.appClimbpoolingAdd.helpers({
 			from: {
 				type: String,
 				label: TAPi18n.__("from"),
+				optional: false,
 				autoform: {
 					type: "nodeSearch",
-					label: false
+					label: false,
+					class: "visible"
 				}
 			},
 			via: {
@@ -30,10 +32,12 @@ Template.appClimbpoolingAdd.helpers({
 			},
 			to: {
 				type: String,
+				optional: false,
 				label: TAPi18n.__("to"),
 				autoform: {
 					type: "nodeSearch",
-					label: false
+					label: false,
+					class: "visible"
 				}
 			},
 			when: {
@@ -66,6 +70,51 @@ Template.appClimbpoolingAdd.helpers({
 				autoform: {
 					type: "toggle"
 				}
+			},
+			"1": {
+				type: String,
+				label: TAPi18n.__("viaInput"),
+				optional: true,
+				autoform: {
+					type: "nodeSearch",
+					label: false
+				}
+			},
+			"2": {
+				type: String,
+				label: TAPi18n.__("viaInput"),
+				optional: true,
+				autoform: {
+					type: "nodeSearch",
+					label: false
+				}
+			},
+			"3": {
+				type: String,
+				label: TAPi18n.__("viaInput"),
+				optional: true,
+				autoform: {
+					type: "nodeSearch",
+					label: false
+				}
+			},
+			"4": {
+				type: String,
+				label: TAPi18n.__("viaInput"),
+				optional: true,
+				autoform: {
+					type: "nodeSearch",
+					label: false
+				}
+			},
+			"5": {
+				type: String,
+				label: TAPi18n.__("viaInput"),
+				optional: true,
+				autoform: {
+					type: "nodeSearch",
+					label: false
+				}
 			}
 		});
 	}
@@ -74,8 +123,14 @@ Template.appClimbpoolingAdd.helpers({
 AutoForm.hooks({
   'climbpoolingAddForm': {
     onSubmit: function (operation, result, template) {
-    	console.log(operation);
-    	debugger;
+    	var via = "";
+
+    	_.each(["1", "2", "3", "4", "5"], function(t){
+    		if(operation[t]) via += operation[t]+"|";
+    	});
+
+    	operation.via = via;
+
 		APP.Climbpooling_local.insert(operation, function(error){
 			if(error) {
 				console.log(error);
@@ -90,11 +145,7 @@ AutoForm.hooks({
 		return false;
     },
 
-    onError: function(operation, error, template) {
-    	console.log(operation, error);
-
-    	debugger;
-    	
+    onError: function(operation, error, template) {    	
 		Alerts.error(error, 'appclimpoolingadd'); //TODO translation of the errors
 		return false;
     }

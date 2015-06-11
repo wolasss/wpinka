@@ -13,7 +13,11 @@ AutoForm.addInputType("nodeSearch", {
     console.log("returned val: ", val);
 
     //for now return string instead of object since there is a bug in the autoform lib - posted on github
-    return ""+val.name+";"+(this.attr("coords") ? this.attr("coords") : "" );
+    if(val.name) {
+      return ""+val.name+";"+(this.attr("coords") ? this.attr("coords") : "" );
+    } else {
+      return "";
+    }
   },
   valueConverters: {
     "boolean": function (val) {

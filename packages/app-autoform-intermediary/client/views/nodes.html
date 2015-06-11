@@ -10,13 +10,11 @@
           </div>
 
           <div class="intermediaryPoints">
-            {{#autoForm schema=pointsSchema id="intermediaryPoints" type="insert"}}
               {{#each points}}
                   <div class="node-container">
                     {{> afQuickField name=getName }} <i class="ion-icon ion-close remove"></i>
                   </div>
               {{/each}}
-            {{/autoForm}}
           </div>
         </div>
     </label>

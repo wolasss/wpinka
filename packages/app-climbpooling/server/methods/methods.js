@@ -40,6 +40,7 @@ Meteor.methods({
 		check(post.when, Date);
 		check(post.from, String); //to be fixed after lib bug is resolved
 		check(post.to, String); //to be fixed after lib bug is resolved
+		check(post.via, String); //to be fixed after lib bug is resolved
 
 		check(position, {
 			type: String,
@@ -53,6 +54,17 @@ Meteor.methods({
 		post.from = getLocationObjectFromString(post.from);
 		post.to = getLocationObjectFromString(post.to);
 
+		var via_objects = post.via.split("|");
+		var via = [];
+
+		if(via_objects.length > 0) {
+			_.each(via_objects, function(loc){
+				if(loc) via.push(getLocationObjectFromString(loc));
+			})
+		}
+
+		console.log(via);
+
 		var retPost = {
 			content: post.content,
 			when: post.when,
@@ -60,6 +72,7 @@ Meteor.methods({
 			gear: post.gear,
 			from: post.from,
 			to: post.to,
+			via: via,
 			partner: post.partner,
 			type: "climbpooling"
 		};

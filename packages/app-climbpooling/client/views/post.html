@@ -11,7 +11,9 @@
 
 				<div class="post__detail__value">
 					{{from.name}} <p class="via">
-						via Madrit, Oslo, New York
+						via {{#each via}}
+							{{name}},
+						{{/each}}
 					</p>
 				</div>
 			</div>

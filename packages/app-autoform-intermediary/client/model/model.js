@@ -1,19 +1,7 @@
 AutoForm.addInputType("nodeIntermediary", {
   template: "afNodeIntermediary",
   valueOut: function () {
-    var ret = "";
-
-    //var doc = AutoForm.getFormValues("intermediaryPoints");
-
-    if(doc) {
-      _.each(Object.keys(doc.insertDoc), function(k){
-        var point = doc.insertDoc[k];
-        if(point) ret += point+"|";
-      });
-    }
-  
-
-    return ret;
+    return "";
   },
   valueConverters: {
     "boolean": function (val) {
