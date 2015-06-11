@@ -6,7 +6,7 @@
 	if ('undefined' === typeof APP.Messages) {
     APP.Messages = {
     	collection: Mongo.Collection.get(config.collectionName),
-    	getMessagesforThread: function(threadId){
+    	getMessagesForThread: function(threadId){
     		return this.collection.find({ threadId: threadId });
     	},
     	insert: function(document, threadId, callback){
