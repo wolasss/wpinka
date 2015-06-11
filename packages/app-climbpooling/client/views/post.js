@@ -8,5 +8,9 @@ Template.post_climbpooling.helpers({
 	},
 	rideOffer: function() {
 		return TAPi18n.__("rides."+this.ride);
+	},
+	getViaNames: function() {
+		console.log(this);
+		if(this.via) return "via " + _.pluck(this.via, 'name').join(", ");
 	}
 });

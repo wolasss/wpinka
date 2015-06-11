@@ -8,6 +8,8 @@ APP.Stream.addPost = function(collection, extendedPost, position) {
 
 	var date = new Date();
 	
+	console.log("dodaje: ", this);
+
 	var post = {
 		createdAt: date, 
 		modifiedAt: date,

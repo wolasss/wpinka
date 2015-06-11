@@ -122,16 +122,16 @@ Template.appClimbpoolingAdd.helpers({
 
 AutoForm.hooks({
   'climbpoolingAddForm': {
-    onSubmit: function (operation, result, template) {
+    onSubmit: function (data, result, template) {
     	var via = "";
 
     	_.each(["1", "2", "3", "4", "5"], function(t){
-    		if(operation[t]) via += operation[t]+"|";
+    		if(data[t]) via += data[t]+"|";
     	});
 
-    	operation.via = via;
+    	data.via = via;
 
-		APP.Climbpooling_local.insert(operation, function(error){
+		APP.Climbpooling_local.insert(data, function(error){
 			if(error) {
 				console.log(error);
 				Alerts.error(TAPi18n.__("theWallPostErrors.internalError"), 'appclimpoolingadd');

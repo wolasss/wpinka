@@ -10,10 +10,9 @@
 				</div>
 
 				<div class="post__detail__value">
-					{{from.name}} <p class="via">
-						via {{#each via}}
-							{{name}},
-						{{/each}}
+					{{from.name}} 
+					<p class="via">
+						{{getViaNames}}
 					</p>
 				</div>
 			</div>

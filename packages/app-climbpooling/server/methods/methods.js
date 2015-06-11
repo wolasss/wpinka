@@ -30,6 +30,7 @@ var getLocationObjectFromString = function(str) {
 Meteor.methods({
 	"/climbpooling_local/add": function(post, position) {
 		console.log(post, position);
+		var _self = this;
 
 		var postEpsilon = 10000; // epsilon distance in meters
 		
@@ -63,8 +64,6 @@ Meteor.methods({
 			})
 		}
 
-		console.log(via);
-
 		var retPost = {
 			content: post.content,
 			when: post.when,
@@ -76,6 +75,13 @@ Meteor.methods({
 			partner: post.partner,
 			type: "climbpooling"
 		};
+
+		_.each(via, function(loc){
+			if(loc.geoJSONPoint) {
+				//TODO check the distance between them
+				return APP.Stream.addPost.call(_self, APP.Climbpooling_local.collection, retPost, loc.geoJSONPoint);
+			}
+		});
 
 		if(!post.from.geoJSONPoint && !post.to.geoJSONPoint) {
 			//if there is no coordinates for from and to locations we position the post with current user position
