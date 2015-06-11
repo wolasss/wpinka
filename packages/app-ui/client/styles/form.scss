@@ -11,3 +11,23 @@
 #climbpoolingAddForm .input-nodesearch {
 	z-index: 9;
 }
+
+#climbpoolingAddForm .input-nodeIntermediary {
+	background-color: #f4f3f4;
+
+	.adder {
+		cursor: pointer;
+		margin-bottom: 10px;
+	}
+
+	.node-container {
+		position: relative;
+
+		.remove {
+			position: absolute;
+			top: 13px;
+			right: -25px;
+			cursor: pointer;
+		}
+	}
+}

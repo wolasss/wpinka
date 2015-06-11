@@ -19,6 +19,15 @@ Template.appClimbpoolingAdd.helpers({
 					label: false
 				}
 			},
+			via: {
+				type: String,
+				optional: true,
+				label: TAPi18n.__("via"),
+				autoform: {
+					type: "nodeIntermediary",
+					label: false
+				}
+			},
 			to: {
 				type: String,
 				label: TAPi18n.__("to"),
@@ -65,7 +74,8 @@ Template.appClimbpoolingAdd.helpers({
 AutoForm.hooks({
   'climbpoolingAddForm': {
     onSubmit: function (operation, result, template) {
-
+    	console.log(operation);
+    	debugger;
 		APP.Climbpooling_local.insert(operation, function(error){
 			if(error) {
 				console.log(error);
@@ -81,6 +91,10 @@ AutoForm.hooks({
     },
 
     onError: function(operation, error, template) {
+    	console.log(operation, error);
+
+    	debugger;
+    	
 		Alerts.error(error, 'appclimpoolingadd'); //TODO translation of the errors
 		return false;
     }

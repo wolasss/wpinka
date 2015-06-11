@@ -7,6 +7,7 @@ accounts-ui-unstyled@1.1.7
 aldeed:autoform@4.2.2
 aldeed:simple-schema@1.3.2
 app@0.0.0
+app-autoform-intermediary@0.0.0
 app-autoform-node@0.0.0
 app-climbpooling@0.0.0
 app-climbpooling-post@0.0.0

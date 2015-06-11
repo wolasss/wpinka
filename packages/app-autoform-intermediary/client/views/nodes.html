@@ -1,0 +1,23 @@
+<template name="afNodeIntermediary">
+  <label class="item item-input input-nodeIntermediary item-text-wrap">
+        <div class="input-label">
+        {{afFieldLabelText name=this.name}}
+        </div>
+        <div class="">
+          
+          <div class="adder">
+            <i class="ion-icon ion-plus"></i> {{_ "intermediaryPointAdder"}}
+          </div>
+
+          <div class="intermediaryPoints">
+            {{#autoForm schema=pointsSchema id="intermediaryPoints" type="insert"}}
+              {{#each points}}
+                  <div class="node-container">
+                    {{> afQuickField name=getName }} <i class="ion-icon ion-close remove"></i>
+                  </div>
+              {{/each}}
+            {{/autoForm}}
+          </div>
+        </div>
+    </label>
+</template>

@@ -13,5 +13,9 @@
 		"notrelevant": "Not relevant"
 	},
 	"partner": "I am looking for climbing partner",
-	"gear": "I have my own gear"
+	"gear": "I have my own gear",
+	"from": "From",
+	"to": "To",
+	"via": "Via",
+	"viaInput": "via"
 }
