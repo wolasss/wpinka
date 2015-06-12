@@ -11,6 +11,12 @@ Meteor.methods({
 
 		document.from = Meteor.userId();
 		document.createdAt = new Date();
-		return APP.Messages.collection.insert(document);
+		document.threadId = threadId;
+
+		return APP.Messages.collection.insert(document, function(err){
+			if(!err){
+				Mongo.Collection.get("threads").update({ _id: threadId }, { $set: { lastMessage: document } });
+			}
+		});
 	}
 });
