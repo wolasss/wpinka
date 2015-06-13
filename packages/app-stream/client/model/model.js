@@ -10,6 +10,6 @@ UI.registerHelper("getModifiedContent", function() {
 	var strippedContent = $(div).text();
 
 	return strippedContent.replace(/(https?:\/\/.*\.(?:png|jpg))/i, function(img){
-		return "<p class=\"post-image-container \"><img src=\""+img+"\" class=\"accelerate image\"></img></p>";
+		return "<div class=\"post-image-container \"><img src=\""+img+"\" class=\"accelerate image\"></img></div>";
 	});
 });
