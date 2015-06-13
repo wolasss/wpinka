@@ -8,6 +8,7 @@ Meteor.methods({
 		check(post.local, Boolean);
 		check(post.price, Number);
 		check(post.category, String);
+		check(post.title, String);
 
 		check(position, {
 			type: String,
@@ -21,8 +22,9 @@ Meteor.methods({
 		var retPost = {
 			content: post.content,
 			category: post.category,
-			local: post.local,
+			global: !!!post.local, //only local
 			price: post.price,
+			title: post.title,
 			type: "market"
 		};
 

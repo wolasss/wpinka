@@ -1,5 +1,8 @@
 {
-	"desc": "What are you trying to sell or buy?",
+	"title": "Sell something",
+	"item": "What are you trying to sell?",
+	"desc": "Provide additional information",
 	"local": "Only local buyers",
-	"price": "Price"
+	"price": "Price",
+	"contact": "Contact the seller"
 }

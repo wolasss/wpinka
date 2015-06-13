@@ -35,3 +35,12 @@ APP.Market_global = new APP.FixedStream({
 	},
 	radius: 800 //TODO, UI - changing radius to match country, continent etc
 });
+
+if(Meteor.isClient) {
+
+	/* This is actually workaround for now, this should happen on the server side in the publish function */
+	APP.Market_global.getPosts = function() {
+		return this.collection.find({global: true}, {limit: this.config.limit, sort: {createdAt: -1}});
+	};
+
+}

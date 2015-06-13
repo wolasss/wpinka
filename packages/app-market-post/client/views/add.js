@@ -1,6 +1,15 @@
 Template.appMarketAdd.helpers({
 	marketFormSchema: function(){
 		return new SimpleSchema({
+			title: {
+				type: String,
+				max: 35,
+				autoform: {
+					placeholder: TAPi18n.__("item"),
+					label: false,
+					class: "placeholder-padding"
+				}
+			},
 			content: {
 				type: String,
 				max: 500,
