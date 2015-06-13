@@ -1,0 +1,43 @@
+<template name="appMarket">
+	{{#contentFor "headerButtonLeft"}}
+    <button class="button button-clear pull-left" data-ion-menu-toggle="left">
+		{{#if isAndroid}}
+			{{> ionIcon icon='android-more-vertical'}}
+		{{else}}
+			{{> ionIcon icon='navicon'}}
+		{{/if}}
+    </button>
+	{{/contentFor}}
+
+	{{#contentFor "headerButtonRight"}}
+    <button class="button button-clear pull-right" data-ion-menu-toggle="right">
+		{{#if isAndroid}}
+			{{> ionIcon icon='ios-settings-strong'}}
+		{{else}}
+			{{> ionIcon icon='android-options'}}
+		{{/if}}
+    </button>
+	{{/contentFor}}
+
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">{{_ "marketTitle"}}</h1>
+	{{/contentFor}}
+
+	{{#ionContent class="posts" }}
+		
+		<header> 
+			<nav class="header-nav">
+				<ul class="header-nav--half">
+					<li class="feed-picker {{isActiveFeed 'local'}}" data-feed="local">Local</li>
+					<li class="feed-picker {{isActiveFeed 'global'}}" data-feed="global">Global</li>
+				</ul>
+			</nav>
+		</header>
+
+		{{> stream feed=MarketGetCurrentFeedName }}
+	{{/ionContent}}
+	
+	<a href="{{pathFor 'appMarketAdd'}}">
+	  <button class="button button-footer button-fixed button-icon icon ion-plus-round"></button>
+	</a>
+</template>

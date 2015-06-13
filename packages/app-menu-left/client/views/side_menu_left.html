@@ -25,6 +25,14 @@
 					</div>
 				</div>
 			</a>
+			<a href="{{pathFor 'appMarket'}}" data-ion-menu-close>
+				<div class="item item-icon-left">
+					{{_ "market"}} {{> ionIcon icon="bag"}}
+					<div class="counter pull-right counter-{{streamUnreadPosts MarketGetCurrentFeedName}}">
+						{{streamUnreadPosts MarketCurrentFeedName}}
+					</div>
+				</div>
+			</a>
 			<a href="{{pathFor 'appMessenger'}}" data-ion-menu-close>
 				<div class="item item-icon-left">
 					{{_ "messages"}} {{> ionIcon icon="ios-email"}}

@@ -1,0 +1,88 @@
+<template name="post_market">
+		<div class="post__content">
+			{{{getModifiedContent}}}
+		</div>
+
+		<div class="post__extension clearfix">
+			<div class="post__detail item">
+				<div class="post__detail__name">
+					<i class="ion-location"></i> {{_ "from"}}
+				</div>
+
+				<div class="post__detail__value">
+					{{from.name}} 
+					<p class="via">
+						{{getViaNames}}
+					</p>
+				</div>
+			</div>
+
+			<div class="post__detail item">
+				<div class="post__detail__name">
+					<i class="ion-location"></i> {{_ "to"}}
+				</div>
+
+				<div class="post__detail__value">
+					{{to.name}}
+				</div>
+			</div>
+
+			<div class="post__detail item">
+				<div class="post__detail__name">
+					<i class="ion-android-car"></i> {{_ "rideOffer"}}
+				</div>
+
+				<div class="post__detail__value">
+					{{rideOffer}}
+				</div>
+			</div>
+
+			<div class="post__detail item">
+				<div class="post__detail__name">
+					<i class="ion-calendar"></i> {{_ "when"}}
+				</div>
+
+				<div class="post__detail__value">
+					{{formattedDate}}
+				</div>
+			</div>
+			
+
+			<div class="post__detail item">
+				<div class="post__detail__name">
+					<i class="ion-briefcase"></i> {{_ "gearShort"}}
+				</div>
+
+				<div class="post__detail__value">
+					{{#if gear}}
+						<i class="ion-checkmark detail-checked"></i>
+					{{else}}
+						<i class="ion-close detail-unchecked"></i>
+					{{/if}}
+				</div>
+			</div>
+
+			<div class="post__detail item">
+				<div class="post__detail__name">
+					<i class="ion-person-stalker"></i> {{_ "needPartner"}}
+				</div>
+
+				<div class="post__detail__value">
+					{{#if partner}}
+						<i class="ion-checkmark detail-checked"></i>
+					{{else}}
+						<i class="ion-close detail-unchecked"></i>
+					{{/if}}
+				</div>
+			</div>
+
+		</div>
+
+		<footer class="post__footer">
+			<div class="post__footer__button">
+				<button class="button button-block button-balanced button-interested">
+				I'm interested
+				</button>
+			</div>
+		</footer>
+</template>

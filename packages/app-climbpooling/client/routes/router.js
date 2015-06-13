@@ -7,7 +7,7 @@ Router.map(function(){
     template: 'appClimbpooling',
     rightMenu: 'appClimbpoolingRightMenu',
     onBeforeAction: APP.RouterHelpers.loginCheck(function(){return this.next}, function(){
-        APP.TheWall.seenPosts && APP.TheWall.seenPosts.set(0);
+        APP.Climbpooling_local.seenPosts && APP.Climbpooling_local.seenPosts.set(0);
     })
     });
 });

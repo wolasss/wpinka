@@ -1,0 +1,10 @@
+{
+	"marketTitle": "Market",
+	"categories": {
+		"shoes": "Climbing shoes",
+		"harness": "Harness",
+		"ropes": "Ropes",
+		"carabiners": "Carabiner",
+		"others": "Others"
+	}
+}

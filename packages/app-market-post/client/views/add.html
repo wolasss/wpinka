@@ -1,4 +1,4 @@
-<template name="appClimbpoolingAdd">
+<template name="appMarketAdd">
 	{{#contentFor "headerButtonLeft"}}
     {{>ionNavBackButton class=""}}
   {{/contentFor}}
@@ -9,10 +9,10 @@
   {{#ionView}}
     {{#ionContent}}
     	<div class="alert-narrow">
-		  	{{> alerts container="appclimbpoolingadd" }}
+		  	{{> alerts container="appmarketadd" }}
 	  	</div>
       
-      {{> quickForm schema=climbPoolingFormSchema id="climbpoolingAddForm" template="ionic" buttonClasses="button button-block button-balanced button-save"}}
+      {{> quickForm schema=marketFormSchema id="marketAddForm" template="ionic" buttonClasses="button button-block button-balanced button-save"}}
       
     {{/ionContent}}
   {{/ionView}}
