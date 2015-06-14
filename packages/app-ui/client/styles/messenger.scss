@@ -29,6 +29,11 @@
 	}
 }
 
+.thread {
+	margin-bottom: 54px;
+	background: #e3e8e9;
+}
+
 .thread-preview {
 	margin-bottom: 3px;
 	padding: 10px;
@@ -83,4 +88,25 @@
 		width: 82%;
 		display: inline-block;
 	}
+}
+
+.message {
+	margin: 0 20px 0;
+	width: 70%;
+}
+
+.message__mine {
+	float: right;
+}
+
+.message__content {
+	padding: 5px 10px;
+	background: #fff;
+	border-radius: 5px;
+	white-space: normal!important;
+	word-break: break-word;
+}
+
+.message__time {
+	text-align: center;
 }

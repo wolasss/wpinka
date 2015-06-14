@@ -22,6 +22,7 @@ Package.on_use(function (api) {
     api.add_files('client/views/messages.html', 'client');
     api.add_files('client/views/messages.js', 'client');
     api.add_files('client/views/message.html', 'client');
+    api.add_files('client/views/message.js', 'client');
 
     api.add_files([
         'locales/en.i18n.json',

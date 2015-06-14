@@ -1,7 +1,12 @@
 <template name="message">
 	{{#ionItem}}
-		<p>
-			{{content}}
-		</p>
+		<article class="message {{author}}">
+			<p class="message__time">
+				{{ msgTime }}
+			</p>
+			<p class="message__content">
+				{{ content }}
+			</p>
+		</article>
 	{{/ionItem}}
 </template>
