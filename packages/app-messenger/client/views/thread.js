@@ -34,6 +34,9 @@ AutoForm.hooks({
 				if(error) {
 					console.log(error);
 					// TODO add alert
+				} else {
+					$thread = $(".thread");
+					$thread.scrollTop($thread[0].scrollHeight);
 				}
 			});
 

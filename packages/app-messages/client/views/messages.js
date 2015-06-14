@@ -20,7 +20,11 @@ Template.appMessages.rendered = function(){
 				showLoading();
 			}
 		} else {
-			setTimeout(function(){IonLoading.hide()}, 50);
+			setTimeout(function(){
+				IonLoading.hide();
+				$thread = $(".thread");
+				$thread.scrollTop($thread[0].scrollHeight);
+			}, 50);
 		}
 	}.bind(this));
 };
