@@ -1,4 +1,7 @@
 <template name="newThread">
+	{{#contentFor "headerTitle"}}
+    <h1 class="title">{{ name }}</h1>
+  {{/contentFor}}
 	{{#ionContent class="new_thread" }}
 		{{> quickForm schema=newThreadForm id="newThreadForm" template="ionic" buttonClasses="button button-balanced button-save" buttonContent=buttonContent}}
 	{{/ionContent}}
