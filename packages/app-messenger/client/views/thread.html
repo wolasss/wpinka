@@ -1,7 +1,10 @@
 <template name="thread">
+	{{#contentFor "headerTitle"}}
+    <h1 class="title">{{ name }}</h1>
+  {{/contentFor}}
 	{{#ionContent class="thread" }}
 		{{#ionList}}
-			{{> appMessages threadId=threadId }}
+			{{> appMessages threadId=id }}
 		{{/ionList}}
 		{{> quickForm schema=newMessageForm id="newMessageForm" template="ionic" buttonClasses="button button-balanced button-save" buttonContent=buttonContent}}
 	{{/ionContent}}

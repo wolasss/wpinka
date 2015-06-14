@@ -15,6 +15,9 @@
   	getThreads: function(sortOptions){
   		return this.collection.find({}, { sort: sortOptions });
   	},
+    getThread: function(id){
+      return this.collection.findOne(id);
+    },
   	insert: function(thread, message, callback){
   		if(!callback){
   			callback = function(){};

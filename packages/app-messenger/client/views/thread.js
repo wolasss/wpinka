@@ -1,6 +1,7 @@
 Template.thread.helpers({
-	threadId: function(){
-		return this.id;
+	name: function(){
+		var thread = APP.Messenger.getThread(this.id);
+		return thread && thread.name;
 	},
 	newMessageForm: function(){
 		return new SimpleSchema({
@@ -20,6 +21,10 @@ Template.thread.helpers({
 		return TAPi18n.__("sendMessage");
 	}
 });
+
+Template.thread.created = function(){
+	this.subscribe('thread', this.data.id);
+};
 
 AutoForm.hooks({
   'newMessageForm': {
