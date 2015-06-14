@@ -10,11 +10,15 @@
 			{{{getModifiedContent}}}
 		</div>
 
-		<footer class="post__footer">
-			<div class="post__footer__button">
-				<button class="button button-block button-balanced button-interested">
-					<i class="icon ion-chatbubble"></i> {{_ "contact"}}
-				</button>
-			</div>
-		</footer>
+		{{#if isNotAuthorMe}}
+			<footer class="post__footer">
+				<a href={{pathFor 'appMessengerCreateThread' query=getQuery}}>
+					<div class="post__footer__button">
+						<button class="button button-block button-balanced button-interested">
+							<i class="icon ion-chatbubble"></i> {{_ "contact"}}
+						</button>
+					</div>
+				</a>
+			</footer>
+		{{/if}}
 </template>
