@@ -1,7 +1,10 @@
 <template name="thread">
+	{{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton class=""}}
+	{{/contentFor}}
 	{{#contentFor "headerTitle"}}
-    <h1 class="title">{{ name }}</h1>
-  {{/contentFor}}
+		<h1 class="title">{{ name }}</h1>
+	{{/contentFor}}
 	{{#ionContent class="thread" }}
 		{{#ionList}}
 			{{> appMessages threadId=id }}
