@@ -35,5 +35,8 @@ Template.appMarketRightMenu.rendered = function() {
 Template.appMarketRightMenu.helpers({
 	radius: function() {
 		return radius.get();
+	},
+	categories: function() {
+		return APP.Market.getCategoryOptiones();
 	}
 });

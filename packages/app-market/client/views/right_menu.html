@@ -35,6 +35,25 @@
 						</div>
 					</div>
 				</li>
+
+				<li>
+					<div class="menu-right-setting">
+						<div class="menu-right-settings-title">
+							{{_ "category"}}
+						</div>
+						<div class="menu-right-settings-value">
+							
+						</div>
+						<div class="menu-right-settings-setter">
+							<select class="category-select">
+								<option name=""></option>
+								{{#each categories}}
+									<option name="{{value}}">{{label}}</option>
+								{{/each}}
+							</select>
+						</div>
+					</div>
+				</li>
 			</ul>
 		</div>
 </template>
