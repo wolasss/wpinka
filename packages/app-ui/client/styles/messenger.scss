@@ -53,8 +53,12 @@
 }
 
 #newThreadForm {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+
 	.padding {
-		padding: 2px;
+		padding: 3px;
 		width: 70px;
 		float: right;
 	}
