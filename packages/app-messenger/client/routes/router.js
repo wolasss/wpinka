@@ -16,6 +16,12 @@ Router.map(function(){
     path: '/messenger/new',
     layoutTemplate: 'layout',
     template: 'newThread',
+    data: function(){
+      return {
+        name: this.params.query.name,
+        author: this.params.query.author
+      };
+    },
     onBeforeAction: APP.RouterHelpers.loginCheck(function(){ return this.next; })
   });
 });

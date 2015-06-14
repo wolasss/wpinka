@@ -79,10 +79,12 @@
 		</div>
 
 		<footer class="post__footer">
-			<div class="post__footer__button">
-				<button class="button button-block button-balanced button-interested">
-				I'm interested
-				</button>
-			</div>
+			<a href={{pathFor 'appMessengerCreateThread' query=getQuery}}>
+				<div class="post__footer__button">
+					<button class="button button-block button-balanced button-interested">
+						I'm interested
+					</button>
+				</div>
+			</a>
 		</footer>
 </template>
