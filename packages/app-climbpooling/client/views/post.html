@@ -78,13 +78,15 @@
 
 		</div>
 
-		<footer class="post__footer">
-			<a href={{pathFor 'appMessengerCreateThread' query=getQuery}}>
-				<div class="post__footer__button">
-					<button class="button button-block button-balanced button-interested">
-						I'm interested
-					</button>
-				</div>
-			</a>
-		</footer>
+		{{#if isNotAuthorMe}}
+			<footer class="post__footer">
+				<a href={{pathFor 'appMessengerCreateThread' query=getQuery}}>
+					<div class="post__footer__button">
+						<button class="button button-block button-balanced button-interested">
+							I'm interested
+						</button>
+					</div>
+				</a>
+			</footer>
+		{{/if}}
 </template>

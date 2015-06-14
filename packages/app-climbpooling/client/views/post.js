@@ -16,6 +16,9 @@ Template.post_climbpooling.helpers({
 	getQuery: function(){
 		var name = constructNewThreadName.call(this);
 		return 'author=' + this.author + '&name=' + name; 
+	},
+	isNotAuthorMe: function(){
+		return isNotAuthorMe.call(this)
 	}
 });
 
@@ -26,4 +29,8 @@ var constructNewThreadName = function(){
 	result += " " + this.to.name;
 	result += " " + this.when.toDateString();
 	return result;
+};
+
+var isNotAuthorMe = function(){
+	return this.author !== Meteor.userId();
 };
