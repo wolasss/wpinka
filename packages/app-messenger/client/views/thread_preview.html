@@ -6,10 +6,13 @@
 				<h2 class="thread-preview__participants">
 					{{ participants }}
 				</h2>
-				<p class="thread-preview__content">
+				<div class="thread-preview__content">
 					{{ author }}
 					{{ lastMessage.content }}
-				</p>
+				</div>
+				<div class="thread-preview__time">
+					{{ lastMsgTime }}
+				</div>
 			</article>
 		{{/ionItem}}
 	</a>

@@ -14,6 +14,9 @@ Template.threadPreview.helpers({
 		return Meteor.users.find({ _id: { $in: participantsIds } }).map(function(u){
 			return u.profile.name;
 		}).join(", ");
+	},
+	lastMsgTime: function(){
+		return this.lastMessage.createdAt.toDateString();
 	}
 });
 

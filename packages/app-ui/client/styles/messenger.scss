@@ -50,6 +50,21 @@
 
 .thread-preview__content {
 	height: 20px;
+	color: #666;
+	font-size: 14px;
+	display: inline-block;
+  white-space: nowrap;
+  width: 55%;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow:    ellipsis;
+}
+
+.thread-preview__time {
+	color: #666;
+	font-size: 14px;
+	display: inline;
+	float: right;
 }
 
 #newThreadForm, #newMessageForm {
