@@ -15,6 +15,9 @@ Package.on_use(function (api) {
     api.add_files('client/views/market.html', 'client');
     api.add_files('client/views/market.js', 'client');
 
+    api.add_files('client/views/right_menu.html', 'client');
+    api.add_files('client/views/right_menu.js', 'client');
+
     api.add_files('client/views/post.html', 'client');
     api.add_files('client/views/post.js', 'client');
 
