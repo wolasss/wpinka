@@ -7,10 +7,10 @@ Template.appCragListRightMenu.events({
 			country: 1
 		}});
 	},
-	"change .distance-from, change .distance-to": function(e, tpl) {
+	"change .range-from, change .range-to": function(e, tpl) {
 		var text = $(e.currentTarget).val();
-		var from = parseInt($(tpl.find('.distance-from')).val(),10);
-		var to = parseInt($(tpl.find('.distance-to')).val(),10);
+		var from = parseInt($(tpl.find('.range-from')).val(),10);
+		var to = parseInt($(tpl.find('.range-to')).val(),10);
 
 		var filters = {
 			distance: {}

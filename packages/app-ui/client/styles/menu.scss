@@ -57,13 +57,14 @@
 	}
 }
 
-.distance-picker {
-	.distance-label {
+.range-picker {
+	.range-label {
 		width: 100%;
 		display: block;
+		padding-left: 0;
 	}
-	.distance-from, .distance-to {
-		width: 85%;
+	.range-from, .range-to {
+		width: 84%;
 		display: inline-block;
 	}
 }

@@ -22,6 +22,9 @@ Template.appCragsList.rendered = function() {
 				APP.CragsList.search("", {currentPosition: APP.Position.current.get()});
 			}
 			IonLoading.hide();
+			setTimeout(function(){
+				$('.loading-container.visible').remove();
+			}, 400); //workaround...
 		}
 	}.bind(this));
 };

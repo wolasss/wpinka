@@ -10,6 +10,9 @@ Template.appClimbpooling.rendered = function() {
 			if(!IonLoading.view) IonLoading.show();
 		} else {
 			IonLoading.hide();
+			setTimeout(function(){
+				$('.loading-container.visible').remove();
+			}, 400); //workaround...
 		}
 	}.bind(this));
 };
