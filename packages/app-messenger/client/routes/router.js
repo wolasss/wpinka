@@ -33,6 +33,9 @@ Router.map(function(){
     path: '/messenger/:id',
     layoutTemplate: 'layout',
     template: 'thread',
+    data: function(){
+      return { id: this.params.id };
+    },
     onBeforeAction: APP.RouterHelpers.loginCheck(function(){ return this.next; })
   });
 });
