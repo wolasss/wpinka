@@ -12,8 +12,8 @@
   }
 
   _.extend(APP.Messenger, {
-  	getThreads: function(){
-  		return this.collection.find();
+  	getThreads: function(sortOptions){
+  		return this.collection.find({}, { sort: sortOptions });
   	},
   	insert: function(thread, message, callback){
   		if(!callback){

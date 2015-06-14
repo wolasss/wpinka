@@ -1,6 +1,7 @@
 Template.appMessenger.helpers({
 	threads: function(){
-		return APP.Messenger.getThreads();
+		var sortOptions = { "lastMessage.createdAt": -1 };
+		return APP.Messenger.getThreads(sortOptions);
 	}
 });
 
