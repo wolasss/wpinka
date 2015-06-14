@@ -24,6 +24,7 @@ APP.Stream = function(config) {
 
 	this.seenPosts = new ReactiveVar(0);
 	this.radius = new ReactiveVar(self.config.radius);
+	this.filters = new ReactiveVar({});
 
 	this.position = new ReactiveVar(self.config.position);
 	
@@ -46,7 +47,7 @@ APP.Stream = function(config) {
 	};
 
 	this.getPosts = function() {
-		return self.collection.find({}, {limit: self.config.limit, sort: {createdAt: -1}});
+		return self.collection.find(this.filters.get(), {limit: self.config.limit, sort: {createdAt: -1}});
 	};
 
 	this.changeRadius = function(radius) {

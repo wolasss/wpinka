@@ -5,7 +5,25 @@ Template.appMarketRightMenu.events({
 		var to = parseInt($(tpl.find('.range-to')).val(),10);
 
 		console.log("from: ", from, "to: ", to);
+		var filters = {};
 
+		if(from && !to) {
+			filters.price = {
+				$gte: from
+			}
+		} else if(!from && to) {
+			filters.price = {
+				$lte: to
+			}
+		} else if (from && to) {
+			filters.price = {
+				$gte: from,
+				$lte: to
+			}
+		};
 		
+		if(APP.Market.getCurrentFeedName() == "Market_global") filters.global = true;
+
+		APP[APP.Market.getCurrentFeedName()].filters.set(filters);
 	}
 });
