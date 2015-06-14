@@ -4,7 +4,7 @@ Package.describe({
 
 Package.on_use(function (api) {
     var both = ['client', 'server'];
-    api.use(['iron:router', 'templating', 'router-helpers'], 'client');
+    api.use(['iron:router', 'templating', 'router-helpers', 'meteoric:autoform-ionic', 'aldeed:simple-schema', 'aldeed:autoform'], 'client');
     api.use(['app', 'tap:i18n', 'underscore', 'mongo'], both);
 
     api.add_files('common/model/model.js', both);
