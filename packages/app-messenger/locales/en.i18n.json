@@ -1,4 +1,5 @@
 {
 	"sendMessage": "Send",
-	"writeMessage": "Write a message"	
+	"writeMessage": "Write a message",
+	"messengerTitle": "Messages"
 }

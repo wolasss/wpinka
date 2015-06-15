@@ -8,6 +8,9 @@
 			{{/if}}
     </button>
 	{{/contentFor}}
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">{{_ "messengerTitle" }}</h1>
+	{{/contentFor}}
 	{{#ionContent class="messenger" }}
 		{{#ionList}}
 			{{#each threads}}
