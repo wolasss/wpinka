@@ -1,6 +1,6 @@
 var radius = new ReactiveVar(APP.Market_local.radius.get());
 
-Template.appMarketRightMenu.rendered = function() {
+Template.distanceSlider.rendered = function() {
 
 	var slider = this.find('.slider-distance');
 	var $slider = $(slider);
@@ -33,10 +33,16 @@ Template.appMarketRightMenu.rendered = function() {
 };
 
 Template.appMarketRightMenu.helpers({
-	radius: function() {
-		return radius.get();
-	},
 	categories: function() {
 		return APP.Market.getCategoryOptiones();
+	},
+	isActiveFeed: function(f) {
+		return ( f == APP.Market.feed.get() ? "active" : "" );
 	}
 });
+
+Template.distanceSlider.helpers({
+	radius: function() {
+		return radius.get();
+	}
+})

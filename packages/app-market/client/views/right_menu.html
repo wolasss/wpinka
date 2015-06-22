@@ -4,20 +4,9 @@
 		</div>
          <div class="content has-header">
 			<ul>
-				<li>
-					<div class="menu-right-setting">
-						<div class="menu-right-settings-title">
-							{{_ "distance"}}
-						</div>
-						<div class="menu-right-settings-value">
-							{{radius}}{{_ "unit"}}
-						</div>
-						<div class="menu-right-settings-setter">
-							<div class="slider-ui slider-distance">
-							</div>
-						</div>
-					</div>
-				</li>
+				{{#if isActiveFeed 'local'}}
+					{{> distanceSlider}}
+				{{/if}}
 
 				<li>
 					<div class="menu-right-setting">
@@ -56,4 +45,21 @@
 				</li>
 			</ul>
 		</div>
+</template>
+
+<template name="distanceSlider">
+	<li>
+		<div class="menu-right-setting">
+			<div class="menu-right-settings-title">
+				{{_ "distance"}}
+			</div>
+			<div class="menu-right-settings-value">
+				{{radius}}{{_ "unit"}}
+			</div>
+			<div class="menu-right-settings-setter">
+				<div class="slider-ui slider-distance">
+				</div>
+			</div>
+		</div>
+	</li>
 </template>
