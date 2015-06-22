@@ -1,43 +1,61 @@
-Template.appMarketRightMenu.events({
-	"change .range-from, change .range-to": function(e, tpl) {
-		var text = $(e.currentTarget).val();
-		var from = parseInt($(tpl.find('.range-from')).val(),10);
-		var to = parseInt($(tpl.find('.range-to')).val(),10);
+var Filtering = (function(){
+	var _filters = [];
 
-		console.log("from: ", from, "to: ", to);
-		var filters = {};
+	return {
+		registerFilter : function(f){
+			if(typeof(f) === "function")
+				_filters.push(f);
+		},
+		rebuild : function(tpl) {
+			var ret = {};
 
-		if(from && !to) {
-			filters.price = {
-				$gte: from
+			for(var i=0, len=_filters.length; i<len; i++) {
+				_.extend(ret, ret, _filters[i](tpl));
 			}
-		} else if(!from && to) {
-			filters.price = {
-				$lte: to
-			}
-		} else if (from && to) {
-			filters.price = {
-				$gte: from,
-				$lte: to
-			}
+
+			return ret;
+		}
+	};
+})();
+
+var buildPriceRangeFilter = function(tpl) {
+	var from = parseInt($(tpl.find('.range-from')).val(),10);
+	var to = parseInt($(tpl.find('.range-to')).val(),10);
+
+	var filters = {};
+
+	if(from && !to) {
+		filters.price = {
+			$gte: from
 		};
+	} else if(!from && to) {
+		filters.price = {
+			$lte: to
+		};
+	} else if (from && to) {
+		filters.price = {
+			$gte: from,
+			$lte: to
+		};
+	}
 
-		if(APP.Market.getCurrentFeedName() == "Market_global") filters.global = true;
+	return filters;
+};
 
-		APP[APP.Market.getCurrentFeedName()].filters.set(filters);
-	},
-	'change .category-select': function(e, t) {
-		var select = $(e.currentTarget);
-		var name = select.find(':selected').attr('name');
-		var filters = {};
+var buildCategoryFilter = function(tpl) {
+	var cat = $(tpl.find('.category-select')).val();
 
-		if(name) filters.category = select.val();
+	return (cat && {category: cat}) || {};
+};
 
-		if(APP.Market.getCurrentFeedName() == "Market_global") filters.global = true;
+Filtering.registerFilter(buildPriceRangeFilter);
+Filtering.registerFilter(buildCategoryFilter);
 
-		APP[APP.Market.getCurrentFeedName()].filters.set(filters);
+Template.appMarketRightMenu.events({
+	"change .range-from, change .range-to, change .category-select": function(e, tpl) {
+		APP[APP.Market.getCurrentFeedName()].decorateFilters(Filtering.rebuild(tpl));
 	}
 });
 
-//TODO consider other filters so that multiple filters work as AND logical function
 //TODO category inserted into post should be NAME not translated VALUE 
+//TODO show alert on the stream if filters are active... UX issue

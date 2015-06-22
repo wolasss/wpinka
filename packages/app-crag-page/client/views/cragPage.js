@@ -17,6 +17,7 @@ Template.appCragPage.created = function() {
 	        APP.CragStream = new APP.FixedStream({
 	            name: "crag",
 	            collection: "posts",
+	            types: ["status", "climbpooling", "market"],
 	            position: data.geometry.geoJSONPoint
 	        });
 	        APP.CragStream.subscribe();

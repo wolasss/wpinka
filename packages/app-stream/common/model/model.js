@@ -13,7 +13,7 @@ APP.Stream = function(config) {
 		type: null,
 		limit: 10,
 		epsilon: 10, //percent of the radius
-		types: ['status'],
+		types: ['status', 'climbpooling', 'market'],
 		position: {
 			type: "Point",
 			coordinates: [52.4005285,16.9016658]
@@ -24,7 +24,7 @@ APP.Stream = function(config) {
 
 	this.seenPosts = new ReactiveVar(0);
 	this.radius = new ReactiveVar(self.config.radius);
-	this.filters = new ReactiveVar({});
+	
 
 	this.position = new ReactiveVar(self.config.position);
 	
@@ -42,12 +42,23 @@ APP.Stream = function(config) {
 		}
 	}
 
+	this.filters = new ReactiveVar(this.config.filters || {});
+
 	this.seenAck = function() {
 		this.seenPosts.set(this.seenPosts.get()+1);
 	};
 
 	this.getPosts = function() {
 		return self.collection.find(this.filters.get(), {limit: self.config.limit, sort: {createdAt: -1}});
+	};
+
+	this.decorateFilters = function(decorator) {
+		var defaultFilters = this.config.filters;
+		var filters = {};
+		_.extend(filters, defaultFilters, decorator);
+		console.log("setting filt", filters);
+
+		this.filters.set(filters);
 	};
 
 	this.changeRadius = function(radius) {
